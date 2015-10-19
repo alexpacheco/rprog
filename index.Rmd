@@ -118,20 +118,30 @@ b
 
 ## Get Started with R
 
-* Need to install packages from CRAN, for e.g. knitr
+* install packages from CRAN, for e.g. knitr
 
 ```{r eval=FALSE}
 install.packages('knitr')
 ```
 
-* R Command Line
+* load a library, for e.g. knitr
+
+```{r eval=FALSE}
+library(knitr)
+```
+
+* Help from command line
 
 ```
 ?<command name>
 ??<part of command name/topic>
 ```
 
-* Or search in the help page in RStudio
+* or search in the help page in RStudio
+
+* `getwd()`: display current working directory
+
+* `setwd('dir')`: change current working director to `dir`
 
 --- .rcr
 
@@ -147,6 +157,21 @@ install.packages('knitr')
 * Logical
     - TRUE or FALSE
 * You can convert data from one type to the other using the `as.<Type>` functions
+* To check the class of an object, use the `is.<Type>` function.
+
+--- .rcr
+
+## Example
+
+```{r}
+a <- 3
+b <- sqrt(a)
+b
+c <- 2i
+d <- TRUE
+d
+as.numeric(d); as.character(b); is.complex(c)
+```
 
 --- .rcr
 
@@ -241,20 +266,46 @@ m <- matrix(1:6, nrow = 2, ncol = 3)
 m
 dim(m)
 attributes(m)
+```
+
+--- .rcr
+
+## Example
+
+```{r}
 # Pass a dim attribute to a vector
 m <- 1:10
 m
 dim(m) <- c(2, 5)
 m
+```
+
+--- .rcr
+
+## Example
+
+```{r}
 # Row binding and column binding
 x <- 1:3
 y <- 10:12
 cbind(x, y)
 rbind(x, y)
+
+```
+
+--- .rcr
+
+## Example
+
+```{r}
 # Slicing
-m <- 1:10
 m
-#m[c(1,2),c(2,4)]
+# element at 2nd row, 3rd column
+m[2,3]
+# entire i<sup>th</sup> row of m
+m[2,]
+# entire j<sup>th</sup> column of m
+m[,3]
 ```
 
 --- .rcr
@@ -347,7 +398,6 @@ m
 m <- matrix(1:10, nrow = 2, ncol = 5)
 str(matrix)
 str(m)
-str(matrix)
 str(str)
 ```
 
@@ -1059,20 +1109,38 @@ corrgram(iris)
 
 --- .rcr
 
+## What more can be done with R?
 
-## Slide with R Code and Output
-
-```{r}
-summary(cars)
-```
+* Data cleaning/preprocessing
+* Profiling and debugging
+* Regression Models
+* Machine learning/Data Mining
+* ...
 
 --- .rcr
 
-## Slide with Plot
+## Learning R
 
-```{r, message=FALSE}
-plot(cars)
-```
+* User documentation on CRAN
+   - An Introduction on R: http://cran.r-project.org/doc/manuals/r-release/R-intro.html
+* Online tutorials
+   - http://www.cyclismo.org/tutorial/R/
+* Online courses (e.g. Coursera)
+* Educational R packages
+   - Swirl: Learn R in R
 
+--- .rcr
 
+## Data Analysis with Reporting
+
+* Typical data analysis workflow involves
+  - Obtaining the data
+  - Cleaning and preprocessing the data
+  - Analyzing the data
+  - Generating a report
+* `knitr` is a R package that allows one to generate dynamic report by weaving R code and human readable texts together
+  - It uses the markdown syntax
+  - The output can be HTML, PDF or (even) Word
+* `slidify` is a R package that allows one to create a HTML presentation
+  - You are now at the end of a `slidify` presentation
 

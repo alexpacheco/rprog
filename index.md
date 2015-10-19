@@ -84,7 +84,7 @@ cat hello.R
 ```
 
 ```
-## print("Hello World!")
+## Error in running command sh
 ```
 
 ```sh
@@ -92,7 +92,7 @@ Rscript hello.R
 ```
 
 ```
-## [1] "Hello World!"
+## Error in running command sh
 ```
 
 --- .rcr
@@ -145,21 +145,32 @@ b
 
 ## Get Started with R
 
-* Need to install packages from CRAN, for e.g. knitr
+* install packages from CRAN, for e.g. knitr
 
 
 ```r
 install.packages('knitr')
 ```
 
-* R Command Line
+* load a library, for e.g. knitr
+
+
+```r
+library(knitr)
+```
+
+* Help from command line
 
 ```
 ?<command name>
 ??<part of command name/topic>
 ```
 
-* Or search in the help page in RStudio
+* or search in the help page in RStudio
+
+* `getwd()`: display current working directory
+
+* `setwd('dir')`: change current working director to `dir`
 
 --- .rcr
 
@@ -175,6 +186,48 @@ install.packages('knitr')
 * Logical
     - TRUE or FALSE
 * You can convert data from one type to the other using the `as.<Type>` functions
+* To check the class of an object, use the `is.<Type>` function.
+
+--- .rcr
+
+## Example
+
+
+```r
+a <- 3
+b <- sqrt(a)
+b
+```
+
+```
+## [1] 1.732051
+```
+
+```r
+c <- 2i
+d <- TRUE
+d
+```
+
+```
+## [1] TRUE
+```
+
+```r
+as.numeric(d); as.character(b); is.complex(c)
+```
+
+```
+## [1] 1
+```
+
+```
+## [1] "1.73205080756888"
+```
+
+```
+## [1] TRUE
+```
 
 --- .rcr
 
@@ -347,6 +400,11 @@ attributes(m)
 ## [1] 2 3
 ```
 
+--- .rcr
+
+## Example
+
+
 ```r
 # Pass a dim attribute to a vector
 m <- 1:10
@@ -367,6 +425,11 @@ m
 ## [1,]    1    3    5    7    9
 ## [2,]    2    4    6    8   10
 ```
+
+--- .rcr
+
+## Example
+
 
 ```r
 # Row binding and column binding
@@ -392,18 +455,47 @@ rbind(x, y)
 ## y   10   11   12
 ```
 
+--- .rcr
+
+## Example
+
+
 ```r
 # Slicing
-m <- 1:10
 m
 ```
 
 ```
-##  [1]  1  2  3  4  5  6  7  8  9 10
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    3    5    7    9
+## [2,]    2    4    6    8   10
 ```
 
 ```r
-#m[c(1,2),c(2,4)]
+# element at 2nd row, 3rd column
+m[2,3]
+```
+
+```
+## [1] 6
+```
+
+```r
+# entire i<sup>th</sup> row of m
+m[2,]
+```
+
+```
+## [1]  2  4  6  8 10
+```
+
+```r
+# entire j<sup>th</sup> column of m
+m[,3]
+```
+
+```
+## [1] 5 6
 ```
 
 --- .rcr
@@ -572,14 +664,6 @@ str(m)
 ```
 
 ```r
-str(matrix)
-```
-
-```
-## function (data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
-```
-
-```r
 str(str)
 ```
 
@@ -657,7 +741,7 @@ x <- Sys.time() ; x
 ```
 
 ```
-## [1] "2015-10-19 10:59:35 EDT"
+## [1] "2015-10-19 19:01:48 EDT"
 ```
 
 ```r
@@ -665,7 +749,7 @@ as.numeric(x)
 ```
 
 ```
-## [1] 1445266775
+## [1] 1445295708
 ```
 
 ```r
@@ -683,7 +767,7 @@ p$sec
 ```
 
 ```
-## [1] 35.44254
+## [1] 48.14211
 ```
 
 --- .rcr
@@ -806,8 +890,8 @@ runif(10, 2, 4)
 ```
 
 ```
-##  [1] 2.878599 2.638864 3.255315 2.982907 2.860682 2.143320 3.153267
-##  [8] 2.309716 2.711557 2.726360
+##  [1] 2.026539 3.202648 2.287503 2.875370 2.742208 2.940982 2.100651
+##  [8] 2.390579 2.285804 2.457612
 ```
 
 ```r
@@ -816,8 +900,8 @@ runif(10, min = 2, max = 4)
 ```
 
 ```
-##  [1] 3.472287 2.317590 3.473552 3.296308 2.358658 2.274848 2.732389
-##  [8] 3.771628 3.453006 2.466613
+##  [1] 2.843830 3.842709 2.323027 3.076045 2.381622 2.450670 3.050875
+##  [8] 3.613974 2.553782 2.357098
 ```
 
 ```r
@@ -858,7 +942,7 @@ newDef(-1,1)
 ```
 
 ```
-## [1] -0.3441051
+## [1] -0.3336923
 ```
 
 --- .rcr
@@ -1073,11 +1157,10 @@ for(lupe in x)
 ```
 
 ```
-## The value of lupe is  0.6673631 
-## The value of lupe is  0.620855 
-## The value of lupe is  -1.157163 
-## The value of lupe is  0.2217087 
-## The value of lupe is  -0.7079025
+## The value of lupe is  -0.7924304 
+## The value of lupe is  1.26121 
+## The value of lupe is  -0.2861946 
+## The value of lupe is  0.7631597
 ```
 
 
@@ -1108,10 +1191,10 @@ apply(x, 1, mean)
 ```
 
 ```
-##  [1] -0.26590197 -0.15964700  0.29119955 -0.37366171  0.02507270
-##  [6]  0.07267075 -0.23943876  0.15755482  0.02794983 -0.01458803
-## [11] -0.38149049  0.28522025 -0.12911388 -0.24738071  0.17690423
-## [16]  0.09864897 -0.26249562  0.08871391 -0.11792424  0.01516327
+##  [1] -0.02980425  0.47548479 -0.17200289  0.29934028  0.33317126
+##  [6] -0.20054338 -0.80790331  0.33250847  0.01453072  0.01301510
+## [11] -0.29130371  0.30378519  0.67118535 -0.07571641 -0.45777843
+## [16] -0.76566242 -0.02117571  0.78993267  0.19223683 -0.19176820
 ```
 
 --- .rcr
@@ -1125,8 +1208,8 @@ apply(x, 2, sum)
 ```
 
 ```
-##  [1]  -5.3349041   0.1280611  -2.0847576   1.0890792  -3.3144046
-##  [6]   2.6486403   7.7747753 -12.1758943  -0.3142970   2.0582601
+##  [1] -0.02534246  6.46688423  6.87821104  4.21364080 -5.07335133
+##  [6] -4.22536266 -2.94363205  9.20242555 -8.94934550 -1.42880822
 ```
 
 ```r
@@ -1136,17 +1219,17 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
 
 ```
 ##           [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
-## 25% -0.8439423 -0.9651803 -0.6336502 -0.9377258 -0.6339902 -0.6435216
-## 75%  0.3849340  0.7088276  1.3662734  0.1292944  0.5467176  0.6707714
-##            [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
-## 25% -0.35248929 -0.4446249 -0.6865797 -0.6142726 -1.6739287 -0.6167617
-## 75%  0.08812794  0.6227871  0.6182688  0.4687472  0.6966118  1.2106798
-##          [,13]      [,14]      [,15]      [,16]      [,17]      [,18]
-## 25% -0.4965872 -0.8688296 -0.3198792 -0.6438551 -0.9866953 -0.6664457
-## 75%  0.2075889  0.5412556  0.3485014  0.9712146  0.4007977  0.2843686
+## 25% -0.5852953 -0.2502379 -0.5591040 -0.1284328 0.07684569 -0.9370579
+## 75%  0.4471409  1.5952261  0.2812745  0.7407350 0.66094084  0.2270838
+##           [,7]        [,8]       [,9]      [,10]      [,11]      [,12]
+## 25% -1.8464673 -0.06135118 -0.6084780 -0.9351408 -1.0011511 -0.4155871
+## 75%  0.2220165  0.74125005  0.3117197  0.6225775  0.1560855  0.6714949
+##         [,13]      [,14]       [,15]      [,16]      [,17]     [,18]
+## 25% 0.2705827 -0.4997581 -0.77269909 -1.4574850 -0.7246913 0.2667282
+## 75% 1.2450816  0.3535057 -0.04648773 -0.1717755  0.5150988 1.2046843
 ##          [,19]      [,20]
-## 25% -0.5351801 -1.1838220
-## 75%  0.4745607  0.8713791
+## 25% -0.1943826 -0.4762104
+## 75%  0.9408079  0.5704878
 ```
 
 --- .rcr
@@ -1170,9 +1253,9 @@ apply(x, c(1, 2), mean)
 ```
 
 ```
-##             [,1]        [,2]
-## [1,] -0.12089779 -0.05414994
-## [2,] -0.05204622  0.03658512
+##           [,1]         [,2]
+## [1,] 0.1935815 -0.307350301
+## [2,] 0.2004346 -0.004359337
 ```
 
 ```r
@@ -1180,9 +1263,9 @@ rowMeans(x, dims = 2)
 ```
 
 ```
-##             [,1]        [,2]
-## [1,] -0.12089779 -0.05414994
-## [2,] -0.05204622  0.03658512
+##           [,1]         [,2]
+## [1,] 0.1935815 -0.307350301
+## [2,] 0.2004346 -0.004359337
 ```
 
 --- .rcr
@@ -1366,7 +1449,7 @@ summary(mpg)
 plot(hwy ~ displ, data=mpg)
 ```
 
-![plot of chunk unnamed-chunk-37](assets/fig/unnamed-chunk-37-1.png) 
+![plot of chunk unnamed-chunk-42](assets/fig/unnamed-chunk-42-1.png) 
 
 --- .rcr
 
@@ -1377,7 +1460,7 @@ plot(hwy ~ displ, data=mpg)
 boxplot(hwy ~ class, data = mpg, xlab = "Class", ylab = "High Way Mileage")
 ```
 
-![plot of chunk unnamed-chunk-38](assets/fig/unnamed-chunk-38-1.png) 
+![plot of chunk unnamed-chunk-43](assets/fig/unnamed-chunk-43-1.png) 
 
 --- .rcr
 
@@ -1389,7 +1472,7 @@ mpg <- transform(mpg, year = factor(year))
 xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
 ```
 
-![plot of chunk unnamed-chunk-39](assets/fig/unnamed-chunk-39-1.png) 
+![plot of chunk unnamed-chunk-44](assets/fig/unnamed-chunk-44-1.png) 
 
 --- .rcr
 
@@ -1399,7 +1482,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
 qplot(displ, cty, data = mpg, color = drv)
 ```
 
-![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png) 
+![plot of chunk unnamed-chunk-45](assets/fig/unnamed-chunk-45-1.png) 
 
 --- .rcr
 
@@ -1409,7 +1492,7 @@ qplot(displ, cty, data = mpg, color = drv)
 qplot(displ, hwy, data = mpg, facets = drv ~ year)
 ```
 
-![plot of chunk unnamed-chunk-41](assets/fig/unnamed-chunk-41-1.png) 
+![plot of chunk unnamed-chunk-46](assets/fig/unnamed-chunk-46-1.png) 
 
 
 ```r
@@ -1444,7 +1527,7 @@ hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
 
 *** =right
 
-![plot of chunk unnamed-chunk-44](assets/fig/unnamed-chunk-44-1.png) 
+![plot of chunk unnamed-chunk-49](assets/fig/unnamed-chunk-49-1.png) 
 
 ***
 
@@ -1457,7 +1540,7 @@ hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
 plot(AirPassengers,type="l")  #Simple Line Plot
 ```
 
-![plot of chunk unnamed-chunk-45](assets/fig/unnamed-chunk-45-1.png) 
+![plot of chunk unnamed-chunk-50](assets/fig/unnamed-chunk-50-1.png) 
 
 --- .rcr &twocol_width
 
@@ -1469,14 +1552,14 @@ plot(AirPassengers,type="l")  #Simple Line Plot
 barplot(iris$Petal.Length) #Creating simple Bar Graph
 ```
 
-![plot of chunk unnamed-chunk-46](assets/fig/unnamed-chunk-46-1.png) 
+![plot of chunk unnamed-chunk-51](assets/fig/unnamed-chunk-51-1.png) 
 *** =right width:48%
 
 ```r
 barplot(iris$Sepal.Length,col  = brewer.pal(3,"Set1"))
 ```
 
-![plot of chunk unnamed-chunk-47](assets/fig/unnamed-chunk-47-1.png) 
+![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-1.png) 
 ***
 
 --- .rcr
@@ -1486,7 +1569,7 @@ barplot(iris$Sepal.Length,col  = brewer.pal(3,"Set1"))
 barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,"Set1")) #Stacked Plot
 ```
 
-![plot of chunk unnamed-chunk-48](assets/fig/unnamed-chunk-48-1.png) 
+![plot of chunk unnamed-chunk-53](assets/fig/unnamed-chunk-53-1.png) 
 
 --- .rcr
 
@@ -1496,7 +1579,7 @@ barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,"Set1")) #Stac
 boxplot(iris$Petal.Length~iris$Species) #Creating Box Plot between two variable
 ```
 
-![plot of chunk unnamed-chunk-49](assets/fig/unnamed-chunk-49-1.png) 
+![plot of chunk unnamed-chunk-54](assets/fig/unnamed-chunk-54-1.png) 
 
 --- .rcr &twocol_width
 
@@ -1516,7 +1599,7 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
 
 *** =right width:48%
 
-![plot of chunk unnamed-chunk-51](assets/fig/unnamed-chunk-51-1.png) 
+![plot of chunk unnamed-chunk-56](assets/fig/unnamed-chunk-56-1.png) 
 
 ***
 
@@ -1528,25 +1611,25 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
 plot(x=iris$Petal.Length) #Simple Scatter Plot
 ```
 
-![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-1.png) 
+![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-1.png) 
 
 ```r
 plot(x=iris$Petal.Length,y=iris$Species) #Multivariate Scatter Plot
 ```
 
-![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-2.png) 
+![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-2.png) 
 
 ```r
 plot(iris,col=brewer.pal(3,"Set1"))
 ```
 
-![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-3.png) 
+![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-3.png) 
 
 ```r
 pie(table(iris$Species))
 ```
 
-![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-4.png) 
+![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-4.png) 
 
 --- .rcr &twocol_width
 
@@ -1567,7 +1650,7 @@ plot(a)
 
 *** =right width:48%
 
-<img src="assets/fig/unnamed-chunk-54-1.png" title="plot of chunk unnamed-chunk-54" alt="plot of chunk unnamed-chunk-54" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-59-1.png" title="plot of chunk unnamed-chunk-59" alt="plot of chunk unnamed-chunk-59" style="display: block; margin: auto;" />
 
 ***
 
@@ -1582,7 +1665,7 @@ rf <- colorRampPalette(rev(brewer.pal(40,'Set3')))
 hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
 ```
 
-<img src="assets/fig/unnamed-chunk-55-1.png" title="plot of chunk unnamed-chunk-55" alt="plot of chunk unnamed-chunk-55" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" style="display: block; margin: auto;" />
 
 --- .rcr
 
@@ -1595,7 +1678,7 @@ data(HairEyeColor)
 mosaicplot(HairEyeColor)
 ```
 
-<img src="assets/fig/unnamed-chunk-56-1.png" title="plot of chunk unnamed-chunk-56" alt="plot of chunk unnamed-chunk-56" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-61-1.png" title="plot of chunk unnamed-chunk-61" alt="plot of chunk unnamed-chunk-61" style="display: block; margin: auto;" />
 
 --- .rcr
 
@@ -1609,7 +1692,7 @@ mosaicplot(HairEyeColor)
 heatmap(as.matrix(mtcars))
 ```
 
-<img src="assets/fig/unnamed-chunk-57-1.png" title="plot of chunk unnamed-chunk-57" alt="plot of chunk unnamed-chunk-57" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-62-1.png" title="plot of chunk unnamed-chunk-62" alt="plot of chunk unnamed-chunk-62" style="display: block; margin: auto;" />
 
 --- .rcr
 
@@ -1621,7 +1704,7 @@ heatmap(as.matrix(mtcars))
 image(as.matrix(mtcars[2:7]))
 ```
 
-<img src="assets/fig/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-63-1.png" title="plot of chunk unnamed-chunk-63" alt="plot of chunk unnamed-chunk-63" style="display: block; margin: auto;" />
 
 --- .rcr &twocol_width
 
@@ -1656,40 +1739,44 @@ cor(iris[1:4])
 corrgram(iris)
 ```
 
-<img src="assets/fig/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-65-1.png" title="plot of chunk unnamed-chunk-65" alt="plot of chunk unnamed-chunk-65" style="display: block; margin: auto;" />
 
 ***
 
 --- .rcr
 
+## What more can be done with R?
 
-## Slide with R Code and Output
-
-
-```r
-summary(cars)
-```
-
-```
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-```
+* Data cleaning/preprocessing
+* Profiling and debugging
+* Regression Models
+* Machine learning/Data Mining
+* ...
 
 --- .rcr
 
-## Slide with Plot
+## Learning R
 
+* User documentation on CRAN
+   - An Introduction on R: http://cran.r-project.org/doc/manuals/r-release/R-intro.html
+* Online tutorials
+   - http://www.cyclismo.org/tutorial/R/
+* Online courses (e.g. Coursera)
+* Educational R packages
+   - Swirl: Learn R in R
 
-```r
-plot(cars)
-```
+--- .rcr
 
-![plot of chunk unnamed-chunk-62](assets/fig/unnamed-chunk-62-1.png) 
+## Data Analysis with Reporting
 
-
+* Typical data analysis workflow involves
+  - Obtaining the data
+  - Cleaning and preprocessing the data
+  - Analyzing the data
+  - Generating a report
+* `knitr` is a R package that allows one to generate dynamic report by weaving R code and human readable texts together
+  - It uses the markdown syntax
+  - The output can be HTML, PDF or (even) Word
+* `slidify` is a R package that allows one to create a HTML presentation
+  - You are now at the end of a `slidify` presentation
 
