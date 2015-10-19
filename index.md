@@ -27,9 +27,10 @@ mode        : selfcontained # {standalone, draft}
 * R was first announced in 1993.
 * The R core group was formed in 1997, who controls the source code of R (written in C)
 * R 1.0.0 was released in 2000
-* The current version is 3.1.3
+* The current version is 3.2.2
 
 --- .rcr
+
 
 ## Features
 
@@ -46,19 +47,119 @@ mode        : selfcontained # {standalone, draft}
 
 --- .rcr
 
-## Running R
+## Alternatives to R
+
+* __S-PLUS__: commercial verison of S
+* __Gretl__: open-source statistical package, mainly for econometrics
+* __SPSS__: widely used program for statistical analysis in social science
+* __PSPP__: free alternative to SPSS
+* __SAS__: proprietary software that can be used with very large datasets such as census data
+* __STATA__: proprietary software that is often used in economics and epidemiology
+* __MATLAB__: proprietary software used widely in the mathematical sciences and engineering
+* __GNU Octave__: free alternative to MATLAB
+* __Python__: general programming language
+
+--- .rcr 
+
+## Installing R
+
+* R can be installed on Windows, Mac OSX and Linux from [CRAN](https://cran.r-project.org/mirrors.html).
+
+<img src="./R-GUI.PNG" height="500px" width="800px" alt="R GUI" />
+
 
 --- .rcr
 
+## Running R
 
-## Getting Help
+* [RStudio](https://www.rstudio.com/) is the most popular (de facto) environment for running R on all platforms.
+* From Command Line on *NIX
+   - Enter `R` on the command line (if you have modified your `PATH` correctly)
+* Batch Mode on *NIX
+   - Use the `Rscript filename.R` command to execute commands from a file, `filename.R` 
 
-* Command Line
+
+```sh
+cat hello.R
+```
+
+```
+## print("Hello World!")
+```
+
+```sh
+Rscript hello.R
+```
+
+```
+## [1] "Hello World!"
+```
+
+--- .rcr
+
+## RStudio
+
+* free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
+* user interface comparable to other IDEs or software such as MATLAB.
+* more suited for development 
+
+<img src="./RStudio.PNG" height="400px" width="800px" alt="RStudio" />
+
+--- .rcr
+
+## Get Started with R
+
+* Use the console to use R as a simple calculator
+
+
+```r
+1+2
+```
+
+```
+## [1] 3
+```
+
+* The assignment symbol is "<-". The classical "=" symbol can also be used
+
+
+```r
+a=2+3
+b<-10/a
+a
+```
+
+```
+## [1] 5
+```
+
+```r
+b
+```
+
+```
+## [1] 2
+```
+
+--- .rcr
+
+## Get Started with R
+
+* Need to install packages from CRAN, for e.g. knitr
+
+
+```r
+install.packages('knitr')
+```
+
+* R Command Line
 
 ```
 ?<command name>
 ??<part of command name/topic>
 ```
+
+* Or search in the help page in RStudio
 
 --- .rcr
 
@@ -556,7 +657,7 @@ x <- Sys.time() ; x
 ```
 
 ```
-## [1] "2015-08-10 10:51:55 EDT"
+## [1] "2015-10-19 10:59:35 EDT"
 ```
 
 ```r
@@ -564,7 +665,7 @@ as.numeric(x)
 ```
 
 ```
-## [1] 1439218316
+## [1] 1445266775
 ```
 
 ```r
@@ -582,7 +683,7 @@ p$sec
 ```
 
 ```
-## [1] 55.57873
+## [1] 35.44254
 ```
 
 --- .rcr
@@ -705,8 +806,8 @@ runif(10, 2, 4)
 ```
 
 ```
-##  [1] 3.538605 2.819273 2.336913 2.505583 2.085999 2.236007 3.075561
-##  [8] 3.320564 3.516750 3.402623
+##  [1] 2.878599 2.638864 3.255315 2.982907 2.860682 2.143320 3.153267
+##  [8] 2.309716 2.711557 2.726360
 ```
 
 ```r
@@ -715,8 +816,8 @@ runif(10, min = 2, max = 4)
 ```
 
 ```
-##  [1] 2.104683 2.292803 2.360340 2.380251 2.798074 2.619530 2.771393
-##  [8] 2.497199 2.354845 3.139912
+##  [1] 3.472287 2.317590 3.473552 3.296308 2.358658 2.274848 2.732389
+##  [8] 3.771628 3.453006 2.466613
 ```
 
 ```r
@@ -745,6 +846,20 @@ pt(2.306, df = 8)
 * Functions can be nested
 * Functions are R objects
     - For example, they can be passed as an argument to other functions
+
+
+```r
+newDef <- function(a,b)
+ {
+     x = runif(10,a,b)
+     mean(x)
+ }
+newDef(-1,1)
+```
+
+```
+## [1] -0.3441051
+```
 
 --- .rcr
 
@@ -844,6 +959,128 @@ for(i in 1:4) print(x[i])
 ## [1] "d"
 ```
 
+--- .rcr &twocol
+
+## while loops
+
+* The `while` loop can be used to repeat a set of instructions
+* It is often used when you do not know in advance how often the instructions will be executed. 
+* The basic format for a `while` loop is `while(cond) expr`
+
+*** =left
+
+
+```r
+sum <- 1
+while ( sum < 11 )
+{
+  sum <- sum + 2;
+  print(sum);
+}
+```
+
+```
+## [1] 3
+## [1] 5
+## [1] 7
+## [1] 9
+## [1] 11
+```
+
+*** =right
+
+
+```r
+sum <- 12
+while (sum < 11 ) 
+{
+  sum <- sum + 2;
+  print(sum);
+}
+```
+
+--- .rcr &twocol
+
+## repeat loops
+
+* The `repeat` loop is similar to the `while` loop. 
+* The difference is that it will always begin the loop the first time. The `while` loop will only start the loop if the condition is true the first time it is evaluated. 
+* Another difference is that you have to explicitly specify when to stop the loop using the `break` command.
+
+*** =left
+
+
+```r
+sum <- 1
+repeat
+{
+  sum <- sum + 2;
+  print(sum);
+  if (sum > 11)
+    break;
+}
+```
+
+```
+## [1] 3
+## [1] 5
+## [1] 7
+## [1] 9
+## [1] 11
+## [1] 13
+```
+
+*** =right
+
+
+```r
+sum <- 12
+repeat
+{
+  sum <- sum + 2;
+  print(sum);
+  if (sum > 11)
+    break;
+}
+```
+
+```
+## [1] 14
+```
+
+--- .rcr
+
+## break and next statements
+
+* The `break` statement is used to stop the execution of the current loop. 
+  - It will break out of the current loop. 
+* The `next` statement is used to skip the statements that follow and restart the current loop. 
+  - If a `for` loop is used then the `next` statement will update the loop variable.
+
+
+```r
+x <- rnorm(5)
+for(lupe in x)
+ {
+     if (lupe > 2.0)
+         next
+
+     if( (lupe<0.6) && (lupe > 0.5))
+        break
+
+    cat("The value of lupe is ",lupe,"\n");
+ }
+```
+
+```
+## The value of lupe is  0.6673631 
+## The value of lupe is  0.620855 
+## The value of lupe is  -1.157163 
+## The value of lupe is  0.2217087 
+## The value of lupe is  -0.7079025
+```
+
+
 --- .rcr
 
 ## The apply Function
@@ -871,10 +1108,10 @@ apply(x, 1, mean)
 ```
 
 ```
-##  [1]  0.48336473  0.16715492  0.05847272  0.20662281  0.04493405
-##  [6] -0.08770365  0.15792048 -0.42426222  0.08991266 -0.17797986
-## [11]  0.21355459 -0.25231872  0.24166843  0.21750826 -0.32148301
-## [16] -0.52486632  0.15192574 -0.22418540  0.07787755 -0.13453577
+##  [1] -0.26590197 -0.15964700  0.29119955 -0.37366171  0.02507270
+##  [6]  0.07267075 -0.23943876  0.15755482  0.02794983 -0.01458803
+## [11] -0.38149049  0.28522025 -0.12911388 -0.24738071  0.17690423
+## [16]  0.09864897 -0.26249562  0.08871391 -0.11792424  0.01516327
 ```
 
 --- .rcr
@@ -888,8 +1125,8 @@ apply(x, 2, sum)
 ```
 
 ```
-##  [1] -4.6586360  2.7735746  2.4135653  0.8587932 -4.6059086  0.6846277
-##  [7]  5.7661980 -0.6570225 -2.8231048 -0.1162671
+##  [1]  -5.3349041   0.1280611  -2.0847576   1.0890792  -3.3144046
+##  [6]   2.6486403   7.7747753 -12.1758943  -0.3142970   2.0582601
 ```
 
 ```r
@@ -899,17 +1136,17 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
 
 ```
 ##           [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
-## 25% 0.04222279 0.07638044 -0.3850304 -0.5268029 -0.5506386 -1.0979975
-## 75% 0.90594988 0.41129796  0.7435271  0.9055006  0.3120472  0.7158073
-##           [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
-## 25% -0.3674621 -0.9833996 -0.3099412 -0.9318761 -0.2761282 -0.8480592
-## 75%  0.8310799  0.2508075  0.4080987  0.3833054  0.4231146  0.6084039
-##          [,13]      [,14]      [,15]       [,16]      [,17]      [,18]
-## 25% -0.1187785 -0.2709992 -1.1074485 -1.06048238 -0.7866159 -0.9731407
-## 75%  0.8961099  0.8782394  0.3382637 -0.03624711  0.7195462  0.4070229
+## 25% -0.8439423 -0.9651803 -0.6336502 -0.9377258 -0.6339902 -0.6435216
+## 75%  0.3849340  0.7088276  1.3662734  0.1292944  0.5467176  0.6707714
+##            [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
+## 25% -0.35248929 -0.4446249 -0.6865797 -0.6142726 -1.6739287 -0.6167617
+## 75%  0.08812794  0.6227871  0.6182688  0.4687472  0.6966118  1.2106798
+##          [,13]      [,14]      [,15]      [,16]      [,17]      [,18]
+## 25% -0.4965872 -0.8688296 -0.3198792 -0.6438551 -0.9866953 -0.6664457
+## 75%  0.2075889  0.5412556  0.3485014  0.9712146  0.4007977  0.2843686
 ##          [,19]      [,20]
-## 25% -0.6444881 -0.7648423
-## 75%  0.8620322  0.7186549
+## 25% -0.5351801 -1.1838220
+## 75%  0.4745607  0.8713791
 ```
 
 --- .rcr
@@ -934,8 +1171,8 @@ apply(x, c(1, 2), mean)
 
 ```
 ##             [,1]        [,2]
-## [1,]  0.20236112  0.03726846
-## [2,] -0.02104115 -0.22587204
+## [1,] -0.12089779 -0.05414994
+## [2,] -0.05204622  0.03658512
 ```
 
 ```r
@@ -944,8 +1181,8 @@ rowMeans(x, dims = 2)
 
 ```
 ##             [,1]        [,2]
-## [1,]  0.20236112  0.03726846
-## [2,] -0.02104115 -0.22587204
+## [1,] -0.12089779 -0.05414994
+## [2,] -0.05204622  0.03658512
 ```
 
 --- .rcr
@@ -1129,7 +1366,7 @@ summary(mpg)
 plot(hwy ~ displ, data=mpg)
 ```
 
-![plot of chunk unnamed-chunk-26](assets/fig/unnamed-chunk-26-1.png) 
+![plot of chunk unnamed-chunk-37](assets/fig/unnamed-chunk-37-1.png) 
 
 --- .rcr
 
@@ -1140,7 +1377,7 @@ plot(hwy ~ displ, data=mpg)
 boxplot(hwy ~ class, data = mpg, xlab = "Class", ylab = "High Way Mileage")
 ```
 
-![plot of chunk unnamed-chunk-27](assets/fig/unnamed-chunk-27-1.png) 
+![plot of chunk unnamed-chunk-38](assets/fig/unnamed-chunk-38-1.png) 
 
 --- .rcr
 
@@ -1152,7 +1389,7 @@ mpg <- transform(mpg, year = factor(year))
 xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
 ```
 
-![plot of chunk unnamed-chunk-28](assets/fig/unnamed-chunk-28-1.png) 
+![plot of chunk unnamed-chunk-39](assets/fig/unnamed-chunk-39-1.png) 
 
 --- .rcr
 
@@ -1162,7 +1399,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
 qplot(displ, cty, data = mpg, color = drv)
 ```
 
-![plot of chunk unnamed-chunk-29](assets/fig/unnamed-chunk-29-1.png) 
+![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png) 
 
 --- .rcr
 
@@ -1172,7 +1409,7 @@ qplot(displ, cty, data = mpg, color = drv)
 qplot(displ, hwy, data = mpg, facets = drv ~ year)
 ```
 
-![plot of chunk unnamed-chunk-30](assets/fig/unnamed-chunk-30-1.png) 
+![plot of chunk unnamed-chunk-41](assets/fig/unnamed-chunk-41-1.png) 
 
 
 ```r
@@ -1207,7 +1444,7 @@ hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
 
 *** =right
 
-![plot of chunk unnamed-chunk-33](assets/fig/unnamed-chunk-33-1.png) 
+![plot of chunk unnamed-chunk-44](assets/fig/unnamed-chunk-44-1.png) 
 
 ***
 
@@ -1220,7 +1457,7 @@ hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
 plot(AirPassengers,type="l")  #Simple Line Plot
 ```
 
-![plot of chunk unnamed-chunk-34](assets/fig/unnamed-chunk-34-1.png) 
+![plot of chunk unnamed-chunk-45](assets/fig/unnamed-chunk-45-1.png) 
 
 --- .rcr &twocol_width
 
@@ -1232,14 +1469,14 @@ plot(AirPassengers,type="l")  #Simple Line Plot
 barplot(iris$Petal.Length) #Creating simple Bar Graph
 ```
 
-![plot of chunk unnamed-chunk-35](assets/fig/unnamed-chunk-35-1.png) 
+![plot of chunk unnamed-chunk-46](assets/fig/unnamed-chunk-46-1.png) 
 *** =right width:48%
 
 ```r
 barplot(iris$Sepal.Length,col  = brewer.pal(3,"Set1"))
 ```
 
-![plot of chunk unnamed-chunk-36](assets/fig/unnamed-chunk-36-1.png) 
+![plot of chunk unnamed-chunk-47](assets/fig/unnamed-chunk-47-1.png) 
 ***
 
 --- .rcr
@@ -1249,7 +1486,7 @@ barplot(iris$Sepal.Length,col  = brewer.pal(3,"Set1"))
 barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,"Set1")) #Stacked Plot
 ```
 
-![plot of chunk unnamed-chunk-37](assets/fig/unnamed-chunk-37-1.png) 
+![plot of chunk unnamed-chunk-48](assets/fig/unnamed-chunk-48-1.png) 
 
 --- .rcr
 
@@ -1259,7 +1496,7 @@ barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,"Set1")) #Stac
 boxplot(iris$Petal.Length~iris$Species) #Creating Box Plot between two variable
 ```
 
-![plot of chunk unnamed-chunk-38](assets/fig/unnamed-chunk-38-1.png) 
+![plot of chunk unnamed-chunk-49](assets/fig/unnamed-chunk-49-1.png) 
 
 --- .rcr &twocol_width
 
@@ -1279,7 +1516,7 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
 
 *** =right width:48%
 
-![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png) 
+![plot of chunk unnamed-chunk-51](assets/fig/unnamed-chunk-51-1.png) 
 
 ***
 
@@ -1291,25 +1528,25 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
 plot(x=iris$Petal.Length) #Simple Scatter Plot
 ```
 
-![plot of chunk unnamed-chunk-41](assets/fig/unnamed-chunk-41-1.png) 
+![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-1.png) 
 
 ```r
 plot(x=iris$Petal.Length,y=iris$Species) #Multivariate Scatter Plot
 ```
 
-![plot of chunk unnamed-chunk-41](assets/fig/unnamed-chunk-41-2.png) 
+![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-2.png) 
 
 ```r
 plot(iris,col=brewer.pal(3,"Set1"))
 ```
 
-![plot of chunk unnamed-chunk-41](assets/fig/unnamed-chunk-41-3.png) 
+![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-3.png) 
 
 ```r
 pie(table(iris$Species))
 ```
 
-![plot of chunk unnamed-chunk-41](assets/fig/unnamed-chunk-41-4.png) 
+![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-4.png) 
 
 --- .rcr &twocol_width
 
@@ -1330,7 +1567,7 @@ plot(a)
 
 *** =right width:48%
 
-<img src="assets/fig/unnamed-chunk-43-1.png" title="plot of chunk unnamed-chunk-43" alt="plot of chunk unnamed-chunk-43" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-54-1.png" title="plot of chunk unnamed-chunk-54" alt="plot of chunk unnamed-chunk-54" style="display: block; margin: auto;" />
 
 ***
 
@@ -1345,7 +1582,7 @@ rf <- colorRampPalette(rev(brewer.pal(40,'Set3')))
 hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
 ```
 
-<img src="assets/fig/unnamed-chunk-44-1.png" title="plot of chunk unnamed-chunk-44" alt="plot of chunk unnamed-chunk-44" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-55-1.png" title="plot of chunk unnamed-chunk-55" alt="plot of chunk unnamed-chunk-55" style="display: block; margin: auto;" />
 
 --- .rcr
 
@@ -1358,7 +1595,7 @@ data(HairEyeColor)
 mosaicplot(HairEyeColor)
 ```
 
-<img src="assets/fig/unnamed-chunk-45-1.png" title="plot of chunk unnamed-chunk-45" alt="plot of chunk unnamed-chunk-45" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-56-1.png" title="plot of chunk unnamed-chunk-56" alt="plot of chunk unnamed-chunk-56" style="display: block; margin: auto;" />
 
 --- .rcr
 
@@ -1372,7 +1609,7 @@ mosaicplot(HairEyeColor)
 heatmap(as.matrix(mtcars))
 ```
 
-<img src="assets/fig/unnamed-chunk-46-1.png" title="plot of chunk unnamed-chunk-46" alt="plot of chunk unnamed-chunk-46" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-57-1.png" title="plot of chunk unnamed-chunk-57" alt="plot of chunk unnamed-chunk-57" style="display: block; margin: auto;" />
 
 --- .rcr
 
@@ -1384,7 +1621,7 @@ heatmap(as.matrix(mtcars))
 image(as.matrix(mtcars[2:7]))
 ```
 
-<img src="assets/fig/unnamed-chunk-47-1.png" title="plot of chunk unnamed-chunk-47" alt="plot of chunk unnamed-chunk-47" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" style="display: block; margin: auto;" />
 
 --- .rcr &twocol_width
 
@@ -1419,7 +1656,7 @@ cor(iris[1:4])
 corrgram(iris)
 ```
 
-<img src="assets/fig/unnamed-chunk-49-1.png" title="plot of chunk unnamed-chunk-49" alt="plot of chunk unnamed-chunk-49" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" style="display: block; margin: auto;" />
 
 ***
 
@@ -1452,7 +1689,7 @@ summary(cars)
 plot(cars)
 ```
 
-![plot of chunk unnamed-chunk-51](assets/fig/unnamed-chunk-51-1.png) 
+![plot of chunk unnamed-chunk-62](assets/fig/unnamed-chunk-62-1.png) 
 
 
 

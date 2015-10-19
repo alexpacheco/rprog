@@ -27,9 +27,10 @@ mode        : selfcontained # {standalone, draft}
 * R was first announced in 1993.
 * The R core group was formed in 1997, who controls the source code of R (written in C)
 * R 1.0.0 was released in 2000
-* The current version is 3.1.3
+* The current version is 3.2.2
 
 --- .rcr
+
 
 ## Features
 
@@ -46,19 +47,91 @@ mode        : selfcontained # {standalone, draft}
 
 --- .rcr
 
-## Running R
+## Alternatives to R
+
+* __S-PLUS__: commercial verison of S
+* __Gretl__: open-source statistical package, mainly for econometrics
+* __SPSS__: widely used program for statistical analysis in social science
+* __PSPP__: free alternative to SPSS
+* __SAS__: proprietary software that can be used with very large datasets such as census data
+* __STATA__: proprietary software that is often used in economics and epidemiology
+* __MATLAB__: proprietary software used widely in the mathematical sciences and engineering
+* __GNU Octave__: free alternative to MATLAB
+* __Python__: general programming language
+
+--- .rcr 
+
+## Installing R
+
+* R can be installed on Windows, Mac OSX and Linux from [CRAN](https://cran.r-project.org/mirrors.html).
+
+<img src="./R-GUI.PNG" height="500px" width="800px" alt="R GUI" />
+
 
 --- .rcr
 
+## Running R
 
-## Getting Help
+* [RStudio](https://www.rstudio.com/) is the most popular (de facto) environment for running R on all platforms.
+* From Command Line on *NIX
+   - Enter `R` on the command line (if you have modified your `PATH` correctly)
+* Batch Mode on *NIX
+   - Use the `Rscript filename.R` command to execute commands from a file, `filename.R` 
 
-* Command Line
+```{sh}
+cat hello.R
+``` 
+```{sh}
+Rscript hello.R
+``` 
+
+--- .rcr
+
+## RStudio
+
+* free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
+* user interface comparable to other IDEs or software such as MATLAB.
+* more suited for development 
+
+<img src="./RStudio.PNG" height="400px" width="800px" alt="RStudio" />
+
+--- .rcr
+
+## Get Started with R
+
+* Use the console to use R as a simple calculator
+
+```{r}
+1+2
+```  
+
+* The assignment symbol is "<-". The classical "=" symbol can also be used
+
+```{r}
+a=2+3
+b<-10/a
+a
+b
+```
+
+--- .rcr
+
+## Get Started with R
+
+* Need to install packages from CRAN, for e.g. knitr
+
+```{r eval=FALSE}
+install.packages('knitr')
+```
+
+* R Command Line
 
 ```
 ?<command name>
 ??<part of command name/topic>
 ```
+
+* Or search in the help page in RStudio
 
 --- .rcr
 
@@ -434,6 +507,15 @@ pt(2.306, df = 8)
 * Functions are R objects
     - For example, they can be passed as an argument to other functions
 
+```{r}
+newDef <- function(a,b)
+ {
+     x = runif(10,a,b)
+     mean(x)
+ }
+newDef(-1,1)
+```
+
 --- .rcr
 
 ## Control Structures
@@ -494,6 +576,94 @@ for(letter in x) {
 }
 for(i in 1:4) print(x[i])
 ```
+
+--- .rcr &twocol
+
+## while loops
+
+* The `while` loop can be used to repeat a set of instructions
+* It is often used when you do not know in advance how often the instructions will be executed. 
+* The basic format for a `while` loop is `while(cond) expr`
+
+*** =left
+
+```{r}
+sum <- 1
+while ( sum < 11 )
+{
+  sum <- sum + 2;
+  print(sum);
+}
+```
+
+*** =right
+
+```{r}
+sum <- 12
+while (sum < 11 ) 
+{
+  sum <- sum + 2;
+  print(sum);
+}
+```
+
+--- .rcr &twocol
+
+## repeat loops
+
+* The `repeat` loop is similar to the `while` loop. 
+* The difference is that it will always begin the loop the first time. The `while` loop will only start the loop if the condition is true the first time it is evaluated. 
+* Another difference is that you have to explicitly specify when to stop the loop using the `break` command.
+
+*** =left
+
+```{r}
+sum <- 1
+repeat
+{
+  sum <- sum + 2;
+  print(sum);
+  if (sum > 11)
+    break;
+}
+```
+
+*** =right
+
+```{r}
+sum <- 12
+repeat
+{
+  sum <- sum + 2;
+  print(sum);
+  if (sum > 11)
+    break;
+}
+```
+
+--- .rcr
+
+## break and next statements
+
+* The `break` statement is used to stop the execution of the current loop. 
+  - It will break out of the current loop. 
+* The `next` statement is used to skip the statements that follow and restart the current loop. 
+  - If a `for` loop is used then the `next` statement will update the loop variable.
+
+```{r}
+x <- rnorm(5)
+for(lupe in x)
+ {
+     if (lupe > 2.0)
+         next
+
+     if( (lupe<0.6) && (lupe > 0.5))
+        break
+
+    cat("The value of lupe is ",lupe,"\n");
+ }
+```
+
 
 --- .rcr
 

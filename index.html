@@ -78,7 +78,7 @@
 <li>R was first announced in 1993.</li>
 <li>The R core group was formed in 1997, who controls the source code of R (written in C)</li>
 <li>R 1.0.0 was released in 2000</li>
-<li>The current version is 3.1.3</li>
+<li>The current version is 3.2.2</li>
 </ul>
 
   </article>
@@ -124,10 +124,21 @@
 
 <slide class="rcr" id="slide-4" style="background:#F1E7C8;">
   <hgroup class=rcr>
-    <h2>Running R</h2>
+    <h2>Alternatives to R</h2>
   </hgroup>
   <article data-timings="">
-    
+    <ul>
+<li><strong>S-PLUS</strong>: commercial verison of S</li>
+<li><strong>Gretl</strong>: open-source statistical package, mainly for econometrics</li>
+<li><strong>SPSS</strong>: widely used program for statistical analysis in social science</li>
+<li><strong>PSPP</strong>: free alternative to SPSS</li>
+<li><strong>SAS</strong>: proprietary software that can be used with very large datasets such as census data</li>
+<li><strong>STATA</strong>: proprietary software that is often used in economics and epidemiology</li>
+<li><strong>MATLAB</strong>: proprietary software used widely in the mathematical sciences and engineering</li>
+<li><strong>GNU Octave</strong>: free alternative to MATLAB</li>
+<li><strong>Python</strong>: general programming language</li>
+</ul>
+
   </article>
   <footer class=rcr>
     <img src='assets/img/lulogo.jpg'></img>
@@ -137,16 +148,14 @@
 
 <slide class="rcr" id="slide-5" style="background:#F1E7C8;">
   <hgroup class=rcr>
-    <h2>Getting Help</h2>
+    <h2>Installing R</h2>
   </hgroup>
   <article data-timings="">
     <ul>
-<li>Command Line</li>
+<li>R can be installed on Windows, Mac OSX and Linux from <a href="https://cran.r-project.org/mirrors.html">CRAN</a>.</li>
 </ul>
 
-<pre><code>?&lt;command name&gt;
-??&lt;part of command name/topic&gt;
-</code></pre>
+<p><img src="./R-GUI.PNG" height="500px" width="800px" alt="R GUI" /></p>
 
   </article>
   <footer class=rcr>
@@ -156,6 +165,135 @@
 </slide>
 
 <slide class="rcr" id="slide-6" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>Running R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><a href="https://www.rstudio.com/">RStudio</a> is the most popular (de facto) environment for running R on all platforms.</li>
+<li>From Command Line on *NIX
+
+<ul>
+<li>Enter <code>R</code> on the command line (if you have modified your <code>PATH</code> correctly)</li>
+</ul></li>
+<li>Batch Mode on *NIX
+
+<ul>
+<li>Use the <code>Rscript filename.R</code> command to execute commands from a file, <code>filename.R</code> </li>
+</ul></li>
+</ul>
+
+<pre><code class="sh">cat hello.R
+</code></pre>
+
+<pre><code>## print(&quot;Hello World!&quot;)
+</code></pre>
+
+<pre><code class="sh">Rscript hello.R
+</code></pre>
+
+<pre><code>## [1] &quot;Hello World!&quot;
+</code></pre>
+
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-7" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>RStudio</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.</li>
+<li>user interface comparable to other IDEs or software such as MATLAB.</li>
+<li>more suited for development </li>
+</ul>
+
+<p><img src="./RStudio.PNG" height="400px" width="800px" alt="RStudio" /></p>
+
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-8" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>Get Started with R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Use the console to use R as a simple calculator</li>
+</ul>
+
+<pre><code class="r">1+2
+</code></pre>
+
+<pre><code>## [1] 3
+</code></pre>
+
+<ul>
+<li>The assignment symbol is &quot;&lt;-&quot;. The classical &quot;=&quot; symbol can also be used</li>
+</ul>
+
+<pre><code class="r">a=2+3
+b&lt;-10/a
+a
+</code></pre>
+
+<pre><code>## [1] 5
+</code></pre>
+
+<pre><code class="r">b
+</code></pre>
+
+<pre><code>## [1] 2
+</code></pre>
+
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-9" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>Get Started with R</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Need to install packages from CRAN, for e.g. knitr</li>
+</ul>
+
+<pre><code class="r">install.packages(&#39;knitr&#39;)
+</code></pre>
+
+<ul>
+<li>R Command Line</li>
+</ul>
+
+<pre><code>?&lt;command name&gt;
+??&lt;part of command name/topic&gt;
+</code></pre>
+
+<ul>
+<li>Or search in the help page in RStudio</li>
+</ul>
+
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-10" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data Classes</h2>
   </hgroup>
@@ -186,7 +324,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-7" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-11" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data Objects‐ Vectors</h2>
   </hgroup>
@@ -217,7 +355,7 @@
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-8" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-12" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Examples</h2>
   </hgroup>
@@ -253,7 +391,7 @@ as.numeric(&quot;a&quot;)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-9" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-13" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Examples (contd)</h2>
   </hgroup>
@@ -291,7 +429,7 @@ class(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-10" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-14" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Vectorized Operations</h2>
   </hgroup>
@@ -336,7 +474,7 @@ x + y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-11" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-15" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data Objects - Matrices</h2>
   </hgroup>
@@ -364,7 +502,7 @@ x + y
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-12" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-16" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Example</h2>
   </hgroup>
@@ -447,7 +585,7 @@ m
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-13" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-17" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data Objects - Lists</h2>
   </hgroup>
@@ -483,7 +621,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-14" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-18" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data Objects - Data Frames</h2>
   </hgroup>
@@ -512,7 +650,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-15" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-19" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Names</h2>
   </hgroup>
@@ -550,7 +688,7 @@ names(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-16" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-20" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Names (contd)</h2>
   </hgroup>
@@ -584,7 +722,7 @@ x$a
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-17" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-21" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Names (contd)</h2>
   </hgroup>
@@ -607,7 +745,7 @@ m
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-18" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-22" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Querying Object Attributes</h2>
   </hgroup>
@@ -634,7 +772,7 @@ m
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-19" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-23" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Example</h2>
   </hgroup>
@@ -671,7 +809,7 @@ str(matrix)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-20" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-24" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data Class - Factors</h2>
   </hgroup>
@@ -699,7 +837,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-21" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-25" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Date and Time</h2>
   </hgroup>
@@ -738,7 +876,7 @@ x
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-22" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-26" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Data and Time (contd)</h2>
   </hgroup>
@@ -747,13 +885,13 @@ x
 x &lt;- Sys.time() ; x
 </code></pre>
 
-<pre><code>## [1] &quot;2015-08-10 10:51:55 EDT&quot;
+<pre><code>## [1] &quot;2015-10-19 10:59:35 EDT&quot;
 </code></pre>
 
 <pre><code class="r">as.numeric(x)
 </code></pre>
 
-<pre><code>## [1] 1439218316
+<pre><code>## [1] 1445266775
 </code></pre>
 
 <pre><code class="r">p &lt;- as.POSIXlt(x)
@@ -767,7 +905,7 @@ names(unclass(p))
 <pre><code class="r">p$sec
 </code></pre>
 
-<pre><code>## [1] 55.57873
+<pre><code>## [1] 35.44254
 </code></pre>
 
   </article>
@@ -777,7 +915,7 @@ names(unclass(p))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-23" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-27" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Missing Values</h2>
   </hgroup>
@@ -813,7 +951,7 @@ is.na(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-24" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-28" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Missing Values (contd)</h2>
   </hgroup>
@@ -838,7 +976,7 @@ is.na(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-25" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-29" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Arithmetic Functions</h2>
   </hgroup>
@@ -864,7 +1002,7 @@ is.na(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-26" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-30" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Simple Statistic Functions</h2>
   </hgroup>
@@ -889,7 +1027,7 @@ is.na(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-27" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-31" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Distributions and Random Variables</h2>
   </hgroup>
@@ -923,7 +1061,7 @@ is.na(x)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-28" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-32" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Examples: Distributions and Random Variables</h2>
   </hgroup>
@@ -932,16 +1070,16 @@ is.na(x)
 runif(10, 2, 4)
 </code></pre>
 
-<pre><code>##  [1] 3.538605 2.819273 2.336913 2.505583 2.085999 2.236007 3.075561
-##  [8] 3.320564 3.516750 3.402623
+<pre><code>##  [1] 2.878599 2.638864 3.255315 2.982907 2.860682 2.143320 3.153267
+##  [8] 2.309716 2.711557 2.726360
 </code></pre>
 
 <pre><code class="r"># You can name the arguments in the function call.
 runif(10, min = 2, max = 4)
 </code></pre>
 
-<pre><code>##  [1] 2.104683 2.292803 2.360340 2.380251 2.798074 2.619530 2.771393
-##  [8] 2.497199 2.354845 3.139912
+<pre><code>##  [1] 3.472287 2.317590 3.473552 3.296308 2.358658 2.274848 2.732389
+##  [8] 3.771628 3.453006 2.466613
 </code></pre>
 
 <pre><code class="r"># Given p value and degree of freedom, find the t-value.
@@ -965,7 +1103,7 @@ pt(2.306, df = 8)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-29" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-33" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>User Defined Functions</h2>
   </hgroup>
@@ -981,6 +1119,17 @@ pt(2.306, df = 8)
 </ul></li>
 </ul>
 
+<pre><code class="r">newDef &lt;- function(a,b)
+ {
+     x = runif(10,a,b)
+     mean(x)
+ }
+newDef(-1,1)
+</code></pre>
+
+<pre><code>## [1] -0.3441051
+</code></pre>
+
   </article>
   <footer class=rcr>
     <img src='assets/img/lulogo.jpg'></img>
@@ -988,7 +1137,7 @@ pt(2.306, df = 8)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-30" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-34" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Control Structures</h2>
   </hgroup>
@@ -1014,7 +1163,7 @@ pt(2.306, df = 8)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-31" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-35" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Testing conditions</h2>
   </hgroup>
@@ -1037,7 +1186,7 @@ if(x &gt; 3 &amp;&amp; x &lt; 5) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-32" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-36" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>For Loops</h2>
   </hgroup>
@@ -1075,7 +1224,7 @@ for(i in seq_along(x)) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-33" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-37" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>For Loops (contd)</h2>
   </hgroup>
@@ -1108,7 +1257,150 @@ for(letter in x) {
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-34" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-38" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>while loops</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The <code>while</code> loop can be used to repeat a set of instructions</li>
+<li>It is often used when you do not know in advance how often the instructions will be executed. </li>
+<li>The basic format for a <code>while</code> loop is <code>while(cond) expr</code></li>
+</ul>
+
+<div style='float:left;width:50%;'>
+  <pre><code class="r">sum &lt;- 1
+while ( sum &lt; 11 )
+{
+  sum &lt;- sum + 2;
+  print(sum);
+}
+</code></pre>
+
+<pre><code>## [1] 3
+## [1] 5
+## [1] 7
+## [1] 9
+## [1] 11
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">sum &lt;- 12
+while (sum &lt; 11 ) 
+{
+  sum &lt;- sum + 2;
+  print(sum);
+}
+</code></pre>
+
+</div>
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-39" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>repeat loops</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The <code>repeat</code> loop is similar to the <code>while</code> loop. </li>
+<li>The difference is that it will always begin the loop the first time. The <code>while</code> loop will only start the loop if the condition is true the first time it is evaluated. </li>
+<li>Another difference is that you have to explicitly specify when to stop the loop using the <code>break</code> command.</li>
+</ul>
+
+<div style='float:left;width:50%;'>
+  <pre><code class="r">sum &lt;- 1
+repeat
+{
+  sum &lt;- sum + 2;
+  print(sum);
+  if (sum &gt; 11)
+    break;
+}
+</code></pre>
+
+<pre><code>## [1] 3
+## [1] 5
+## [1] 7
+## [1] 9
+## [1] 11
+## [1] 13
+</code></pre>
+
+</div>
+<div style='float:right;width:48%;'>
+  <pre><code class="r">sum &lt;- 12
+repeat
+{
+  sum &lt;- sum + 2;
+  print(sum);
+  if (sum &gt; 11)
+    break;
+}
+</code></pre>
+
+<pre><code>## [1] 14
+</code></pre>
+
+</div>
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-40" style="background:#F1E7C8;">
+  <hgroup class=rcr>
+    <h2>break and next statements</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The <code>break</code> statement is used to stop the execution of the current loop. 
+
+<ul>
+<li>It will break out of the current loop. </li>
+</ul></li>
+<li>The <code>next</code> statement is used to skip the statements that follow and restart the current loop. 
+
+<ul>
+<li>If a <code>for</code> loop is used then the <code>next</code> statement will update the loop variable.</li>
+</ul></li>
+</ul>
+
+<pre><code class="r">x &lt;- rnorm(5)
+for(lupe in x)
+ {
+     if (lupe &gt; 2.0)
+         next
+
+     if( (lupe&lt;0.6) &amp;&amp; (lupe &gt; 0.5))
+        break
+
+    cat(&quot;The value of lupe is &quot;,lupe,&quot;\n&quot;);
+ }
+</code></pre>
+
+<pre><code>## The value of lupe is  0.6673631 
+## The value of lupe is  0.620855 
+## The value of lupe is  -1.157163 
+## The value of lupe is  0.2217087 
+## The value of lupe is  -0.7079025
+</code></pre>
+
+  </article>
+  <footer class=rcr>
+    <img src='assets/img/lulogo.jpg'></img>
+  </footer>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="rcr" id="slide-41" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>The apply Function</h2>
   </hgroup>
@@ -1137,10 +1429,10 @@ str(apply)
 apply(x, 1, mean)
 </code></pre>
 
-<pre><code>##  [1]  0.48336473  0.16715492  0.05847272  0.20662281  0.04493405
-##  [6] -0.08770365  0.15792048 -0.42426222  0.08991266 -0.17797986
-## [11]  0.21355459 -0.25231872  0.24166843  0.21750826 -0.32148301
-## [16] -0.52486632  0.15192574 -0.22418540  0.07787755 -0.13453577
+<pre><code>##  [1] -0.26590197 -0.15964700  0.29119955 -0.37366171  0.02507270
+##  [6]  0.07267075 -0.23943876  0.15755482  0.02794983 -0.01458803
+## [11] -0.38149049  0.28522025 -0.12911388 -0.24738071  0.17690423
+## [16]  0.09864897 -0.26249562  0.08871391 -0.11792424  0.01516327
 </code></pre>
 
   </article>
@@ -1150,7 +1442,7 @@ apply(x, 1, mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-35" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-42" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>The apply Function (contd)</h2>
   </hgroup>
@@ -1159,8 +1451,8 @@ apply(x, 1, mean)
 apply(x, 2, sum)
 </code></pre>
 
-<pre><code>##  [1] -4.6586360  2.7735746  2.4135653  0.8587932 -4.6059086  0.6846277
-##  [7]  5.7661980 -0.6570225 -2.8231048 -0.1162671
+<pre><code>##  [1]  -5.3349041   0.1280611  -2.0847576   1.0890792  -3.3144046
+##  [6]   2.6486403   7.7747753 -12.1758943  -0.3142970   2.0582601
 </code></pre>
 
 <pre><code class="r"># 25th and 75th Quantiles for rows
@@ -1168,17 +1460,17 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
 </code></pre>
 
 <pre><code>##           [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
-## 25% 0.04222279 0.07638044 -0.3850304 -0.5268029 -0.5506386 -1.0979975
-## 75% 0.90594988 0.41129796  0.7435271  0.9055006  0.3120472  0.7158073
-##           [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
-## 25% -0.3674621 -0.9833996 -0.3099412 -0.9318761 -0.2761282 -0.8480592
-## 75%  0.8310799  0.2508075  0.4080987  0.3833054  0.4231146  0.6084039
-##          [,13]      [,14]      [,15]       [,16]      [,17]      [,18]
-## 25% -0.1187785 -0.2709992 -1.1074485 -1.06048238 -0.7866159 -0.9731407
-## 75%  0.8961099  0.8782394  0.3382637 -0.03624711  0.7195462  0.4070229
+## 25% -0.8439423 -0.9651803 -0.6336502 -0.9377258 -0.6339902 -0.6435216
+## 75%  0.3849340  0.7088276  1.3662734  0.1292944  0.5467176  0.6707714
+##            [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
+## 25% -0.35248929 -0.4446249 -0.6865797 -0.6142726 -1.6739287 -0.6167617
+## 75%  0.08812794  0.6227871  0.6182688  0.4687472  0.6966118  1.2106798
+##          [,13]      [,14]      [,15]      [,16]      [,17]      [,18]
+## 25% -0.4965872 -0.8688296 -0.3198792 -0.6438551 -0.9866953 -0.6664457
+## 75%  0.2075889  0.5412556  0.3485014  0.9712146  0.4007977  0.2843686
 ##          [,19]      [,20]
-## 25% -0.6444881 -0.7648423
-## 75%  0.8620322  0.7186549
+## 25% -0.5351801 -1.1838220
+## 75%  0.4745607  0.8713791
 </code></pre>
 
   </article>
@@ -1188,7 +1480,7 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-36" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-43" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>The apply Function (contd)</h2>
   </hgroup>
@@ -1206,16 +1498,16 @@ apply(x, c(1, 2), mean)
 </code></pre>
 
 <pre><code>##             [,1]        [,2]
-## [1,]  0.20236112  0.03726846
-## [2,] -0.02104115 -0.22587204
+## [1,] -0.12089779 -0.05414994
+## [2,] -0.05204622  0.03658512
 </code></pre>
 
 <pre><code class="r">rowMeans(x, dims = 2)
 </code></pre>
 
 <pre><code>##             [,1]        [,2]
-## [1,]  0.20236112  0.03726846
-## [2,] -0.02104115 -0.22587204
+## [1,] -0.12089779 -0.05414994
+## [2,] -0.05204622  0.03658512
 </code></pre>
 
   </article>
@@ -1225,7 +1517,7 @@ apply(x, c(1, 2), mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-37" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-44" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Other Apply Functions</h2>
   </hgroup>
@@ -1244,7 +1536,7 @@ apply(x, c(1, 2), mean)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-38" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-45" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Plyr Package</h2>
   </hgroup>
@@ -1268,7 +1560,7 @@ the <code>plyr</code> package is for.</li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-39" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-46" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Example: Plyr Package</h2>
   </hgroup>
@@ -1306,7 +1598,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-40" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-47" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Example (contd)</h2>
   </hgroup>
@@ -1328,7 +1620,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-41" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-48" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Reading and Writing Data</h2>
   </hgroup>
@@ -1355,7 +1647,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-42" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-49" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Reading Data with read.table</h2>
   </hgroup>
@@ -1390,7 +1682,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-43" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-50" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Reading Data with read.table (contd)</h2>
   </hgroup>
@@ -1414,7 +1706,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-44" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-51" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics in R</h2>
   </hgroup>
@@ -1446,7 +1738,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-45" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-52" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics - Base</h2>
   </hgroup>
@@ -1487,7 +1779,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-46" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-53" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics - Base (contd)</h2>
   </hgroup>
@@ -1495,7 +1787,7 @@ str(mpg)
     <pre><code class="r">plot(hwy ~ displ, data=mpg)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-26-1.png" alt="plot of chunk unnamed-chunk-26"> </p>
+<p><img src="assets/fig/unnamed-chunk-37-1.png" alt="plot of chunk unnamed-chunk-37"> </p>
 
   </article>
   <footer class=rcr>
@@ -1504,7 +1796,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-47" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-54" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics - Base (contd)</h2>
   </hgroup>
@@ -1512,7 +1804,7 @@ str(mpg)
     <pre><code class="r">boxplot(hwy ~ class, data = mpg, xlab = &quot;Class&quot;, ylab = &quot;High Way Mileage&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-27-1.png" alt="plot of chunk unnamed-chunk-27"> </p>
+<p><img src="assets/fig/unnamed-chunk-38-1.png" alt="plot of chunk unnamed-chunk-38"> </p>
 
   </article>
   <footer class=rcr>
@@ -1521,7 +1813,7 @@ str(mpg)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-48" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-55" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics - Lattice</h2>
   </hgroup>
@@ -1530,7 +1822,7 @@ str(mpg)
 xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-28-1.png" alt="plot of chunk unnamed-chunk-28"> </p>
+<p><img src="assets/fig/unnamed-chunk-39-1.png" alt="plot of chunk unnamed-chunk-39"> </p>
 
   </article>
   <footer class=rcr>
@@ -1539,7 +1831,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-49" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-56" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics - ggplot2</h2>
   </hgroup>
@@ -1547,7 +1839,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
     <pre><code class="r">qplot(displ, cty, data = mpg, color = drv)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-29-1.png" alt="plot of chunk unnamed-chunk-29"> </p>
+<p><img src="assets/fig/unnamed-chunk-40-1.png" alt="plot of chunk unnamed-chunk-40"> </p>
 
   </article>
   <footer class=rcr>
@@ -1556,7 +1848,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-50" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-57" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Graphics - ggplot2</h2>
   </hgroup>
@@ -1564,7 +1856,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
     <pre><code class="r">qplot(displ, hwy, data = mpg, facets = drv ~ year)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-30-1.png" alt="plot of chunk unnamed-chunk-30"> </p>
+<p><img src="assets/fig/unnamed-chunk-41-1.png" alt="plot of chunk unnamed-chunk-41"> </p>
 
 <pre><code class="r">ggplot(emiByType, aes(year, sum, colour = type)) +
  geom_point(size = 5) +
@@ -1583,7 +1875,7 @@ xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-51" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-58" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Histograms</h2>
   </hgroup>
@@ -1603,7 +1895,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><img src="assets/fig/unnamed-chunk-33-1.png" alt="plot of chunk unnamed-chunk-33"> </p>
+  <p><img src="assets/fig/unnamed-chunk-44-1.png" alt="plot of chunk unnamed-chunk-44"> </p>
 
 </div>
   </article>
@@ -1613,7 +1905,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-52" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-59" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Line Chart</h2>
   </hgroup>
@@ -1621,7 +1913,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
     <pre><code class="r">plot(AirPassengers,type=&quot;l&quot;)  #Simple Line Plot
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-34-1.png" alt="plot of chunk unnamed-chunk-34"> </p>
+<p><img src="assets/fig/unnamed-chunk-45-1.png" alt="plot of chunk unnamed-chunk-45"> </p>
 
   </article>
   <footer class=rcr>
@@ -1630,7 +1922,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-53" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-60" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Bar Chart</h2>
   </hgroup>
@@ -1640,14 +1932,14 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
   <pre><code class="r">barplot(iris$Petal.Length) #Creating simple Bar Graph
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-35-1.png" alt="plot of chunk unnamed-chunk-35"> </p>
+<p><img src="assets/fig/unnamed-chunk-46-1.png" alt="plot of chunk unnamed-chunk-46"> </p>
 
 </div>
 <div style='float:right;width:48%;'>
   <pre><code class="r">barplot(iris$Sepal.Length,col  = brewer.pal(3,&quot;Set1&quot;))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-36-1.png" alt="plot of chunk unnamed-chunk-36"> </p>
+<p><img src="assets/fig/unnamed-chunk-47-1.png" alt="plot of chunk unnamed-chunk-47"> </p>
 
 </div>
   </article>
@@ -1657,7 +1949,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-54" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-61" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Bar Chart</h2>
   </hgroup>
@@ -1665,7 +1957,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
     <pre><code class="r">barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,&quot;Set1&quot;)) #Stacked Plot
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-37-1.png" alt="plot of chunk unnamed-chunk-37"> </p>
+<p><img src="assets/fig/unnamed-chunk-48-1.png" alt="plot of chunk unnamed-chunk-48"> </p>
 
   </article>
   <footer class=rcr>
@@ -1674,7 +1966,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-55" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-62" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Box Plot</h2>
   </hgroup>
@@ -1682,7 +1974,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
     <pre><code class="r">boxplot(iris$Petal.Length~iris$Species) #Creating Box Plot between two variable
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-38-1.png" alt="plot of chunk unnamed-chunk-38"> </p>
+<p><img src="assets/fig/unnamed-chunk-49-1.png" alt="plot of chunk unnamed-chunk-49"> </p>
 
   </article>
   <footer class=rcr>
@@ -1691,7 +1983,7 @@ hist(VADeaths,col=brewer.pal(8,&quot;Greens&quot;),main=&quot;Greens 8 colors&qu
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-56" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-63" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Box Plot</h2>
   </hgroup>
@@ -1708,7 +2000,7 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><img src="assets/fig/unnamed-chunk-40-1.png" alt="plot of chunk unnamed-chunk-40"> </p>
+  <p><img src="assets/fig/unnamed-chunk-51-1.png" alt="plot of chunk unnamed-chunk-51"> </p>
 
 </div>
   </article>
@@ -1718,7 +2010,7 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-57" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-64" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Scatter Plots</h2>
   </hgroup>
@@ -1726,22 +2018,22 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
     <pre><code class="r">plot(x=iris$Petal.Length) #Simple Scatter Plot
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-41-1.png" alt="plot of chunk unnamed-chunk-41"> </p>
+<p><img src="assets/fig/unnamed-chunk-52-1.png" alt="plot of chunk unnamed-chunk-52"> </p>
 
 <pre><code class="r">plot(x=iris$Petal.Length,y=iris$Species) #Multivariate Scatter Plot
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-41-2.png" alt="plot of chunk unnamed-chunk-41"> </p>
+<p><img src="assets/fig/unnamed-chunk-52-2.png" alt="plot of chunk unnamed-chunk-52"> </p>
 
 <pre><code class="r">plot(iris,col=brewer.pal(3,&quot;Set1&quot;))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-41-3.png" alt="plot of chunk unnamed-chunk-41"> </p>
+<p><img src="assets/fig/unnamed-chunk-52-3.png" alt="plot of chunk unnamed-chunk-52"> </p>
 
 <pre><code class="r">pie(table(iris$Species))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-41-4.png" alt="plot of chunk unnamed-chunk-41"> </p>
+<p><img src="assets/fig/unnamed-chunk-52-4.png" alt="plot of chunk unnamed-chunk-52"> </p>
 
   </article>
   <footer class=rcr>
@@ -1750,7 +2042,7 @@ boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-58" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-65" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Hexbin Binning</h2>
   </hgroup>
@@ -1769,7 +2061,7 @@ plot(a)
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><img src="assets/fig/unnamed-chunk-43-1.png" title="plot of chunk unnamed-chunk-43" alt="plot of chunk unnamed-chunk-43" style="display: block; margin: auto;" /></p>
+  <p><img src="assets/fig/unnamed-chunk-54-1.png" title="plot of chunk unnamed-chunk-54" alt="plot of chunk unnamed-chunk-54" style="display: block; margin: auto;" /></p>
 
 </div>
   </article>
@@ -1779,7 +2071,7 @@ plot(a)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-59" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-66" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>(Contd)</h2>
   </hgroup>
@@ -1789,7 +2081,7 @@ rf &lt;- colorRampPalette(rev(brewer.pal(40,&#39;Set3&#39;)))
 hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-44-1.png" title="plot of chunk unnamed-chunk-44" alt="plot of chunk unnamed-chunk-44" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/unnamed-chunk-55-1.png" title="plot of chunk unnamed-chunk-55" alt="plot of chunk unnamed-chunk-55" style="display: block; margin: auto;" /></p>
 
   </article>
   <footer class=rcr>
@@ -1798,7 +2090,7 @@ hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-60" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-67" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Mosaic Plot</h2>
   </hgroup>
@@ -1811,7 +2103,7 @@ hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
 mosaicplot(HairEyeColor)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-45-1.png" title="plot of chunk unnamed-chunk-45" alt="plot of chunk unnamed-chunk-45" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/unnamed-chunk-56-1.png" title="plot of chunk unnamed-chunk-56" alt="plot of chunk unnamed-chunk-56" style="display: block; margin: auto;" /></p>
 
   </article>
   <footer class=rcr>
@@ -1820,7 +2112,7 @@ mosaicplot(HairEyeColor)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-61" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-68" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Heat Map</h2>
   </hgroup>
@@ -1833,7 +2125,7 @@ mosaicplot(HairEyeColor)
 <pre><code class="r">heatmap(as.matrix(mtcars))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-46-1.png" title="plot of chunk unnamed-chunk-46" alt="plot of chunk unnamed-chunk-46" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/unnamed-chunk-57-1.png" title="plot of chunk unnamed-chunk-57" alt="plot of chunk unnamed-chunk-57" style="display: block; margin: auto;" /></p>
 
   </article>
   <footer class=rcr>
@@ -1842,7 +2134,7 @@ mosaicplot(HairEyeColor)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-62" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-69" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Heat Map (contd)</h2>
   </hgroup>
@@ -1854,7 +2146,7 @@ mosaicplot(HairEyeColor)
 <pre><code class="r">image(as.matrix(mtcars[2:7]))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-47-1.png" title="plot of chunk unnamed-chunk-47" alt="plot of chunk unnamed-chunk-47" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" style="display: block; margin: auto;" /></p>
 
   </article>
   <footer class=rcr>
@@ -1863,7 +2155,7 @@ mosaicplot(HairEyeColor)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-63" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-70" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>3D Graphs</h2>
   </hgroup>
@@ -1894,7 +2186,7 @@ mosaicplot(HairEyeColor)
   <pre><code class="r">corrgram(iris)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-49-1.png" title="plot of chunk unnamed-chunk-49" alt="plot of chunk unnamed-chunk-49" style="display: block; margin: auto;" /></p>
+<p><img src="assets/fig/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" style="display: block; margin: auto;" /></p>
 
 </div>
   </article>
@@ -1904,7 +2196,7 @@ mosaicplot(HairEyeColor)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-64" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-71" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Slide with R Code and Output</h2>
   </hgroup>
@@ -1928,7 +2220,7 @@ mosaicplot(HairEyeColor)
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="rcr" id="slide-65" style="background:#F1E7C8;">
+<slide class="rcr" id="slide-72" style="background:#F1E7C8;">
   <hgroup class=rcr>
     <h2>Slide with Plot</h2>
   </hgroup>
@@ -1936,7 +2228,7 @@ mosaicplot(HairEyeColor)
     <pre><code class="r">plot(cars)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-51-1.png" alt="plot of chunk unnamed-chunk-51"> </p>
+<p><img src="assets/fig/unnamed-chunk-62-1.png" alt="plot of chunk unnamed-chunk-62"> </p>
 
   </article>
   <footer class=rcr>
@@ -1969,374 +2261,416 @@ mosaicplot(HairEyeColor)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Running R'>
+        data-slide=4 title='Alternatives to R'>
          4
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Getting Help'>
+        data-slide=5 title='Installing R'>
          5
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Data Classes'>
+        data-slide=6 title='Running R'>
          6
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Data Objects‐ Vectors'>
+        data-slide=7 title='RStudio'>
          7
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Examples'>
+        data-slide=8 title='Get Started with R'>
          8
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Examples (contd)'>
+        data-slide=9 title='Get Started with R'>
          9
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Vectorized Operations'>
+        data-slide=10 title='Data Classes'>
          10
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Data Objects - Matrices'>
+        data-slide=11 title='Data Objects‐ Vectors'>
          11
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Example'>
+        data-slide=12 title='Examples'>
          12
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Data Objects - Lists'>
+        data-slide=13 title='Examples (contd)'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Data Objects - Data Frames'>
+        data-slide=14 title='Vectorized Operations'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Names'>
+        data-slide=15 title='Data Objects - Matrices'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Names (contd)'>
+        data-slide=16 title='Example'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Names (contd)'>
+        data-slide=17 title='Data Objects - Lists'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Querying Object Attributes'>
+        data-slide=18 title='Data Objects - Data Frames'>
          18
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Example'>
+        data-slide=19 title='Names'>
          19
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Data Class - Factors'>
+        data-slide=20 title='Names (contd)'>
          20
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='Date and Time'>
+        data-slide=21 title='Names (contd)'>
          21
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='Data and Time (contd)'>
+        data-slide=22 title='Querying Object Attributes'>
          22
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Missing Values'>
+        data-slide=23 title='Example'>
          23
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Missing Values (contd)'>
+        data-slide=24 title='Data Class - Factors'>
          24
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='Arithmetic Functions'>
+        data-slide=25 title='Date and Time'>
          25
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='Simple Statistic Functions'>
+        data-slide=26 title='Data and Time (contd)'>
          26
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=27 title='Distributions and Random Variables'>
+        data-slide=27 title='Missing Values'>
          27
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=28 title='Examples: Distributions and Random Variables'>
+        data-slide=28 title='Missing Values (contd)'>
          28
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=29 title='User Defined Functions'>
+        data-slide=29 title='Arithmetic Functions'>
          29
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=30 title='Control Structures'>
+        data-slide=30 title='Simple Statistic Functions'>
          30
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=31 title='Testing conditions'>
+        data-slide=31 title='Distributions and Random Variables'>
          31
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=32 title='For Loops'>
+        data-slide=32 title='Examples: Distributions and Random Variables'>
          32
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=33 title='For Loops (contd)'>
+        data-slide=33 title='User Defined Functions'>
          33
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=34 title='The apply Function'>
+        data-slide=34 title='Control Structures'>
          34
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=35 title='The apply Function (contd)'>
+        data-slide=35 title='Testing conditions'>
          35
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=36 title='The apply Function (contd)'>
+        data-slide=36 title='For Loops'>
          36
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=37 title='Other Apply Functions'>
+        data-slide=37 title='For Loops (contd)'>
          37
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=38 title='Plyr Package'>
+        data-slide=38 title='while loops'>
          38
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=39 title='Example: Plyr Package'>
+        data-slide=39 title='repeat loops'>
          39
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=40 title='Example (contd)'>
+        data-slide=40 title='break and next statements'>
          40
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=41 title='Reading and Writing Data'>
+        data-slide=41 title='The apply Function'>
          41
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=42 title='Reading Data with read.table'>
+        data-slide=42 title='The apply Function (contd)'>
          42
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=43 title='Reading Data with read.table (contd)'>
+        data-slide=43 title='The apply Function (contd)'>
          43
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=44 title='Graphics in R'>
+        data-slide=44 title='Other Apply Functions'>
          44
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=45 title='Graphics - Base'>
+        data-slide=45 title='Plyr Package'>
          45
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=46 title='Graphics - Base (contd)'>
+        data-slide=46 title='Example: Plyr Package'>
          46
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=47 title='Graphics - Base (contd)'>
+        data-slide=47 title='Example (contd)'>
          47
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=48 title='Graphics - Lattice'>
+        data-slide=48 title='Reading and Writing Data'>
          48
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=49 title='Graphics - ggplot2'>
+        data-slide=49 title='Reading Data with read.table'>
          49
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=50 title='Graphics - ggplot2'>
+        data-slide=50 title='Reading Data with read.table (contd)'>
          50
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=51 title='Histograms'>
+        data-slide=51 title='Graphics in R'>
          51
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=52 title='Line Chart'>
+        data-slide=52 title='Graphics - Base'>
          52
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=53 title='Bar Chart'>
+        data-slide=53 title='Graphics - Base (contd)'>
          53
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=54 title='Bar Chart'>
+        data-slide=54 title='Graphics - Base (contd)'>
          54
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=55 title='Box Plot'>
+        data-slide=55 title='Graphics - Lattice'>
          55
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=56 title='Box Plot'>
+        data-slide=56 title='Graphics - ggplot2'>
          56
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=57 title='Scatter Plots'>
+        data-slide=57 title='Graphics - ggplot2'>
          57
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=58 title='Hexbin Binning'>
+        data-slide=58 title='Histograms'>
          58
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=59 title='(Contd)'>
+        data-slide=59 title='Line Chart'>
          59
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=60 title='Mosaic Plot'>
+        data-slide=60 title='Bar Chart'>
          60
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=61 title='Heat Map'>
+        data-slide=61 title='Bar Chart'>
          61
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=62 title='Heat Map (contd)'>
+        data-slide=62 title='Box Plot'>
          62
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=63 title='3D Graphs'>
+        data-slide=63 title='Box Plot'>
          63
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=64 title='Slide with R Code and Output'>
+        data-slide=64 title='Scatter Plots'>
          64
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=65 title='Slide with Plot'>
+        data-slide=65 title='Hexbin Binning'>
          65
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=66 title='(Contd)'>
+         66
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=67 title='Mosaic Plot'>
+         67
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=68 title='Heat Map'>
+         68
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=69 title='Heat Map (contd)'>
+         69
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=70 title='3D Graphs'>
+         70
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=71 title='Slide with R Code and Output'>
+         71
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=72 title='Slide with Plot'>
+         72
       </a>
     </li>
   </ul>
