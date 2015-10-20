@@ -1761,22 +1761,95 @@ corrgram(iris)
    - An Introduction on R: http://cran.r-project.org/doc/manuals/r-release/R-intro.html
 * Online tutorials
    - http://www.cyclismo.org/tutorial/R/
-* Online courses (e.g. Coursera)
 * Educational R packages
    - Swirl: Learn R in R
+* Online courses (e.g. Coursera)
+   
+   
+--- .rcr
 
 --- .rcr
 
-## Data Analysis with Reporting
+## Data Analysis Case Study
 
-* Typical data analysis workflow involves
-  - Obtaining the data
-  - Cleaning and preprocessing the data
-  - Analyzing the data
-  - Generating a report
-* `knitr` is a R package that allows one to generate dynamic report by weaving R code and human readable texts together
-  - It uses the markdown syntax
-  - The output can be HTML, PDF or (even) Word
-* `slidify` is a R package that allows one to create a HTML presentation
-  - You are now at the end of a `slidify` presentation
+* Changes in Fine Particle Air Pollution in the U.S.
+* example data analysis looking at changes in fine particulate matter (PM) air pollution in the United States using the EPA freely available national monitoring data.
+* Download PM2.5 data for 1999 and 2012
+
+
+```bash
+# *NIX only
+wget  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt
+```
+
+
+```r
+pm0 <- read.table ( "RD_501_88101_1999-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
+dim(pm0)
+```
+
+```
+## [1] 117421     28
+```
+
+```r
+head(pm0[,1:13])
+```
+
+```
+##   V1 V2 V3 V4 V5    V6 V7 V8  V9 V10      V11   V12    V13
+## 1 RD  I  1 27  1 88101  1  7 105 120 19990103 00:00     NA
+## 2 RD  I  1 27  1 88101  1  7 105 120 19990106 00:00     NA
+## 3 RD  I  1 27  1 88101  1  7 105 120 19990109 00:00     NA
+## 4 RD  I  1 27  1 88101  1  7 105 120 19990112 00:00  8.841
+## 5 RD  I  1 27  1 88101  1  7 105 120 19990115 00:00 14.920
+## 6 RD  I  1 27  1 88101  1  7 105 120 19990118 00:00  3.878
+```
+
+--- .rcr
+
+## contd
+
+
+```r
+cnames <- readLines('RD_501_88101_1999-0.txt',1)
+cnames <- strsplit ( cnames , "|" , fixed = TRUE )
+names ( pm0 ) <- make.names ( cnames [[ 1 ]])
+head ( pm0 [, 1 : 13 ])
+```
+
+```
+##   X..RD Action.Code State.Code County.Code Site.ID Parameter POC
+## 1    RD           I          1          27       1     88101   1
+## 2    RD           I          1          27       1     88101   1
+## 3    RD           I          1          27       1     88101   1
+## 4    RD           I          1          27       1     88101   1
+## 5    RD           I          1          27       1     88101   1
+## 6    RD           I          1          27       1     88101   1
+##   Sample.Duration Unit Method     Date Start.Time Sample.Value
+## 1               7  105    120 19990103      00:00           NA
+## 2               7  105    120 19990106      00:00           NA
+## 3               7  105    120 19990109      00:00           NA
+## 4               7  105    120 19990112      00:00        8.841
+## 5               7  105    120 19990115      00:00       14.920
+## 6               7  105    120 19990118      00:00        3.878
+```
+
+```r
+x0 <- pm0 $ Sample.Value
+summary(x0)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    0.00    7.20   11.50   13.74   17.90  157.10   13217
+```
+
+--- .rcr
+
+## contd
+
+
+
+
 

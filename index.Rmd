@@ -1125,9 +1125,69 @@ corrgram(iris)
    - An Introduction on R: http://cran.r-project.org/doc/manuals/r-release/R-intro.html
 * Online tutorials
    - http://www.cyclismo.org/tutorial/R/
-* Online courses (e.g. Coursera)
 * Educational R packages
    - Swirl: Learn R in R
+* Online courses (e.g. Coursera)
+   
+   
+--- .rcr
+
+--- .rcr
+
+## Data Analysis Case Study
+
+* Changes in Fine Particle Air Pollution in the U.S.
+* example data analysis looking at changes in fine particulate matter (PM) air pollution in the United States using the EPA freely available national monitoring data.
+* Download PM2.5 data for 1999 and 2012
+
+```{bash eval=FALSE}
+# *NIX only
+wget  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt
+```
+
+```{r}
+pm0 <- read.table ( "RD_501_88101_1999-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
+dim(pm0)
+head(pm0[,1:13])
+```
+
+--- .rcr
+
+## contd
+
+```{r}
+cnames <- readLines('RD_501_88101_1999-0.txt',1)
+cnames <- strsplit ( cnames , "|" , fixed = TRUE )
+names ( pm0 ) <- make.names ( cnames [[ 1 ]])
+head ( pm0 [, 1 : 13 ])
+x0 <- pm0 $ Sample.Value
+summary(x0)
+```
+
+--- .rcr
+
+## contd
+
+```{r}
+pm1 <- read.table("RD_501_88101_2012-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
+names(pm1) <- make.names(cnames[[ 1 ]])
+library(dplyr)
+pm <- rbind(pm0,pm1)
+pm <- mutate(pm , year=factor(rep ( c( 1999 , 2012 ), c( nrow (pm0), nrow (pm1 ))))) 
+rename (PM=Sample.Value )
+library (ggplot2)
+set.seed(2015)
+idx <- sample(nrow(pm), 1000)
+```
+
+--- .rcr
+
+## contd
+
+```{r}
+qplot ( year , log2(PM), data=pm[idx,], geom = "boxplot" )
+```
+
 
 --- .rcr
 
