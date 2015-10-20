@@ -48,6 +48,15 @@ body{
 
 }
 
+.license {
+  font-size: 14px;
+  color: #a9a9a9;
+  position: absolute;
+  bottom: 30px;
+  left: 120px;
+}
+
+
 aside.gdbar {
   height:125px;
   width: 215px;
