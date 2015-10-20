@@ -11,14 +11,6 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 --- .rcr
 
-## Read-And-Delete
-
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
-
---- .rcr
-
 ## History
 
 * R is a dialect of the S language
@@ -84,7 +76,7 @@ cat hello.R
 ```
 
 ```
-## Error in running command sh
+## print("Hello World!")
 ```
 
 ```sh
@@ -92,7 +84,7 @@ Rscript hello.R
 ```
 
 ```
-## Error in running command sh
+## [1] "Hello World!"
 ```
 
 --- .rcr
@@ -741,7 +733,7 @@ x <- Sys.time() ; x
 ```
 
 ```
-## [1] "2015-10-19 19:01:48 EDT"
+## [1] "2015-10-20 07:40:05 EDT"
 ```
 
 ```r
@@ -749,7 +741,7 @@ as.numeric(x)
 ```
 
 ```
-## [1] 1445295708
+## [1] 1445341206
 ```
 
 ```r
@@ -767,7 +759,7 @@ p$sec
 ```
 
 ```
-## [1] 48.14211
+## [1] 5.757839
 ```
 
 --- .rcr
@@ -890,8 +882,8 @@ runif(10, 2, 4)
 ```
 
 ```
-##  [1] 2.026539 3.202648 2.287503 2.875370 2.742208 2.940982 2.100651
-##  [8] 2.390579 2.285804 2.457612
+##  [1] 2.638864 3.255315 2.982907 2.860682 2.143320 3.153267 2.309716
+##  [8] 2.711557 2.726360 3.472287
 ```
 
 ```r
@@ -900,8 +892,8 @@ runif(10, min = 2, max = 4)
 ```
 
 ```
-##  [1] 2.843830 3.842709 2.323027 3.076045 2.381622 2.450670 3.050875
-##  [8] 3.613974 2.553782 2.357098
+##  [1] 2.317590 3.473552 3.296308 2.358658 2.274848 2.732389 3.771628
+##  [8] 3.453006 2.466613 2.131927
 ```
 
 ```r
@@ -942,7 +934,7 @@ newDef(-1,1)
 ```
 
 ```
-## [1] -0.3336923
+## [1] -0.2077518
 ```
 
 --- .rcr
@@ -1157,10 +1149,11 @@ for(lupe in x)
 ```
 
 ```
-## The value of lupe is  -0.7924304 
-## The value of lupe is  1.26121 
-## The value of lupe is  -0.2861946 
-## The value of lupe is  0.7631597
+## The value of lupe is  -1.481421 
+## The value of lupe is  0.9151803 
+## The value of lupe is  0.2980795 
+## The value of lupe is  -0.07978689 
+## The value of lupe is  1.51101
 ```
 
 
@@ -1191,10 +1184,10 @@ apply(x, 1, mean)
 ```
 
 ```
-##  [1] -0.02980425  0.47548479 -0.17200289  0.29934028  0.33317126
-##  [6] -0.20054338 -0.80790331  0.33250847  0.01453072  0.01301510
-## [11] -0.29130371  0.30378519  0.67118535 -0.07571641 -0.45777843
-## [16] -0.76566242 -0.02117571  0.78993267  0.19223683 -0.19176820
+##  [1] -0.192289023  0.722773303  0.103062158 -0.345481424  0.492355533
+##  [6] -0.116775245 -0.209666277  0.005307001 -0.242932511 -0.027272292
+## [11]  0.085719773  0.354468062 -0.140652574 -0.115087877  0.096598550
+## [16]  0.604319774  0.145982072 -0.332287762  0.141409430 -0.356709971
 ```
 
 --- .rcr
@@ -1208,8 +1201,8 @@ apply(x, 2, sum)
 ```
 
 ```
-##  [1] -0.02534246  6.46688423  6.87821104  4.21364080 -5.07335133
-##  [6] -4.22536266 -2.94363205  9.20242555 -8.94934550 -1.42880822
+##  [1]  0.3012176  0.4425069  5.1830394 -8.2034364  4.4162746  2.3716030
+##  [7]  5.0196862  2.0378979 -5.3346025  0.4942203
 ```
 
 ```r
@@ -1218,18 +1211,18 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
 ```
 
 ```
-##           [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
-## 25% -0.5852953 -0.2502379 -0.5591040 -0.1284328 0.07684569 -0.9370579
-## 75%  0.4471409  1.5952261  0.2812745  0.7407350 0.66094084  0.2270838
-##           [,7]        [,8]       [,9]      [,10]      [,11]      [,12]
-## 25% -1.8464673 -0.06135118 -0.6084780 -0.9351408 -1.0011511 -0.4155871
-## 75%  0.2220165  0.74125005  0.3117197  0.6225775  0.1560855  0.6714949
-##         [,13]      [,14]       [,15]      [,16]      [,17]     [,18]
-## 25% 0.2705827 -0.4997581 -0.77269909 -1.4574850 -0.7246913 0.2667282
-## 75% 1.2450816  0.3535057 -0.04648773 -0.1717755  0.5150988 1.2046843
+##           [,1]       [,2]       [,3]       [,4]      [,5]       [,6]
+## 25% -0.7901669 0.08959742 -0.6353816 -0.8511500 0.3336438 -0.4812052
+## 75%  0.4942875 1.29422353  0.9769719  0.0494791 0.6414590  0.4829125
+##           [,7]       [,8]       [,9]       [,10]      [,11]     [,12]
+## 25% -0.7408186 -0.6439208 -0.6848021 -0.32987281 -0.5603752 0.1533372
+## 75%  0.2325462  0.3769095  0.4946801  0.05837355  0.8284544 0.8852029
+##          [,13]      [,14]      [,15]       [,16]      [,17]      [,18]
+## 25% -0.6148505 -0.7268767 -0.3200007 -0.05685401 -0.7167548 -0.6977328
+## 75%  0.2506281  0.2956341  0.8832035  1.19795021  0.8675519 -0.1083871
 ##          [,19]      [,20]
-## 25% -0.1943826 -0.4762104
-## 75%  0.9408079  0.5704878
+## 25% -0.5445695 -1.1411417
+## 75%  0.7263925  0.4756715
 ```
 
 --- .rcr
@@ -1253,9 +1246,9 @@ apply(x, c(1, 2), mean)
 ```
 
 ```
-##           [,1]         [,2]
-## [1,] 0.1935815 -0.307350301
-## [2,] 0.2004346 -0.004359337
+##            [,1]       [,2]
+## [1,] 0.01249270 0.04342473
+## [2,] 0.02627003 0.05238069
 ```
 
 ```r
@@ -1263,9 +1256,9 @@ rowMeans(x, dims = 2)
 ```
 
 ```
-##           [,1]         [,2]
-## [1,] 0.1935815 -0.307350301
-## [2,] 0.2004346 -0.004359337
+##            [,1]       [,2]
+## [1,] 0.01249270 0.04342473
+## [2,] 0.02627003 0.05238069
 ```
 
 --- .rcr
@@ -1751,7 +1744,7 @@ corrgram(iris)
 * Profiling and debugging
 * Regression Models
 * Machine learning/Data Mining
-* ...
+* &middot;&middot;&middot;
 
 --- .rcr
 
@@ -1764,9 +1757,7 @@ corrgram(iris)
 * Educational R packages
    - Swirl: Learn R in R
 * Online courses (e.g. Coursera)
-   
-   
---- .rcr
+
 
 --- .rcr
 
@@ -1774,13 +1765,7 @@ corrgram(iris)
 
 * Changes in Fine Particle Air Pollution in the U.S.
 * example data analysis looking at changes in fine particulate matter (PM) air pollution in the United States using the EPA freely available national monitoring data.
-* Download PM2.5 data for 1999 and 2012
-
-
-```bash
-# *NIX only
-wget  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt
-```
+* Download PM2.5 data for [1999](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt) and [2012](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt)
 
 
 ```r
@@ -1850,6 +1835,100 @@ summary(x0)
 ## contd
 
 
+```r
+pm1 <- read.table("RD_501_88101_2012-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="", nrow = 1304290)
+names(pm1) <- make.names(cnames[[1]])
+library(plyr)
+pm <- rbind(pm0,pm1)
+pm <- mutate(pm , year=factor(rep ( c( 1999 , 2012 ), c( nrow (pm0), nrow (pm1 ))))) 
+library (ggplot2)
+set.seed(2015)
+idx <- sample(nrow(pm), 1000)
+```
+
+--- .rcr
+
+## contd
 
 
+```r
+qplot ( year , log2(Sample.Value), data=pm[idx,], geom = "boxplot", na.rm=TRUE )
+```
 
+```
+## Warning: NaNs produced
+```
+
+```
+## Warning: NaNs produced
+```
+
+![plot of chunk unnamed-chunk-69](assets/fig/unnamed-chunk-69-1.png) 
+
+--- .rcr
+
+## Data Analysis with Reporting
+
+* Typical data analysis workflow involves
+  - Obtaining the data
+  - Cleaning and preprocessing the data
+  - Analyzing the data
+  - Generating a report
+* `knitr` is a R package that allows one to generate dynamic report by weaving R code and human readable texts together
+  - It uses the markdown syntax
+  - The output can be HTML, PDF or (even) Word
+* `slidify` is a R package that allows one to create a HTML presentation
+  - You are now at the end of a `slidify` presentation
+
+--- .rcr
+
+## Creating presentations using Slidify
+
+* Install the `devtools` package and load it
+
+
+```r
+install.packages('devtools')
+library(devtools)
+```
+
+* Install the `slidify` and `slidifyLibraries` package from github
+
+
+```r
+install_github('ramnathv/slidify')
+install_github('ramnathv/slidifyLibraries')
+```
+
+* Load the slidify library
+
+
+```r
+library(slidify)
+```
+
+* Create a Slide desk
+
+```r
+author("myslides")
+```
+
+--- .rcr
+
+## Creating presentations using Slidify (contd)
+
+* This will create a folder called `myslides` with files and subdirectories to create your presentation
+   - `assets/css/custom.css`: Create your own custom css
+   - `assets/layouts/`: Don't like the default layouts, create your own in this directory
+   - `libraries`: files that slidify create. Do not edit the files, copy the file to the `assets` directory and modify it.
+* To edit your presentation, edit the `index.Rmd` file using [R Markdown](http://rmarkdown.rstudio.com/)
+* To create slides, in the R console run the command
+
+
+```r
+slidify('index.Rmd')``
+# View the presentation in a web browser
+browserURL('index.html')
+```
+
+* Do a Google search for `slidify` to learn more and/or see example slides.

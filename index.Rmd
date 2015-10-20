@@ -11,14 +11,6 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 --- .rcr
 
-## Read-And-Delete
-
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
-
---- .rcr
-
 ## History
 
 * R is a dialect of the S language
@@ -1115,7 +1107,7 @@ corrgram(iris)
 * Profiling and debugging
 * Regression Models
 * Machine learning/Data Mining
-* ...
+* &middot;&middot;&middot;
 
 --- .rcr
 
@@ -1128,9 +1120,7 @@ corrgram(iris)
 * Educational R packages
    - Swirl: Learn R in R
 * Online courses (e.g. Coursera)
-   
-   
---- .rcr
+
 
 --- .rcr
 
@@ -1138,12 +1128,7 @@ corrgram(iris)
 
 * Changes in Fine Particle Air Pollution in the U.S.
 * example data analysis looking at changes in fine particulate matter (PM) air pollution in the United States using the EPA freely available national monitoring data.
-* Download PM2.5 data for 1999 and 2012
-
-```{bash eval=FALSE}
-# *NIX only
-wget  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt  https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt
-```
+* Download PM2.5 data for [1999](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt) and [2012](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt)
 
 ```{r}
 pm0 <- read.table ( "RD_501_88101_1999-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
@@ -1169,12 +1154,11 @@ summary(x0)
 ## contd
 
 ```{r}
-pm1 <- read.table("RD_501_88101_2012-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
-names(pm1) <- make.names(cnames[[ 1 ]])
-library(dplyr)
+pm1 <- read.table("RD_501_88101_2012-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="", nrow = 1304290)
+names(pm1) <- make.names(cnames[[1]])
+library(plyr)
 pm <- rbind(pm0,pm1)
 pm <- mutate(pm , year=factor(rep ( c( 1999 , 2012 ), c( nrow (pm0), nrow (pm1 ))))) 
-rename (PM=Sample.Value )
 library (ggplot2)
 set.seed(2015)
 idx <- sample(nrow(pm), 1000)
@@ -1185,9 +1169,8 @@ idx <- sample(nrow(pm), 1000)
 ## contd
 
 ```{r}
-qplot ( year , log2(PM), data=pm[idx,], geom = "boxplot" )
+qplot ( year , log2(Sample.Value), data=pm[idx,], geom = "boxplot", na.rm=TRUE )
 ```
-
 
 --- .rcr
 
@@ -1204,3 +1187,50 @@ qplot ( year , log2(PM), data=pm[idx,], geom = "boxplot" )
 * `slidify` is a R package that allows one to create a HTML presentation
   - You are now at the end of a `slidify` presentation
 
+--- .rcr
+
+## Creating presentations using Slidify
+
+* Install the `devtools` package and load it
+
+```{r eval=FALSE}
+install.packages('devtools')
+library(devtools)
+```
+
+* Install the `slidify` and `slidifyLibraries` package from github
+
+```{r eval=FALSE}
+install_github('ramnathv/slidify')
+install_github('ramnathv/slidifyLibraries')
+```
+
+* Load the slidify library
+
+```{r eval=FALSE}
+library(slidify)
+```
+
+* Create a Slide desk
+```{r eval=FALSE}
+author("myslides")
+```
+
+--- .rcr
+
+## Creating presentations using Slidify (contd)
+
+* This will create a folder called `myslides` with files and subdirectories to create your presentation
+   - `assets/css/custom.css`: Create your own custom css
+   - `assets/layouts/`: Don't like the default layouts, create your own in this directory
+   - `libraries`: files that slidify create. Do not edit the files, copy the file to the `assets` directory and modify it.
+* To edit your presentation, edit the `index.Rmd` file using [R Markdown](http://rmarkdown.rstudio.com/)
+* To create slides, in the R console run the command
+
+```{r eval=FALSE}
+slidify('index.Rmd')``
+# View the presentation in a web browser
+browserURL('index.html')
+```
+
+* Do a Google search for `slidify` to learn more and/or see example slides.
