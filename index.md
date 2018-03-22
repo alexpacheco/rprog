@@ -1,6 +1,6 @@
 ---
 title       : Programming in R
-subtitle    : A short introduction
+subtitle    : A brief introduction
 author      : Alex Pacheco
 job         : LTS Research Computing
 logo        : lu.png
@@ -9,8 +9,9 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
 license     : by-sa
---- .rcr
+--- .class
 
 ## History
 
@@ -20,9 +21,9 @@ license     : by-sa
 * R was first announced in 1993.
 * The R core group was formed in 1997, who controls the source code of R (written in C)
 * R 1.0.0 was released in 2000
-* The current version is 3.2.2
+* The current version is 3.4.4 (released on March 15, 2018)
 
---- .rcr
+--- .class
 
 
 ## Features
@@ -38,7 +39,7 @@ license     : by-sa
     - More than 6,000 packages available on CRAN as of last week
 - Free to use
 
---- .rcr
+--- .class
 
 ## Alternatives to R
 
@@ -52,16 +53,17 @@ license     : by-sa
 * __GNU Octave__: free alternative to MATLAB
 * __Python__: general programming language
 
---- .rcr 
+--- .class 
 
 ## Installing R
 
 * R can be installed on Windows, Mac OSX and Linux from [CRAN](https://cran.r-project.org/mirrors.html).
+* R version 3.4.1 available as On Demand app on https://software.lehigh.edu
 
-<img src="./R-GUI.PNG" height="500px" width="800px" alt="R GUI" />
+<img src="./R-GUI.PNG" height="360px" width="720px" align="center" alt="R GUI" />
 
 
---- .rcr
+--- .class
 
 ## Running R
 
@@ -80,6 +82,7 @@ cat hello.R
 ## print("Hello World!")
 ```
 
+
 ```sh
 Rscript hello.R
 ```
@@ -88,17 +91,18 @@ Rscript hello.R
 ## [1] "Hello World!"
 ```
 
---- .rcr
+--- .class
 
 ## RStudio
 
 * free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
 * user interface comparable to other IDEs or software such as MATLAB.
 * more suited for development 
+* Version 1.0.153 available as On Demand on https://software.lehigh.edu
 
-<img src="./RStudio.PNG" height="400px" width="800px" alt="RStudio" />
+<img src="./RStudio.PNG" height="360px" width="720px" align="center" alt="RStudio" />
 
---- .rcr
+--- .class
 
 ## Get Started with R
 
@@ -106,7 +110,7 @@ Rscript hello.R
 
 
 ```r
-1+2
+1 + 2
 ```
 
 ```
@@ -134,7 +138,7 @@ b
 ## [1] 2
 ```
 
---- .rcr
+--- .class
 
 ## Get Started with R
 
@@ -165,7 +169,7 @@ library(knitr)
 
 * `setwd('dir')`: change current working director to `dir`
 
---- .rcr
+--- .class
 
 ## Data Classes
 
@@ -181,7 +185,7 @@ library(knitr)
 * You can convert data from one type to the other using the `as.<Type>` functions
 * To check the class of an object, use the `is.<Type>` function.
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -222,7 +226,7 @@ as.numeric(d); as.character(b); is.complex(c)
 ## [1] TRUE
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects‐ Vectors
@@ -235,7 +239,8 @@ as.numeric(d); as.character(b); is.complex(c)
 * One can use `[index]` to access individual element
     -  Indices start from 1
 
---- .rcr
+
+--- .class
 
 ## Examples
 
@@ -269,7 +274,7 @@ as.numeric("a")
 ## [1] NA
 ```
 
---- .rcr
+--- .class
 
 ## Examples (contd)
 
@@ -304,7 +309,7 @@ as.logical(x)
 ## [1] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ```
 
---- .rcr
+--- .class
 
 
 ## Vectorized Operations
@@ -346,7 +351,7 @@ print( x[x >= 3] )
 ## [1] 3 4
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects - Matrices
@@ -359,7 +364,7 @@ print( x[x >= 3] )
 * R matrices are constructed column‐wise
 * One can use `[<index>,<index>]` to access individual element
 
---- .rcr
+--- .class
 
 
 ## Example
@@ -393,7 +398,7 @@ attributes(m)
 ## [1] 2 3
 ```
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -419,7 +424,7 @@ m
 ## [2,]    2    4    6    8   10
 ```
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -448,7 +453,7 @@ rbind(x, y)
 ## y   10   11   12
 ```
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -491,7 +496,7 @@ m[,3]
 ## [1] 5 6
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects - Lists
@@ -521,7 +526,7 @@ x
 ## [1] 1+4i
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects - Data Frames
@@ -534,7 +539,7 @@ x
           -  More on this later
     -  Can be converted to a matrix by calling `data.matrix()`
 
---- .rcr
+--- .class
 
 
 ## Names
@@ -570,7 +575,7 @@ x
 ## 1 2 3
 ```
 
---- .rcr
+--- .class
 
 ## Names (contd)
 
@@ -601,7 +606,7 @@ x$a
 ## [1] 1
 ```
 
---- .rcr
+--- .class
 
 ## Names (contd)
 
@@ -619,7 +624,7 @@ m
 ## b 2 4
 ```
 
---- .rcr
+--- .class
 
 
 ## Querying Object Attributes
@@ -634,7 +639,7 @@ m
     -  User defined attributes
 * They work on all objects (including functions)
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -664,7 +669,7 @@ str(str)
 ## function (object, ...)
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Class - Factors
@@ -686,7 +691,7 @@ x
 ## Levels: yes no
 ```
 
---- .rcr
+--- .class
 
 
 ## Date and Time
@@ -723,7 +728,7 @@ x+1
 ## [1] "1970-01-02"
 ```
 
---- .rcr
+--- .class
 
 ## Data and Time (contd)
 
@@ -734,7 +739,7 @@ x <- Sys.time() ; x
 ```
 
 ```
-## [1] "2015-10-20 13:03:02 EDT"
+## [1] "2018-03-22 08:40:06 EDT"
 ```
 
 ```r
@@ -742,7 +747,7 @@ as.numeric(x)
 ```
 
 ```
-## [1] 1445360583
+## [1] 1521722406
 ```
 
 ```r
@@ -760,10 +765,10 @@ p$sec
 ```
 
 ```
-## [1] 2.568502
+## [1] 6.479255
 ```
 
---- .rcr
+--- .class
 
 
 ## Missing Values
@@ -792,7 +797,7 @@ is.nan(x)
 ## [1] FALSE FALSE FALSE FALSE FALSE
 ```
 
---- .rcr
+--- .class
 
 ## Missing Values (contd)
 
@@ -814,7 +819,7 @@ is.nan(x)
 ## [1] FALSE FALSE  TRUE FALSE FALSE
 ```
 
---- .rcr
+--- .class
 
 ## Arithmetic Functions
 
@@ -832,7 +837,7 @@ is.nan(x)
 <tr><td><code>round()</code></td><td>   </td></tr>
 </table>
 
---- .rcr
+--- .class
 
 ## Simple Statistic Functions
 
@@ -849,7 +854,7 @@ is.nan(x)
 <tr><td><code>prod()</code></td><td>products of elements of a vector</td></tr>
 </table>
 
---- .rcr
+--- .class
 
 
 ## Distributions and Random Variables
@@ -872,7 +877,7 @@ is.nan(x)
 <tr><td>Student’s t</td><td><code>t</code></td></tr>
 </table>
 
---- .rcr
+--- .class
 
 ## Examples: Distributions and Random Variables
 
@@ -883,8 +888,8 @@ runif(10, 2, 4)
 ```
 
 ```
-##  [1] 2.540423 3.062155 2.850793 3.010730 2.270031 3.610752 2.354025
-##  [8] 2.368707 2.350576 2.400664
+##  [1] 2.080494 2.140020 3.279643 2.292516 2.121182 2.465787 2.891568
+##  [8] 3.221651 2.835845 3.554286
 ```
 
 ```r
@@ -893,8 +898,8 @@ runif(10, min = 2, max = 4)
 ```
 
 ```
-##  [1] 3.503867 2.096495 2.365290 3.849260 2.112131 2.725666 3.243201
-##  [8] 3.366107 3.763836 3.486250
+##  [1] 3.864708 3.558662 3.011422 2.551474 2.215152 3.845879 2.237049
+##  [8] 2.028424 2.695853 3.390850
 ```
 
 ```r
@@ -915,7 +920,7 @@ pt(2.306, df = 8)
 ## [1] 0.9749998
 ```
 
---- .rcr
+--- .class
 
 ## User Defined Functions
 * Similar to other languages, functions in R are defined by using the `function()` directives
@@ -935,10 +940,10 @@ newDef(-1,1)
 ```
 
 ```
-## [1] -0.03486707
+## [1] 0.1779019
 ```
 
---- .rcr
+--- .class
 
 ## Control Structures
 * Control structures allow one to control the flow of execution.
@@ -953,7 +958,7 @@ newDef(-1,1)
 <tr><td><code>return</code></td><td>exit a function</td></tr>
 </table>
 
---- .rcr
+--- .class
 
 
 ## Testing conditions
@@ -971,7 +976,7 @@ if(x > 3 && x < 5) {
 }
 ```
 
---- .rcr
+--- .class
 
 ## For Loops
 
@@ -1006,7 +1011,7 @@ for(i in seq_along(x)) {
 ## [1] "d"
 ```
 
---- .rcr
+--- .class
 
 ## For Loops (contd)
 
@@ -1036,7 +1041,7 @@ for(i in 1:4) print(x[i])
 ## [1] "d"
 ```
 
---- .rcr &twocol
+--- .class &twocol
 
 ## while loops
 
@@ -1076,7 +1081,7 @@ while (sum < 11 )
 }
 ```
 
---- .rcr &twocol
+--- .class &twocol
 
 ## repeat loops
 
@@ -1125,7 +1130,7 @@ repeat
 ## [1] 14
 ```
 
---- .rcr
+--- .class
 
 ## break and next statements
 
@@ -1150,15 +1155,15 @@ for(lupe in x)
 ```
 
 ```
-## The value of lupe is  -0.9906826 
-## The value of lupe is  0.8846128 
-## The value of lupe is  0.4624723 
-## The value of lupe is  0.459107 
-## The value of lupe is  -0.2619124
+## The value of lupe is  1.252302 
+## The value of lupe is  -0.3448712 
+## The value of lupe is  -0.1833472 
+## The value of lupe is  1.066976 
+## The value of lupe is  -0.4986212
 ```
 
 
---- .rcr
+--- .class
 
 ## The apply Function
 * The `apply()` function evaluate a function over
@@ -1185,13 +1190,13 @@ apply(x, 1, mean)
 ```
 
 ```
-##  [1] -0.1607801288 -0.3990043157  0.5215385747 -0.0234976926 -0.1052717754
-##  [6] -0.1080847782  0.6623402891  0.1956335883 -0.0001507021 -0.2144411351
-## [11] -0.1144595219  0.2850910675 -0.1541681598  0.2695134427 -0.2127334255
-## [16]  0.2633009895  0.0774168428 -0.1273839101 -0.1305101702 -0.0689028991
+##  [1] -0.56706372  0.29605236 -0.12243105  0.39508406  0.48143361
+##  [6]  0.04930200 -0.20466170  0.12974536 -0.13387390 -0.02735853
+## [11]  0.21488576 -0.33514770  0.11733424  0.65669985  0.53110367
+## [16] -0.08488930  0.30794310  0.09569795  0.12904018  0.03674856
 ```
 
---- .rcr
+--- .class
 
 ## The apply Function (contd)
 
@@ -1202,8 +1207,8 @@ apply(x, 2, sum)
 ```
 
 ```
-##  [1]  0.6863302  1.2257178 -4.1181183 -3.7185748  6.6033673  4.6015972
-##  [7]  5.5598493 -1.4522218 -3.0266048 -1.8068803
+##  [1]  0.1150799  3.3847897  4.1670340  8.4534105 -0.1794458  3.2395951
+##  [7] -0.3983110 -1.2475295  2.4118395 -0.2900143
 ```
 
 ```r
@@ -1212,21 +1217,21 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
 ```
 
 ```
-##            [,1]       [,2]       [,3]       [,4]        [,5]       [,6]
-## 25% -0.43379332 -0.9414187 0.07680031 -0.5053064 -0.28459224 -0.9926439
-## 75%  0.06850873  0.2171644 0.90437102  0.3723524  0.08753514  0.8348046
-##          [,7]       [,8]       [,9]      [,10]        [,11]      [,12]
-## 25% 0.3588535 -0.3559191 -0.6400568 -0.7581874 -0.554790235 -0.6521134
-## 75% 1.3815400  0.7860163  0.9570463  0.4132340 -0.003249336  0.9858115
-##            [,13]      [,14]      [,15]      [,16]      [,17]      [,18]
-## 25% -0.616666565 -0.4577558 -0.4680271 -0.4907663 -0.3341646 -0.4733757
-## 75%  0.006607191  1.1035421  0.1496034  1.1170269  0.2509508  0.3292204
+##            [,1]       [,2]        [,3]      [,4]      [,5]       [,6]
+## 25% -1.12981396 0.05320533 -0.76026179 -0.280979 0.1561278 -0.4971189
+## 75% -0.03635382 0.65380948 -0.05765654  1.439553 0.7192037  0.5006148
+##           [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
+## 25% -0.4871022 -0.4261296 -1.0766658 -0.6012603 -0.3460629 -0.8672751
+## 75%  0.3523635  0.7871360  0.3282589  0.6461509  0.5666012  0.1798698
+##         [,13]     [,14]     [,15]      [,16]      [,17]      [,18]
+## 25% -0.695670 0.1628591 0.1135125 -0.5335172 -0.4598713 -0.5215956
+## 75%  0.814849 1.3024599 1.1476166  0.3738642  1.1652113  0.6152672
 ##          [,19]      [,20]
-## 25% -0.8950189 -1.0422849
-## 75%  0.6356963  0.6231946
+## 25% -0.3562603 -0.8098604
+## 75%  0.6595250  0.6965057
 ```
 
---- .rcr
+--- .class
 
 ## The apply Function (contd)
 
@@ -1247,9 +1252,9 @@ apply(x, c(1, 2), mean)
 ```
 
 ```
-##             [,1]      [,2]
-## [1,] -0.06859078 0.1452351
-## [2,] -0.11588014 0.1303250
+##            [,1]      [,2]
+## [1,] 0.04115467 0.1095874
+## [2,] 0.21407873 0.0283082
 ```
 
 ```r
@@ -1257,12 +1262,12 @@ rowMeans(x, dims = 2)
 ```
 
 ```
-##             [,1]      [,2]
-## [1,] -0.06859078 0.1452351
-## [2,] -0.11588014 0.1303250
+##            [,1]      [,2]
+## [1,] 0.04115467 0.1095874
+## [2,] 0.21407873 0.0283082
 ```
 
---- .rcr
+--- .class
 
 ## Other Apply Functions
 * `lapply`: Loop over a list and evaluate a function on each element
@@ -1270,474 +1275,928 @@ rowMeans(x, dims = 2)
 * `tapply`: Apply a function over subsets of a vector
 * `mapply`: Multivariate version of lapply
 
---- .rcr
+--- .class
 
-## Plyr Package
-* In data analysis you often need to 
-    - split up a big data structure into homogeneous pieces,
-    - apply a function to each piece and then
-    - combine all the results back together
-* This split‐apply‐combine procedure is what
-the `plyr` package is for.
+## R for Data Science
 
---- .rcr
+* The `tidyverse` is a collection of R packages developed by RStudio’s chief scientist Hadley Wickham. 
+     * `ggplot2` for data visualisation.
+     * `dplyr` for data manipulation.
+     * `tidyr` for data tidying.
+     * `readr` for data import.
+     * `purrr` for functional programming.
+     * `tibble` for tibbles, a modern re-imagining of data frames.
+* These packages work well together as part of larger data analysis pipeline. 
+* To learn more about these tools and how they work together, read [R for Data Science](http://r4ds.had.co.nz/). 
 
-## Example: Plyr Package
+--- .class
 
+## Tidyverse
 
-```r
-library(ggplot2)
-library(plyr)
-str(mpg)
-```
-
-```
-## 'data.frame':	234 obs. of  11 variables:
-##  $ manufacturer: Factor w/ 15 levels "audi","chevrolet",..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ model       : Factor w/ 38 levels "4runner 4wd",..: 2 2 2 2 2 2 2 3 3 3 ...
-##  $ displ       : num  1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
-##  $ year        : Factor w/ 2 levels "1999","2008": 1 1 2 2 1 1 2 1 1 2 ...
-##  $ cyl         : int  4 4 4 4 6 6 6 4 4 4 ...
-##  $ trans       : Factor w/ 10 levels "auto(av)","auto(l3)",..: 4 9 10 1 4 9 1 9 4 10 ...
-##  $ drv         : Factor w/ 3 levels "4","f","r": 2 2 2 2 2 2 2 1 1 1 ...
-##  $ cty         : int  18 21 20 21 16 18 18 18 16 20 ...
-##  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...
-##  $ fl          : Factor w/ 5 levels "c","d","e","p",..: 4 4 4 4 4 4 4 4 4 4 ...
-##  $ class       : Factor w/ 7 levels "2seater","compact",..: 2 2 2 2 2 2 2 2 2 2 ...
-```
-
-```r
-str(ddply)
-```
-
-```
-## function (.data, .variables, .fun = NULL, ..., .progress = "none", 
-##     .inform = FALSE, .drop = TRUE, .parallel = FALSE, .paropts = NULL)
-```
-
---- .rcr
-
-## Example (contd)
+* What is Tidy Data?
+     * "Tidy data" is a term that describes a standardized approach to structuring datasets to make analyses and visualizations easier. 
+* The core tidy data principles
+     * Variable make up the columns
+     * Observations make up the rows
+     * Values go into cells
+* `library(tidyverse)` will load the core tidyverse packages:
 
 
 ```r
-ddply(mpg, "cyl", summarise, mean = mean(cty))
+library(tidyverse)
 ```
 
 ```
-##   cyl     mean
-## 1   4 21.01235
-## 2   5 20.50000
-## 3   6 16.21519
-## 4   8 12.57143
+## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
---- .rcr
+```
+## ✔ tibble  1.4.2     ✔ purrr   0.2.4
+## ✔ tidyr   0.8.0     ✔ dplyr   0.7.4
+## ✔ readr   1.1.1     ✔ stringr 1.2.0
+## ✔ tibble  1.4.2     ✔ forcats 0.2.0
+```
 
-## Reading and Writing Data
-* R understands many different data formats and has lots of ways of reading/writing them
+```
+## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::arrange()   masks plyr::arrange()
+## ✖ purrr::compact()   masks plyr::compact()
+## ✖ dplyr::count()     masks plyr::count()
+## ✖ dplyr::failwith()  masks plyr::failwith()
+## ✖ dplyr::filter()    masks stats::filter()
+## ✖ dplyr::id()        masks plyr::id()
+## ✖ dplyr::lag()       masks stats::lag()
+## ✖ dplyr::mutate()    masks plyr::mutate()
+## ✖ dplyr::rename()    masks plyr::rename()
+## ✖ dplyr::summarise() masks plyr::summarise()
+## ✖ dplyr::summarize() masks plyr::summarize()
+```
 
-<table>
-<tr><th>Funtion (read)</th><th>Function (write)</th><th>Description</th></tr>
-<tr><td><code>read.table</code></td><td><code>write.table</code></td><td></td></tr>
-<tr><td><code>read.csv</code></td><td><code>write.csv</code></td><td>reading/writing tabular data</td></tr>
-<tr><td><code>readLines</code></td><td><code>writeLines</code></td><td>reading/writing lines of a text file</td></tr>
-<tr><td><code>source</code></td><td><code>dump</code></td><td>reading/writing in R code files</td></tr>
-<tr><td><code>dget</code></td><td><code>dput</code></td><td>reading/writing in R code files</td></tr>
-<tr><td><code>load</code></td><td><code>save</code></td><td>reading in/saving workspaces</td></tr>
-<tr><td><code>unserialize</code></td><td><code>serialize</code></td><td>reading/writing single R objects in binary form</td></tr>
-</table>
+```r
+library(lubridate)
+```
 
---- .rcr
+```
+## 
+## Attaching package: 'lubridate'
+```
 
-## Reading Data with read.table
+```
+## The following object is masked from 'package:plyr':
+## 
+##     here
+```
+
+```
+## The following object is masked from 'package:base':
+## 
+##     date
+```
+
+--- .class
+
+## Tidyverse 
+
+* Packages that are part of tidyverse but not loaded automatically
+   * `lubridate` for dates and date-times
+   * `magrittr` provides the pipe, %>% used throughout the tidyverse.
+   * `readxl` for .xls and .xlsx sheets.
+   * `haven` for SPSS, Stata, and SAS data. 
+* packages that are not in the tidyverse, but are tidyverse-adjacent. They are very useful for importing data from other sources:
+   * `jsonlite` for JSON.
+   * `xml2` for XML.
+   * `httr` for web APIs.
+   * `rvest` for web scraping.
+   * `DBI` for relational databases
+
+--- .class
+
+## Readr Package
+
+* `readr` is to provide a fast and friendly way to read rectangular data (like csv, tsv, and fwf).
+* `readr` supports seven file formats with seven read_ functions:
+    * `read_csv()`: comma separated (CSV) files
+    * `read_csv2()`: semicolon separated file and "," for decimal point
+    * `read_tsv()`: tab separated files
+    * `read_delim()`: general delimited files
+    * `read_fwf()`: fixed width files
+    * `read_table()`: tabular files where colums are separated by white-space.
+    * `read_log()`: web log files
+* Usage
+    * `read_delim(file,delim)` 
+          - `file`: path to a file, a connection, or literal data
+
+--- .class
+
+## Example
 
 
 ```r
-str(read.table)
+# read daily usage report for Sol in AY 2016-17
+# usage is reported in terms of SUs used and jobs submitted for
+#  serial (1 cpu), single or smp ( > 1 cpu but max of 1 node) and 
+#  parallel or multi node (> 1 node)  jobs 
+daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1617-public.csv',delim=";")
 ```
 
 ```
-## function (file, header = FALSE, sep = "", quote = "\"'", dec = ".", 
-##     numerals = c("allow.loss", "warn.loss", "no.loss"), row.names, 
-##     col.names, as.is = !stringsAsFactors, na.strings = "NA", colClasses = NA, 
-##     nrows = -1, skip = 0, check.names = TRUE, fill = !blank.lines.skip, 
-##     strip.white = FALSE, blank.lines.skip = TRUE, comment.char = "#", 
-##     allowEscapes = FALSE, flush = FALSE, stringsAsFactors = default.stringsAsFactors(), 
-##     fileEncoding = "", encoding = "unknown", text, skipNul = FALSE)
+## Parsed with column specification:
+## cols(
+##   Type = col_character(),
+##   Name = col_character(),
+##   Department = col_character(),
+##   PI = col_character(),
+##   PIDept = col_character(),
+##   Status = col_character(),
+##   Day = col_date(format = ""),
+##   SerialJ = col_integer(),
+##   Serial = col_double(),
+##   SingleJ = col_integer(),
+##   Single = col_double(),
+##   MultiJ = col_integer(),
+##   Multi = col_double(),
+##   TotalJ = col_integer(),
+##   Total = col_double()
+## )
 ```
 
-* `file` ‐ the name of a file, or a connection
-* `header` ‐ logical indicating if the file has a header line
-* `sep` ‐ a string indicating how the columns are separated
-* `colClasses` ‐ a character vector indicating the class of each column in the dataset
-* `nrows` ‐ the number of rows in the dataset
-* `comment.char` ‐ a character string indicating the comment character
-* `skip` ‐ the number of lines to skip from the beginning
-* `stringsAsFactors` ‐ should character variables be coded as factors?
+* the `readr` functions will just work: you supply the path to a file and you get a `tibble` back
 
---- .rcr
+--- .class
 
-## Reading Data with read.table (contd)
+## Tibble
 
-* The function will
-    - Skip lines that begin with a #
-    - Figure out how many rows there are (and how much memory needs to be allocated)
-    - Figure out what type of variable is in each column of the table
-* Telling R all these things directly makes R run faster and more efficiently.
-* `read.csv()` is identical to `read.table()` except that the default separator is a comma.
+* A `tibble`, or `tbl_df`, is a modern reimagining of the data.frame, 
+   * keeping what time has proven to be effective, and 
+   * throwing out what is not. 
+* Tibbles are data.frames that are lazy and surly 
 
---- .rcr
-
-## Graphics in R
-* There are three plotting systems in R
-    - Base
-* Convenient, but hard to adjust after the plot is created
-    - Lattice
-* Good for creating conditioning plot
-    - Ggplot2
-* Powerful and flexible, many tunable feature, may require some time to master
-* Each has its pros and cons, so it is up to the users which one to choose
-
---- .rcr
-
-## Graphics - Base
-
-```r
-summary(mpg)
-```
-
-```
-##      manufacturer                 model         displ         year    
-##  dodge     :37    caravan 2wd        : 11   Min.   :1.600   1999:117  
-##  toyota    :34    ram 1500 pickup 4wd: 10   1st Qu.:2.400   2008:117  
-##  volkswagen:27    civic              :  9   Median :3.300             
-##  ford      :25    dakota pickup 4wd  :  9   Mean   :3.472             
-##  chevrolet :19    jetta              :  9   3rd Qu.:4.600             
-##  audi      :18    mustang            :  9   Max.   :7.000             
-##  (Other)   :74    (Other)            :177                             
-##       cyl               trans    drv          cty             hwy       
-##  Min.   :4.000   auto(l4)  :83   4:103   Min.   : 9.00   Min.   :12.00  
-##  1st Qu.:4.000   manual(m5):58   f:106   1st Qu.:14.00   1st Qu.:18.00  
-##  Median :6.000   auto(l5)  :39   r: 25   Median :17.00   Median :24.00  
-##  Mean   :5.889   manual(m6):19           Mean   :16.86   Mean   :23.44  
-##  3rd Qu.:8.000   auto(s6)  :16           3rd Qu.:19.00   3rd Qu.:27.00  
-##  Max.   :8.000   auto(l6)  : 6           Max.   :35.00   Max.   :44.00  
-##                  (Other)   :13                                          
-##  fl             class   
-##  c:  1   2seater   : 5  
-##  d:  5   compact   :47  
-##  e:  8   midsize   :41  
-##  p: 52   minivan   :11  
-##  r:168   pickup    :33  
-##          subcompact:35  
-##          suv       :62
-```
-
---- .rcr
-
-## Graphics - Base (contd)
+* Create a tibble from an existing object with `as_tibble()`
+* create a new tibble from column vectors with `tibble()`
 
 
 ```r
-plot(hwy ~ displ, data=mpg)
+tibble(x = 1:5, y = 1, z = x ^ 2 + y)
 ```
 
-![plot of chunk unnamed-chunk-42](assets/fig/unnamed-chunk-42-1.png) 
+```
+## # A tibble: 5 x 3
+##       x     y     z
+##   <int> <dbl> <dbl>
+## 1     1  1.00  2.00
+## 2     2  1.00  5.00
+## 3     3  1.00 10.0 
+## 4     4  1.00 17.0 
+## 5     5  1.00 26.0
+```
 
---- .rcr
 
-## Graphics - Base (contd)
+--- .class
+
+## Tibble (contd)
+
+* define a tibble row-by-row with `tribble()`:
 
 
 ```r
-boxplot(hwy ~ class, data = mpg, xlab = "Class", ylab = "High Way Mileage")
+tribble(
+  ~x, ~y,  ~z,
+  "a", 2,  3.6,
+  "b", 1,  8.5
+)
 ```
 
-![plot of chunk unnamed-chunk-43](assets/fig/unnamed-chunk-43-1.png) 
+```
+## # A tibble: 2 x 3
+##   x         y     z
+##   <chr> <dbl> <dbl>
+## 1 a      2.00  3.60
+## 2 b      1.00  8.50
+```
 
---- .rcr
+--- .class
 
-## Graphics - Lattice
+## Dplyr
+
+* `dplyr` is a grammar of data manipulation, providing a consistent set of verbs to  solve the most common data manipulation challenges:
+  * `mutate()` adds new variables that are functions of existing variables
+  * `select()` picks variables based on their names.
+  * `filter()` picks cases based on their values.
+  * `summarise()` reduces multiple values down to a single summary.
+  * `arrange()` changes the ordering of the rows.
+* These all combine naturally with `group_by()` which allows you to perform any operation "by group"
+
+
+--- .class
+
+## Example
+
 
 
 ```r
-mpg <- transform(mpg, year = factor(year)) 
-xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
+daily %>% head
 ```
 
-![plot of chunk unnamed-chunk-44](assets/fig/unnamed-chunk-44-1.png) 
-
---- .rcr
-
-## Graphics - ggplot2
+```
+## # A tibble: 6 x 15
+##   Type  Name   Department  PI    PIDept  Status  Day        SerialJ Serial
+##   <chr> <chr>  <chr>       <chr> <chr>   <chr>   <date>       <int>  <dbl>
+## 1 User  user0… AS/Physics… pi009 Physics Gradua… 2016-10-01       0      0
+## 2 User  user1… AS/Biochem… pi024 Biolog… Gradua… 2016-10-01       0      0
+## 3 User  user0… AS/Physics… pi009 Physics Gradua… 2016-10-03       0      0
+## 4 User  user1… AS/Biochem… pi024 Biolog… Gradua… 2016-10-03       0      0
+## 5 User  user0… AS/Physics… pi009 Physics Gradua… 2016-10-04       2      0
+## 6 User  user1… LTS         pi016 LTS     Facult… 2016-10-04       0      0
+## # ... with 6 more variables: SingleJ <int>, Single <dbl>, MultiJ <int>,
+## #   Multi <dbl>, TotalJ <int>, Total <dbl>
+```
 
 ```r
-qplot(displ, cty, data = mpg, color = drv)
+# Number of core hours available per month for AY 2016-17
+# Oct 1, 2016: Initial launch with 780 cpu
+# Mar 15, 2017: Added 192 cpus
+# May 1, 2017: Added 312 cpus
+# Total Available at end of AY 2016-17: 1284 cpus
+ay1617su <- c(580320.00,561600.00,580320.00,580320.00,524160.00,580320.00,699840.00,955296.00,924480.00,955296.00,955296.00,924480.00)
 ```
 
-![plot of chunk unnamed-chunk-45](assets/fig/unnamed-chunk-45-1.png) 
 
---- .rcr
+--- .class
 
-## Graphics - ggplot2
-
-```r
-qplot(displ, hwy, data = mpg, facets = drv ~ year)
-```
-
-![plot of chunk unnamed-chunk-46](assets/fig/unnamed-chunk-46-1.png) 
+## Example
 
 
 ```r
-ggplot(emiByType, aes(year, sum, colour = type)) +
- geom_point(size = 5) +
- geom_line(size = 1) +
- ggtitle("Total Emission in Baltimore City by Source Type") +
- labs(x = "Year", y = "Total Emissions (ton)", fontsize = 20) +
- theme_economist() + scale_colour_economist() +
- theme(axis.title=element_text(size=14,face="bold"), legend.title =
-   element_text(size = rel(1.5), face = "bold"))
+monthly <- daily %>% 
+  group_by(Month=floor_date(as.Date(Day), "month"),Name,Department,PI,PIDept,Status) %>% 
+  summarize(Serial=sum(as.double(Serial)),
+    Single=sum(as.double(Single)),
+    Multi=sum(as.double(Multi)),
+    Total=sum(as.double(Total)),
+    SerialJ=sum(as.double(SerialJ)),
+    SingleJ=sum(as.double(SingleJ)),
+    MultiJ=sum(as.double(MultiJ)),
+    TotalJ=sum(as.double(TotalJ)))
+monthly %>% head
 ```
 
---- .rcr &twocol
+```
+## # A tibble: 6 x 14
+## # Groups:   Month, Name, Department, PI, PIDept [6]
+##   Month      Name   Department  PI    PIDept  Status  Serial Single  Multi
+##   <date>     <chr>  <chr>       <chr> <chr>   <chr>    <dbl>  <dbl>  <dbl>
+## 1 2016-10-01 user0… AS/Physics… pi009 Physics Gradua…      0  18542 0     
+## 2 2016-10-01 user1… LTS         pi016 LTS     Facult…      0    817 6.38e³
+## 3 2016-10-01 user1… AS/Biochem… pi024 Biolog… Gradua…      0      0 1.10e⁵
+## 4 2016-10-01 user1… Biological… pi024 Biolog… Facult…      0      0 1.42e⁴
+## 5 2016-10-01 user1… AS/Biochem… pi024 Biolog… Gradua…      0  14442 1.38e⁵
+## 6 2016-11-01 user1… LTS         pi016 LTS     Facult…      0    334 3.11e⁰
+## # ... with 5 more variables: Total <dbl>, SerialJ <dbl>, SingleJ <dbl>,
+## #   MultiJ <dbl>, TotalJ <dbl>
+```
 
-## Histograms
+--- .class
+
+## Sol usage per month
+
+
+```r
+monthly %>% 
+  group_by(Month) %>%	
+  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  mutate(Available=ay1617su,Unused=Available-Total,Percent=round(Total/Available*100,2))
+```
+
+```
+## # A tibble: 12 x 6
+##    Month       Total  Jobs Available Unused Percent
+##    <date>      <dbl> <dbl>     <dbl>  <dbl>   <dbl>
+##  1 2016-10-01 302612   582    580320 277708    52.2
+##  2 2016-11-01 419350 24078    561600 142250    74.7
+##  3 2016-12-01 463780 21395    580320 116540    79.9
+##  4 2017-01-01 465491  7004    580320 114829    80.2
+##  5 2017-02-01 328076 10998    524160 196084    62.6
+##  6 2017-03-01 349473 11273    580320 230847    60.2
+##  7 2017-04-01 560704  6333    699840 139136    80.1
+##  8 2017-05-01 533431 21804    955296 421865    55.8
+##  9 2017-06-01 564697  5441    924480 359783    61.1
+## 10 2017-07-01 549729 19893    955296 405567    57.6
+## 11 2017-08-01 602890 45746    955296 352406    63.1
+## 12 2017-09-01 548241 31076    924480 376239    59.3
+```
+
+--- .class
+
+## Sol usage per PI's Department
+
+
+```r
+library(knitr)
+monthly %>%
+  group_by(PIDept) %>%
+  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  kable
+```
+
+
+
+|PIDept                         |      Total|   Jobs|
+|:------------------------------|----------:|------:|
+|Biological Sciences            | 3178662.31| 187842|
+|Chemical and Biomolecular Engr | 1075569.60|   4516|
+|Chemical Engineering           |   44747.30|   3257|
+|Chemistry                      |   24950.47|   1185|
+|Civil and Environmental Engr   |   32294.69|   1320|
+|Computer Sci and Engineering   |   21673.44|    463|
+|LTS                            |   52167.27|   2791|
+|Mathematics                    |   20104.04|     32|
+|Mechanical Engr and Mechanics  |  871391.19|   3351|
+|Physics                        |  366912.48|    866|
+
+--- .class
+
+## Sol usage by user's department or major
+
+
+```r
+monthly %>%
+  group_by(Department) %>%
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  arrange(desc(Total)) %>%
+  kable
+```
+
+
+
+|Department                     | Serial|    SMP|     DMP|      Total|  Jobs|
+|:------------------------------|------:|------:|-------:|----------:|-----:|
+|AS/Biochemistry (CAS)          | 225602| 365083| 2077618| 2668302.97| 76047|
+|EN/Chemical Engineering        |  20748| 346296|  286186|  653229.90|  5173|
+|EN/Mechanical Engineering      |      0| 321597|  300579|  622176.07|  2320|
+|Biological Sciences            | 172290|  73569|  209243|  455101.83| 86726|
+|Chemical and Biomolecular Engr |   2663| 272962|  175245|  450870.03|  1483|
+|AS/Physics (AS)                |    340| 159440|  210693|  370473.39|   987|
+|EN/                            |   4285|  41891|  114646|  160821.65|   598|
+|Mechanical Engr and Mechanics  |     61|  16614|   79776|   96451.62|   865|
+|LTS                            |    325|   9051|   42415|   51790.48|  2707|
+|Civil and Environmental Engr   |    161|  32134|       0|   32294.69|  1320|
+|Chemistry                      |      0|  24950|       0|   24950.47|  1185|
+|Mathematics                    |      0|  20104|       0|   20104.04|    32|
+|IC/Computer Science & Business |      0|   7506|   11559|   19065.68|   188|
+|Computer Sci and Engineering   |  10759|   7725|       0|   18483.86| 24550|
+|AS/Behavioral Neuroscience     |      0|  15132|    2087|   17219.65|   418|
+|EN/Computer Science (EN)       |     13|  15921|       0|   15934.02|   392|
+|EN/Bioengineering              |      0|   2032|    6512|    8544.27|    25|
+|Chemical Engineering           |      0|   2170|       0|    2170.35|   357|
+|AS/Chemistry (AS)              |      0|    345|     137|     482.21|   239|
+|EN/Computer Engineering        |      5|      0|       0|       5.44|     6|
+|EN/Structural Engineering      |      0|      0|       0|       0.17|     2|
+|AS/Mathematics                 |      0|      0|       0|       0.00|     3|
+
+
+--- .class
+
+## Need code for creating LaTeX documents
+
+
+```r
+library(xtable)
+monthly %>%
+  group_by(Department) %>%
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  arrange(desc(Total)) %>%
+  xtable
+```
+
+```
+## % latex table generated in R 3.4.3 by xtable 1.8-2 package
+## % Thu Mar 22 09:33:12 2018
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{rlrrrrr}
+##   \hline
+##  & Department & Serial & SMP & DMP & Total & Jobs \\ 
+##   \hline
+## 1 & AS/Biochemistry (CAS) & 225602.00 & 365083.00 & 2077618.00 & 2668302.97 & 76047.00 \\ 
+##   2 & EN/Chemical Engineering & 20748.00 & 346296.00 & 286186.00 & 653229.90 & 5173.00 \\ 
+##   3 & EN/Mechanical Engineering & 0.00 & 321597.00 & 300579.00 & 622176.07 & 2320.00 \\ 
+##   4 & Biological Sciences & 172290.00 & 73569.00 & 209243.00 & 455101.83 & 86726.00 \\ 
+##   5 & Chemical and Biomolecular Engr & 2663.00 & 272962.00 & 175245.00 & 450870.03 & 1483.00 \\ 
+##   6 & AS/Physics (AS) & 340.00 & 159440.00 & 210693.00 & 370473.39 & 987.00 \\ 
+##   7 & EN/ & 4285.00 & 41891.00 & 114646.00 & 160821.65 & 598.00 \\ 
+##   8 & Mechanical Engr and Mechanics & 61.00 & 16614.00 & 79776.00 & 96451.62 & 865.00 \\ 
+##   9 & LTS & 325.00 & 9051.00 & 42415.00 & 51790.48 & 2707.00 \\ 
+##   10 & Civil and Environmental Engr & 161.00 & 32134.00 & 0.00 & 32294.69 & 1320.00 \\ 
+##   11 & Chemistry & 0.00 & 24950.00 & 0.00 & 24950.47 & 1185.00 \\ 
+##   12 & Mathematics & 0.00 & 20104.00 & 0.00 & 20104.04 & 32.00 \\ 
+##   13 & IC/Computer Science \& Business & 0.00 & 7506.00 & 11559.00 & 19065.68 & 188.00 \\ 
+##   14 & Computer Sci and Engineering & 10759.00 & 7725.00 & 0.00 & 18483.86 & 24550.00 \\ 
+##   15 & AS/Behavioral Neuroscience & 0.00 & 15132.00 & 2087.00 & 17219.65 & 418.00 \\ 
+##   16 & EN/Computer Science (EN) & 13.00 & 15921.00 & 0.00 & 15934.02 & 392.00 \\ 
+##   17 & EN/Bioengineering & 0.00 & 2032.00 & 6512.00 & 8544.27 & 25.00 \\ 
+##   18 & Chemical Engineering & 0.00 & 2170.00 & 0.00 & 2170.35 & 357.00 \\ 
+##   19 & AS/Chemistry (AS) & 0.00 & 345.00 & 137.00 & 482.21 & 239.00 \\ 
+##   20 & EN/Computer Engineering & 5.00 & 0.00 & 0.00 & 5.44 & 6.00 \\ 
+##   21 & EN/Structural Engineering & 0.00 & 0.00 & 0.00 & 0.17 & 2.00 \\ 
+##   22 & AS/Mathematics & 0.00 & 0.00 & 0.00 & 0.00 & 3.00 \\ 
+##    \hline
+## \end{tabular}
+## \end{table}
+```
+
+
+--- .class &twocol
+
+## Ggplot2
 
 *** =left
 
+* Ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics.
+* More on this in "Data Visualization with R and Python" on April 5, 2018
+
 
 ```r
-library(RColorBrewer)
-data(VADeaths)
-par(mfrow=c(2,3))
-hist(VADeaths,breaks=10, col=brewer.pal(3,"Set3"),main="Set3 3 colors")
-hist(VADeaths,breaks=3 ,col=brewer.pal(3,"Set2"),main="Set2 3 colors")
-hist(VADeaths,breaks=7, col=brewer.pal(3,"Set1"),main="Set1 3 colors")
-hist(VADeaths,,breaks= 2, col=brewer.pal(8,"Set3"),main="Set3 8 colors")
-hist(VADeaths,col=brewer.pal(8,"Greys"),main="Greys 8 colors")
-hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
+monthly %>%
+  group_by(Status) %>%
+  summarize(Total=round(sum(as.double(Total)),2)) %>%
+  ggplot(aes(x=Status,y=Total)) + geom_col()
+```
+
+
+*** =right
+
+![plot of chunk unnamed-chunk-49](assets/fig/unnamed-chunk-49-1.png)
+
+
+--- .class
+
+## Tidyr
+
+* The goal of `tidyr` is to help you create tidy data.
+* Tidy data is data where:
+   * Each variable is in a column.
+   * Each observation is a row.
+   * Each value is a cell.
+* Tidy data describes a standard way of storing data that is used wherever
+ possible throughout the `tidyverse`. 
+* If you ensure that your data is tidy, you’ll spend less timing fighting with the tools and more time working on your analysis.
+
+* two fundamental verbs of data tidying:
+   * `gather()` takes multiple columns, and gathers them into key-value pairs
+   * `spread()`. takes two columns (key & value) and spreads in to multiple columns
+
+
+--- .class
+
+## Example
+
+
+```r
+daily %>% 
+  filter(as.Date(Day) >= "2017-02-01" & as.Date(Day) <= "2017-03-01") %>% 
+  select(Day,Name,Department,PI,PIDept,Serial,Single,Multi) %>% 
+  gather(JobType,Usage,Serial:Multi) %>% 
+  filter(as.double(Usage) > 100 ) -> tmp
+tmp %>% arrange(Usage) %>% 
+  kable
+```
+
+
+
+|Day        |Name    |Department                     |PI    |PIDept                         |JobType |      Usage|
+|:----------|:-------|:------------------------------|:-----|:------------------------------|:-------|----------:|
+|2017-02-20 |user140 |Civil and Environmental Engr   |pi020 |Civil and Environmental Engr   |Single  |   104.1611|
+|2017-02-07 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   104.7500|
+|2017-02-27 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   105.4464|
+|2017-02-15 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   107.6944|
+|2017-02-11 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   108.8500|
+|2017-02-15 |user035 |AS/Behavioral Neuroscience     |pi005 |Chemical Engineering           |Single  |   114.1444|
+|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   114.2278|
+|2017-02-20 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   115.1944|
+|2017-02-15 |user128 |LTS                            |pi016 |LTS                            |Single  |   115.4333|
+|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   118.3239|
+|2017-02-28 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   120.1389|
+|2017-02-17 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   121.1556|
+|2017-02-16 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   122.4833|
+|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   126.5444|
+|2017-02-02 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   129.8619|
+|2017-02-15 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   130.0778|
+|2017-02-21 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   130.3667|
+|2017-02-18 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   133.4642|
+|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |Multi   |   133.8667|
+|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   134.4111|
+|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |Single  |   136.4111|
+|2017-02-02 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   138.5944|
+|2017-02-15 |user032 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   139.7722|
+|2017-02-16 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   140.1167|
+|2017-02-19 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   140.7222|
+|2017-02-19 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   141.3272|
+|2017-02-15 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   142.1389|
+|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |   142.6778|
+|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   145.2944|
+|2017-02-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   145.3694|
+|2017-02-14 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   146.3333|
+|2017-02-24 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   146.4556|
+|2017-02-22 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   148.0778|
+|2017-02-08 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   150.2964|
+|2017-02-22 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   156.0111|
+|2017-02-14 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   158.6667|
+|2017-02-15 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   159.6167|
+|2017-02-04 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   164.4814|
+|2017-02-11 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   166.4300|
+|2017-02-06 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   170.2172|
+|2017-03-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   172.6736|
+|2017-02-19 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   175.5294|
+|2017-02-11 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   178.8278|
+|2017-02-10 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   183.3172|
+|2017-02-13 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   188.1469|
+|2017-02-12 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   197.7642|
+|2017-02-28 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   199.3139|
+|2017-02-24 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   206.0994|
+|2017-02-24 |user030 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   206.3444|
+|2017-02-20 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   206.3906|
+|2017-02-21 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   207.0111|
+|2017-02-03 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   212.6167|
+|2017-02-21 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   216.3067|
+|2017-02-03 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   217.5011|
+|2017-02-27 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   221.7922|
+|2017-02-17 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   222.0128|
+|2017-02-14 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   222.6111|
+|2017-02-27 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   224.1025|
+|2017-02-18 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   224.1867|
+|2017-02-04 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   228.2333|
+|2017-02-22 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   231.3806|
+|2017-02-24 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   232.4611|
+|2017-02-15 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   233.7667|
+|2017-02-14 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   235.3556|
+|2017-02-14 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   237.0889|
+|2017-02-17 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   240.7922|
+|2017-02-23 |user177 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   243.8686|
+|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |   254.4778|
+|2017-02-09 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   255.9514|
+|2017-02-18 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   265.7314|
+|2017-02-26 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   266.3714|
+|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   277.4244|
+|2017-02-15 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   280.4333|
+|2017-02-14 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   283.6800|
+|2017-02-07 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   288.1375|
+|2017-02-24 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   290.8047|
+|2017-02-05 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   294.1478|
+|2017-02-06 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   297.9114|
+|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |   300.0778|
+|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   307.9611|
+|2017-02-16 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   326.0611|
+|2017-02-12 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   326.1778|
+|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   366.0944|
+|2017-02-01 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   372.3222|
+|2017-02-25 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   408.5003|
+|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Multi   |   410.5556|
+|2017-02-22 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   414.5008|
+|2017-02-23 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   425.0167|
+|2017-02-14 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   425.1778|
+|2017-02-16 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   430.6056|
+|2017-02-15 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   453.6500|
+|2017-02-28 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   460.2444|
+|2017-02-20 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   465.7378|
+|2017-02-22 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   503.2222|
+|2017-02-23 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   521.5822|
+|2017-02-12 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   541.8711|
+|2017-02-21 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   553.0756|
+|2017-02-11 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   618.3822|
+|2017-02-13 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   640.1889|
+|2017-02-22 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   661.2825|
+|2017-02-23 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |   692.3056|
+|2017-02-13 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   711.0267|
+|2017-02-01 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   720.4808|
+|2017-02-10 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   735.6622|
+|2017-03-01 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   741.6833|
+|2017-02-17 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   747.2578|
+|2017-02-14 |user128 |LTS                            |pi016 |LTS                            |Single  |   750.6067|
+|2017-02-09 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |   752.5500|
+|2017-02-21 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   778.3556|
+|2017-02-05 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   780.2081|
+|2017-02-14 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   802.0389|
+|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   819.1667|
+|2017-02-03 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |   854.3111|
+|2017-02-22 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   887.0833|
+|2017-02-08 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   895.3944|
+|2017-03-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |   928.9500|
+|2017-02-16 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   931.9722|
+|2017-02-25 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   960.0222|
+|2017-02-09 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  1021.2722|
+|2017-02-10 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  1051.5222|
+|2017-02-19 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  1110.0111|
+|2017-02-25 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  1130.2333|
+|2017-02-22 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  1227.3067|
+|2017-02-07 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |  1246.4833|
+|2017-02-04 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |  1357.3228|
+|2017-02-26 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  1362.2833|
+|2017-02-16 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  1396.8778|
+|2017-02-24 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1432.2000|
+|2017-02-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1440.0500|
+|2017-02-02 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1440.0500|
+|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1440.1778|
+|2017-02-10 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |  1440.3667|
+|2017-02-10 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  1467.6819|
+|2017-02-24 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |  1478.1056|
+|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  1573.7667|
+|2017-02-26 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  1633.3575|
+|2017-03-01 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  1643.1611|
+|2017-02-14 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |  1832.3800|
+|2017-02-02 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |  2142.4653|
+|2017-02-09 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  2379.7086|
+|2017-02-09 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  2457.0700|
+|2017-02-06 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  2566.5444|
+|2017-02-03 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |  2616.1383|
+|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  2721.7333|
+|2017-02-27 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  2829.9611|
+|2017-02-09 |user070 |AS/Physics (AS)                |pi009 |Physics                        |Single  |  2840.2722|
+|2017-02-24 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  2863.0389|
+|2017-02-16 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2866.4556|
+|2017-02-09 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.2111|
+|2017-02-04 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.2556|
+|2017-02-08 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.3222|
+|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.3667|
+|2017-02-20 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.6889|
+|2017-03-01 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  3317.4100|
+|2017-02-28 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  3465.9111|
+|2017-02-07 |user127 |AS/Behavioral Neuroscience     |pi015 |Biological Sciences            |Single  |  3725.7061|
+|2017-02-23 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  3773.1967|
+|2017-02-28 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  3888.3147|
+|2017-02-18 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  4015.0000|
+|2017-02-20 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  4075.2889|
+|2017-02-17 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  4101.8000|
+|2017-02-13 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  4290.1278|
+|2017-02-03 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  4899.0222|
+|2017-02-27 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  4922.7056|
+|2017-02-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  5264.1233|
+|2017-02-03 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  5610.3300|
+|2017-02-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  5715.8889|
+|2017-02-12 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6794.1900|
+|2017-02-10 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6893.1000|
+|2017-02-23 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6898.0633|
+|2017-02-05 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6959.4800|
+|2017-02-13 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7023.4200|
+|2017-02-11 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7177.8600|
+|2017-02-04 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7547.7600|
+|2017-02-24 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7622.2667|
+|2017-02-06 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  8071.8733|
+|2017-03-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  8678.0833|
+|2017-02-08 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  8935.5200|
+|2017-02-27 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9322.2800|
+|2017-02-28 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9503.2300|
+|2017-02-25 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9641.4633|
+|2017-02-26 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9705.6667|
+|2017-02-14 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 10380.3300|
+|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 12405.5800|
+|2017-02-07 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 12804.9900|
+|2017-02-20 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 17280.4000|
+
+
+--- .class
+
+## Example
+
+
+```r
+tmp %>% arrange(Usage) %>% 
+  spread(JobType,Usage,fill = 0.0) %>% 
+  kable
+```
+
+
+
+|Day        |Name    |Department                     |PI    |PIDept                         |      Multi|    Serial|    Single|
+|:----------|:-------|:------------------------------|:-----|:------------------------------|----------:|---------:|---------:|
+|2017-02-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  5715.8889|    0.0000|    0.0000|
+|2017-02-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1440.0500|
+|2017-02-01 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  372.3222|
+|2017-02-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  5264.1233|    0.0000|    0.0000|
+|2017-02-01 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  720.4808|    0.0000|
+|2017-02-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  145.3694|    0.0000|
+|2017-02-02 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1440.0500|
+|2017-02-02 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  138.5944|
+|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 12405.5800|  819.1667|    0.0000|
+|2017-02-02 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000| 2142.4653|    0.0000|
+|2017-02-02 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  129.8619|    0.0000|
+|2017-02-03 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  4899.0222|    0.0000|    0.0000|
+|2017-02-03 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  854.3111|
+|2017-02-03 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  212.6167|
+|2017-02-03 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  5610.3300|    0.0000|    0.0000|
+|2017-02-03 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000| 2616.1383|    0.0000|
+|2017-02-03 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  217.5011|    0.0000|
+|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |   300.0778|    0.0000|  114.2278|
+|2017-02-04 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.2556|    0.0000|    0.0000|
+|2017-02-04 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  228.2333|
+|2017-02-04 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7547.7600|    0.0000|    0.0000|
+|2017-02-04 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000| 1357.3228|    0.0000|
+|2017-02-04 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  164.4814|    0.0000|
+|2017-02-05 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6959.4800|    0.0000|    0.0000|
+|2017-02-05 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  780.2081|    0.0000|
+|2017-02-05 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  294.1478|    0.0000|
+|2017-02-06 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  2566.5444|    0.0000|    0.0000|
+|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.3667|    0.0000| 1440.1778|
+|2017-02-06 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  8071.8733|    0.0000|    0.0000|
+|2017-02-06 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  297.9114|    0.0000|
+|2017-02-06 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  170.2172|    0.0000|
+|2017-02-07 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  104.7500|
+|2017-02-07 |user122 |AS/Physics (AS)                |pi013 |Physics                        |  1246.4833|    0.0000|    0.0000|
+|2017-02-07 |user127 |AS/Behavioral Neuroscience     |pi015 |Biological Sciences            |     0.0000|    0.0000| 3725.7061|
+|2017-02-07 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 12804.9900|    0.0000|    0.0000|
+|2017-02-07 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  288.1375|    0.0000|
+|2017-02-08 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.3222|    0.0000|    0.0000|
+|2017-02-08 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  8935.5200|    0.0000|    0.0000|
+|2017-02-08 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  895.3944|    0.0000|
+|2017-02-08 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  150.2964|    0.0000|
+|2017-02-09 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1021.2722|
+|2017-02-09 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.2111|    0.0000|    0.0000|
+|2017-02-09 |user070 |AS/Physics (AS)                |pi009 |Physics                        |     0.0000|    0.0000| 2840.2722|
+|2017-02-09 |user122 |AS/Physics (AS)                |pi013 |Physics                        |   752.5500|    0.0000|    0.0000|
+|2017-02-09 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  2457.0700|    0.0000|    0.0000|
+|2017-02-09 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 2379.7086|    0.0000|
+|2017-02-09 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  255.9514|    0.0000|
+|2017-02-10 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  1051.5222|    0.0000|    0.0000|
+|2017-02-10 |user122 |AS/Physics (AS)                |pi013 |Physics                        |  1440.3667|    0.0000|    0.0000|
+|2017-02-10 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6893.1000|    0.0000|    0.0000|
+|2017-02-10 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 1467.6819|    0.0000|
+|2017-02-10 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  183.3172|    0.0000|
+|2017-02-10 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  735.6622|
+|2017-02-11 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  108.8500|
+|2017-02-11 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  178.8278|
+|2017-02-11 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7177.8600|    0.0000|    0.0000|
+|2017-02-11 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  166.4300|    0.0000|
+|2017-02-11 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  618.3822|
+|2017-02-12 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  326.1778|
+|2017-02-12 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6794.1900|    0.0000|    0.0000|
+|2017-02-12 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  197.7642|    0.0000|
+|2017-02-12 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  541.8711|
+|2017-02-13 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 4290.1278|
+|2017-02-13 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  640.1889|
+|2017-02-13 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7023.4200|    0.0000|    0.0000|
+|2017-02-13 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  188.1469|    0.0000|
+|2017-02-13 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  711.0267|
+|2017-02-14 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  235.3556|
+|2017-02-14 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  237.0889|
+|2017-02-14 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  158.6667|
+|2017-02-14 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  222.6111|
+|2017-02-14 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  146.3333|
+|2017-02-14 |user122 |AS/Physics (AS)                |pi013 |Physics                        |  1832.3800|    0.0000|    0.0000|
+|2017-02-14 |user128 |LTS                            |pi016 |LTS                            |     0.0000|    0.0000|  750.6067|
+|2017-02-14 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  802.0389|
+|2017-02-14 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 10380.3300|    0.0000|    0.0000|
+|2017-02-14 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  283.6800|    0.0000|
+|2017-02-14 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  425.1778|
+|2017-02-15 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  280.4333|
+|2017-02-15 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  233.7667|
+|2017-02-15 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  107.6944|
+|2017-02-15 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  142.1389|
+|2017-02-15 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  159.6167|
+|2017-02-15 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  453.6500|
+|2017-02-15 |user032 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  139.7722|
+|2017-02-15 |user035 |AS/Behavioral Neuroscience     |pi005 |Chemical Engineering           |     0.0000|    0.0000|  114.1444|
+|2017-02-15 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  130.0778|
+|2017-02-15 |user128 |LTS                            |pi016 |LTS                            |     0.0000|    0.0000|  115.4333|
+|2017-02-16 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1396.8778|
+|2017-02-16 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2866.4556|    0.0000|    0.0000|
+|2017-02-16 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  140.1167|
+|2017-02-16 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  931.9722|
+|2017-02-16 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  326.0611|
+|2017-02-16 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  430.6056|
+|2017-02-16 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  122.4833|
+|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |   133.8667|    0.0000|  136.4111|
+|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  277.4244|  118.3239|
+|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |   410.5556|    0.0000|  126.5444|
+|2017-02-17 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  121.1556|
+|2017-02-17 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  4101.8000|    0.0000|    0.0000|
+|2017-02-17 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  240.7922|    0.0000|
+|2017-02-17 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  222.0128|    0.0000|
+|2017-02-17 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  747.2578|
+|2017-02-18 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  4015.0000|    0.0000|    0.0000|
+|2017-02-18 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  265.7314|    0.0000|
+|2017-02-18 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  133.4642|    0.0000|
+|2017-02-18 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  224.1867|
+|2017-02-19 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1110.0111|
+|2017-02-19 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  140.7222|
+|2017-02-19 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  175.5294|    0.0000|
+|2017-02-19 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  141.3272|    0.0000|
+|2017-02-20 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.6889|    0.0000|    0.0000|
+|2017-02-20 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 4075.2889|
+|2017-02-20 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  115.1944|
+|2017-02-20 |user140 |Civil and Environmental Engr   |pi020 |Civil and Environmental Engr   |     0.0000|    0.0000|  104.1611|
+|2017-02-20 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 17280.4000|    0.0000|    0.0000|
+|2017-02-20 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  206.3906|    0.0000|
+|2017-02-20 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  465.7378|
+|2017-02-21 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  778.3556|
+|2017-02-21 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  130.3667|
+|2017-02-21 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  207.0111|
+|2017-02-21 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  216.3067|    0.0000|
+|2017-02-21 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  553.0756|
+|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  2721.7333|    0.0000|  134.4111|
+|2017-02-22 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  887.0833|
+|2017-02-22 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  148.0778|
+|2017-02-22 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  156.0111|
+|2017-02-22 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  661.2825|    0.0000|
+|2017-02-22 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  1227.3067|    0.0000|    0.0000|
+|2017-02-22 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  414.5008|    0.0000|
+|2017-02-22 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  231.3806|    0.0000|
+|2017-02-22 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  503.2222|
+|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |   142.6778|    0.0000|  307.9611|
+|2017-02-23 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000|  692.3056|
+|2017-02-23 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  425.0167|
+|2017-02-23 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6898.0633|    0.0000|    0.0000|
+|2017-02-23 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 3773.1967|    0.0000|
+|2017-02-23 |user177 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  243.8686|    0.0000|
+|2017-02-23 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  521.5822|
+|2017-02-24 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  232.4611|
+|2017-02-24 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1432.2000|
+|2017-02-24 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 2863.0389|
+|2017-02-24 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  146.4556|
+|2017-02-24 |user030 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  206.3444|
+|2017-02-24 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000| 1478.1056|
+|2017-02-24 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7622.2667|    0.0000|    0.0000|
+|2017-02-24 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  206.0994|
+|2017-02-24 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  290.8047|    0.0000|
+|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |   254.4778|    0.0000|  366.0944|
+|2017-02-25 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 1130.2333|
+|2017-02-25 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  960.0222|
+|2017-02-25 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  408.5003|    0.0000|
+|2017-02-25 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9641.4633|    0.0000|    0.0000|
+|2017-02-26 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 1362.2833|
+|2017-02-26 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 1633.3575|    0.0000|
+|2017-02-26 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9705.6667|    0.0000|    0.0000|
+|2017-02-26 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  266.3714|    0.0000|
+|2017-02-27 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 2829.9611|
+|2017-02-27 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 4922.7056|
+|2017-02-27 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  221.7922|    0.0000|
+|2017-02-27 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9322.2800|    0.0000|    0.0000|
+|2017-02-27 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  105.4464|    0.0000|
+|2017-02-27 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  224.1025|    0.0000|
+|2017-02-28 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  460.2444|
+|2017-02-28 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 3465.9111|
+|2017-02-28 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  120.1389|
+|2017-02-28 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 3888.3147|    0.0000|
+|2017-02-28 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9503.2300|    0.0000|    0.0000|
+|2017-02-28 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  199.3139|    0.0000|
+|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  1573.7667|    0.0000|  145.2944|
+|2017-03-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  928.9500|
+|2017-03-01 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 1643.1611|
+|2017-03-01 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  741.6833|
+|2017-03-01 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 3317.4100|    0.0000|
+|2017-03-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  8678.0833|    0.0000|    0.0000|
+|2017-03-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  172.6736|    0.0000|
+
+--- .class &twocol
+
+## Other Tidyr functions
+
+*** =left 
+
+* `separate()`: Splitting a single variable into two
+
+
+```r
+daily %>% 
+   select(c(Department,Day,Total)) %>% 
+   separate(Day,c("Year","Month","Day"),sep="-") -> tmp
+head(tmp)
+```
+
+```
+## # A tibble: 6 x 5
+##   Department            Year  Month Day       Total
+##   <chr>                 <chr> <chr> <chr>     <dbl>
+## 1 AS/Physics (AS)       2016  10    01     2881    
+## 2 AS/Biochemistry (CAS) 2016  10    01    13826    
+## 3 AS/Physics (AS)       2016  10    03     2881    
+## 4 AS/Biochemistry (CAS) 2016  10    03     1452    
+## 5 AS/Physics (AS)       2016  10    04        0.200
+## 6 LTS                   2016  10    04      652
 ```
 
 *** =right
 
-![plot of chunk unnamed-chunk-49](assets/fig/unnamed-chunk-49-1.png) 
-
-***
-
---- .rcr
-
-## Line Chart
+* `unite()`: Merging two variables into one
 
 
 ```r
-plot(AirPassengers,type="l")  #Simple Line Plot
-```
-
-![plot of chunk unnamed-chunk-50](assets/fig/unnamed-chunk-50-1.png) 
-
---- .rcr &twocol_width
-
-## Bar Chart
-
-*** =left width:48%
-
-```r
-barplot(iris$Petal.Length) #Creating simple Bar Graph
-```
-
-![plot of chunk unnamed-chunk-51](assets/fig/unnamed-chunk-51-1.png) 
-*** =right width:48%
-
-```r
-barplot(iris$Sepal.Length,col  = brewer.pal(3,"Set1"))
-```
-
-![plot of chunk unnamed-chunk-52](assets/fig/unnamed-chunk-52-1.png) 
-***
-
---- .rcr
-## Bar Chart
-
-```r
-barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,"Set1")) #Stacked Plot
-```
-
-![plot of chunk unnamed-chunk-53](assets/fig/unnamed-chunk-53-1.png) 
-
---- .rcr
-
-## Box Plot
-
-```r
-boxplot(iris$Petal.Length~iris$Species) #Creating Box Plot between two variable
-```
-
-![plot of chunk unnamed-chunk-54](assets/fig/unnamed-chunk-54-1.png) 
-
---- .rcr &twocol_width
-
-## Box Plot
-
-*** =left width:48%
-
-
-```r
-data(iris)
-par(mfrow=c(2,2))
-boxplot(iris$Sepal.Length,col="red")
-boxplot(iris$Sepal.Length~iris$Species,col="red")
-boxplot(iris$Sepal.Length~iris$Species,col=heat.colors(3))
-boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
-```
-
-*** =right width:48%
-
-![plot of chunk unnamed-chunk-56](assets/fig/unnamed-chunk-56-1.png) 
-
-***
-
---- .rcr
-
-## Scatter Plots
-
-```r
-plot(x=iris$Petal.Length) #Simple Scatter Plot
-```
-
-![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-1.png) 
-
-```r
-plot(x=iris$Petal.Length,y=iris$Species) #Multivariate Scatter Plot
-```
-
-![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-2.png) 
-
-```r
-plot(iris,col=brewer.pal(3,"Set1"))
-```
-
-![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-3.png) 
-
-```r
-pie(table(iris$Species))
-```
-
-![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-4.png) 
-
---- .rcr &twocol_width
-
-## Hexbin Binning
-
-* We can use the hexbin package in case we have multiple points in the same place (overplotting). Hexagon binning is a form of bivariate histogram useful for visualizing the structure in datasets with large n. 
-
-*** =left width:48%
-
-
-```r
-#library(ggplot2) to get diamonds dataset
-library(hexbin)
-a=hexbin(diamonds$price,diamonds$carat,xbins=40)
-library(RColorBrewer)
-plot(a)
-```
-
-*** =right width:48%
-
-<img src="assets/fig/unnamed-chunk-59-1.png" title="plot of chunk unnamed-chunk-59" alt="plot of chunk unnamed-chunk-59" style="display: block; margin: auto;" />
-
-***
-
---- .rcr 
-
-## (Contd)
-
-
-```r
-# We can also create a color palette and then use the hexbin plot function for a better visual effect. 
-rf <- colorRampPalette(rev(brewer.pal(40,'Set3')))
-hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
-```
-
-<img src="assets/fig/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" style="display: block; margin: auto;" />
-
---- .rcr
-
-## Mosaic Plot
-
-* A mosaic plot can be used for plotting categorical data very effectively with the area of the data showing the relative proportions.
-
-```r
-data(HairEyeColor)
-mosaicplot(HairEyeColor)
-```
-
-<img src="assets/fig/unnamed-chunk-61-1.png" title="plot of chunk unnamed-chunk-61" alt="plot of chunk unnamed-chunk-61" style="display: block; margin: auto;" />
-
---- .rcr
-
-## Heat Map
-
-* Heat maps enable you to do exploratory data analysis with two dimensions as the axis and the third dimension shown by intensity of color. 
-* However you need to convert the dataset to a matrix format. Here’s the code:
-
-
-```r
-heatmap(as.matrix(mtcars))
-```
-
-<img src="assets/fig/unnamed-chunk-62-1.png" title="plot of chunk unnamed-chunk-62" alt="plot of chunk unnamed-chunk-62" style="display: block; margin: auto;" />
-
---- .rcr
-
-## Heat Map (contd)
-
-* You can use `image()` command also for this type of visualization as:
-
-```r
-image(as.matrix(mtcars[2:7]))
-```
-
-<img src="assets/fig/unnamed-chunk-63-1.png" title="plot of chunk unnamed-chunk-63" alt="plot of chunk unnamed-chunk-63" style="display: block; margin: auto;" />
-
---- .rcr &twocol_width
-
-## 3D Graphs
-
-*** =left width:48%
-
-* Install package R Commander 
-`install.packages("Rcmdr")`
-* Install Lattice package
-* Correlogram (GUIs)
-
-Correlogram help us visualize the data in correlation matrices. Here’s the code:
-
-
-```r
-cor(iris[1:4])
+tmp %>%
+  unite(Day,c("Year","Month","Day"),sep="/") %>%
+  tail
 ```
 
 ```
-##              Sepal.Length Sepal.Width Petal.Length Petal.Width
-## Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
-## Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
-## Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
-## Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000
+## # A tibble: 6 x 3
+##   Department                     Day           Total
+##   <chr>                          <chr>         <dbl>
+## 1 Biological Sciences            2017/09/30    0.338
+## 2 AS/Biochemistry (CAS)          2017/09/30  559    
+## 3 AS/Biochemistry (CAS)          2017/09/30  119    
+## 4 IC/Computer Science & Business 2017/09/30   43.5  
+## 5 AS/Biochemistry (CAS)          2017/09/30  250    
+## 6 Biological Sciences            2017/09/30 7755
 ```
 
-*** =right width:48%
-
-
-```r
-corrgram(iris)
-```
-
-<img src="assets/fig/unnamed-chunk-65-1.png" title="plot of chunk unnamed-chunk-65" alt="plot of chunk unnamed-chunk-65" style="display: block; margin: auto;" />
-
-***
-
---- .rcr
+--- .class
 
 ## What more can be done with R?
 
@@ -1747,7 +2206,7 @@ corrgram(iris)
 * Machine learning/Data Mining
 * &middot;&middot;&middot;
 
---- .rcr
+--- .class
 
 ## Learning R
 
@@ -1760,113 +2219,7 @@ corrgram(iris)
 * Online courses (e.g. Coursera)
 
 
---- .rcr
-
-## Data Analysis Case Study
-
-* Changes in Fine Particle Air Pollution in the U.S.
-* example data analysis looking at changes in fine particulate matter (PM) air pollution in the United States using the EPA freely available national monitoring data.
-* Download PM2.5 data for [1999](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt) and [2012](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt)
-
-
-```r
-pm0 <- read.table ( "RD_501_88101_1999-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
-dim(pm0)
-```
-
-```
-## [1] 117421     28
-```
-
-```r
-head(pm0[,1:13])
-```
-
-```
-##   V1 V2 V3 V4 V5    V6 V7 V8  V9 V10      V11   V12    V13
-## 1 RD  I  1 27  1 88101  1  7 105 120 19990103 00:00     NA
-## 2 RD  I  1 27  1 88101  1  7 105 120 19990106 00:00     NA
-## 3 RD  I  1 27  1 88101  1  7 105 120 19990109 00:00     NA
-## 4 RD  I  1 27  1 88101  1  7 105 120 19990112 00:00  8.841
-## 5 RD  I  1 27  1 88101  1  7 105 120 19990115 00:00 14.920
-## 6 RD  I  1 27  1 88101  1  7 105 120 19990118 00:00  3.878
-```
-
---- .rcr
-
-## contd
-
-
-```r
-cnames <- readLines('RD_501_88101_1999-0.txt',1)
-cnames <- strsplit ( cnames , "|" , fixed = TRUE )
-names ( pm0 ) <- make.names ( cnames [[ 1 ]])
-head ( pm0 [, 1 : 13 ])
-```
-
-```
-##   X..RD Action.Code State.Code County.Code Site.ID Parameter POC
-## 1    RD           I          1          27       1     88101   1
-## 2    RD           I          1          27       1     88101   1
-## 3    RD           I          1          27       1     88101   1
-## 4    RD           I          1          27       1     88101   1
-## 5    RD           I          1          27       1     88101   1
-## 6    RD           I          1          27       1     88101   1
-##   Sample.Duration Unit Method     Date Start.Time Sample.Value
-## 1               7  105    120 19990103      00:00           NA
-## 2               7  105    120 19990106      00:00           NA
-## 3               7  105    120 19990109      00:00           NA
-## 4               7  105    120 19990112      00:00        8.841
-## 5               7  105    120 19990115      00:00       14.920
-## 6               7  105    120 19990118      00:00        3.878
-```
-
-```r
-x0 <- pm0 $ Sample.Value
-summary(x0)
-```
-
-```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##    0.00    7.20   11.50   13.74   17.90  157.10   13217
-```
-
---- .rcr
-
-## contd
-
-
-```r
-pm1 <- read.table("RD_501_88101_2012-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="", nrow = 1304290)
-names(pm1) <- make.names(cnames[[1]])
-library(plyr)
-pm <- rbind(pm0,pm1)
-pm <- mutate(pm , year=factor(rep ( c( 1999 , 2012 ), c( nrow (pm0), nrow (pm1 ))))) 
-library (ggplot2)
-set.seed(2015)
-idx <- sample(nrow(pm), 1000)
-```
-
---- .rcr
-
-## contd
-
-
-```r
-qplot ( year , log2(Sample.Value), data=pm[idx,], geom = "boxplot", na.rm=TRUE )
-```
-
-```
-## Warning: NaNs produced
-```
-
-```
-## Warning: NaNs produced
-```
-
-![plot of chunk unnamed-chunk-69](assets/fig/unnamed-chunk-69-1.png) 
-
---- .rcr
+--- .class
 
 ## Data Analysis with Reporting
 
@@ -1881,7 +2234,7 @@ qplot ( year , log2(Sample.Value), data=pm[idx,], geom = "boxplot", na.rm=TRUE )
 * `slidify` is a R package that allows one to create a HTML presentation
   - You are now at the end of a `slidify` presentation
 
---- .rcr
+--- .class
 
 ## Creating presentations using Slidify
 
@@ -1897,8 +2250,8 @@ library(devtools)
 
 
 ```r
-install_github('ramnathv/slidify')
-install_github('ramnathv/slidifyLibraries')
+install_git('git://github.com/ramnathv/slidify')
+install_git('git://github.com/ramnathv/slidifyLibraries')
 ```
 
 * Load the slidify library
@@ -1914,7 +2267,7 @@ library(slidify)
 author("myslides")
 ```
 
---- .rcr
+--- .class
 
 ## Creating presentations using Slidify (contd)
 
@@ -1933,3 +2286,28 @@ browserURL('index.html')
 ```
 
 * Do a Google search for `slidify` to learn more and/or see example slides.
+
+--- .class
+
+## Creating presentations using Slidify (contd)
+
+* To use my template
+
+
+```sh
+git clone https://gogs.cc.lehigh.edu/alp514/slidify
+```
+
+* Edit the index.Rmd or create a new .Rmd file
+* OR just overwrite the assets folder in your `myslides` folder with the one 
+ from the git repository you just cloned
+* The git repository contains a script `compile.R` that will compile the R
+  markdown file (for e.g. index.Rmd) into a html file (for e.g. index.html)
+
+
+```sh
+chmod +x compile.R
+./compile.R index 
+```
+
+

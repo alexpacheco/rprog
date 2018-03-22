@@ -1,6 +1,6 @@
 ---
 title       : Programming in R
-subtitle    : A short introduction
+subtitle    : A brief introduction
 author      : Alex Pacheco
 job         : LTS Research Computing
 logo        : lu.png
@@ -9,8 +9,9 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
 license     : by-sa
---- .rcr
+--- .class
 
 ## History
 
@@ -20,9 +21,9 @@ license     : by-sa
 * R was first announced in 1993.
 * The R core group was formed in 1997, who controls the source code of R (written in C)
 * R 1.0.0 was released in 2000
-* The current version is 3.2.2
+* The current version is 3.4.4 (released on March 15, 2018)
 
---- .rcr
+--- .class
 
 
 ## Features
@@ -38,7 +39,7 @@ license     : by-sa
     - More than 6,000 packages available on CRAN as of last week
 - Free to use
 
---- .rcr
+--- .class
 
 ## Alternatives to R
 
@@ -52,16 +53,17 @@ license     : by-sa
 * __GNU Octave__: free alternative to MATLAB
 * __Python__: general programming language
 
---- .rcr 
+--- .class 
 
 ## Installing R
 
 * R can be installed on Windows, Mac OSX and Linux from [CRAN](https://cran.r-project.org/mirrors.html).
+* R version 3.4.1 available as On Demand app on https://software.lehigh.edu
 
-<img src="./R-GUI.PNG" height="500px" width="800px" alt="R GUI" />
+<img src="./R-GUI.PNG" height="360px" width="720px" align="center" alt="R GUI" />
 
 
---- .rcr
+--- .class
 
 ## Running R
 
@@ -73,29 +75,31 @@ license     : by-sa
 
 ```{sh}
 cat hello.R
-``` 
+```
+
 ```{sh}
 Rscript hello.R
 ``` 
 
---- .rcr
+--- .class
 
 ## RStudio
 
 * free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
 * user interface comparable to other IDEs or software such as MATLAB.
 * more suited for development 
+* Version 1.0.153 available as On Demand on https://software.lehigh.edu
 
-<img src="./RStudio.PNG" height="400px" width="800px" alt="RStudio" />
+<img src="./RStudio.PNG" height="360px" width="720px" align="center" alt="RStudio" />
 
---- .rcr
+--- .class
 
 ## Get Started with R
 
 * Use the console to use R as a simple calculator
 
 ```{r}
-1+2
+1 + 2
 ```  
 
 * The assignment symbol is "<-". The classical "=" symbol can also be used
@@ -107,7 +111,7 @@ a
 b
 ```
 
---- .rcr
+--- .class
 
 ## Get Started with R
 
@@ -136,7 +140,7 @@ library(knitr)
 
 * `setwd('dir')`: change current working director to `dir`
 
---- .rcr
+--- .class
 
 ## Data Classes
 
@@ -152,7 +156,7 @@ library(knitr)
 * You can convert data from one type to the other using the `as.<Type>` functions
 * To check the class of an object, use the `is.<Type>` function.
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -166,7 +170,7 @@ d
 as.numeric(d); as.character(b); is.complex(c)
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects‐ Vectors
@@ -179,7 +183,8 @@ as.numeric(d); as.character(b); is.complex(c)
 * One can use `[index]` to access individual element
     -  Indices start from 1
 
---- .rcr
+
+--- .class
 
 ## Examples
 
@@ -197,7 +202,7 @@ as.numeric(d)
 as.numeric("a")
 ```
 
---- .rcr
+--- .class
 
 ## Examples (contd)
 
@@ -220,7 +225,7 @@ class(x)
 as.logical(x)
 ```
 
---- .rcr
+--- .class
 
 
 ## Vectorized Operations
@@ -236,7 +241,7 @@ x * y
 print( x[x >= 3] )
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects - Matrices
@@ -249,7 +254,7 @@ print( x[x >= 3] )
 * R matrices are constructed column‐wise
 * One can use `[<index>,<index>]` to access individual element
 
---- .rcr
+--- .class
 
 
 ## Example
@@ -261,7 +266,7 @@ dim(m)
 attributes(m)
 ```
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -273,7 +278,7 @@ dim(m) <- c(2, 5)
 m
 ```
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -286,7 +291,7 @@ rbind(x, y)
 
 ```
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -301,7 +306,7 @@ m[2,]
 m[,3]
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects - Lists
@@ -316,7 +321,7 @@ x <- list(1, "a", TRUE, 1 + 4i)
 x
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Objects - Data Frames
@@ -329,7 +334,7 @@ x
           -  More on this later
     -  Can be converted to a matrix by calling `data.matrix()`
 
---- .rcr
+--- .class
 
 
 ## Names
@@ -345,7 +350,7 @@ names(x)
 x
 ```
 
---- .rcr
+--- .class
 
 ## Names (contd)
 
@@ -357,7 +362,7 @@ x
 x$a
 ```
 
---- .rcr
+--- .class
 
 ## Names (contd)
 
@@ -368,7 +373,7 @@ dimnames(m) <- list(c("a", "b"), c("c", "d"))
 m
 ```
 
---- .rcr
+--- .class
 
 
 ## Querying Object Attributes
@@ -383,7 +388,7 @@ m
     -  User defined attributes
 * They work on all objects (including functions)
 
---- .rcr
+--- .class
 
 ## Example
 
@@ -394,7 +399,7 @@ str(m)
 str(str)
 ```
 
---- .rcr
+--- .class
 
 
 ## Data Class - Factors
@@ -410,7 +415,7 @@ x <- factor(c("yes", "yes", "no", "yes", "no"), levels = c("yes", "no"))
 x
 ```
 
---- .rcr
+--- .class
 
 
 ## Date and Time
@@ -428,7 +433,7 @@ as.numeric(x)
 x+1
 ```
 
---- .rcr
+--- .class
 
 ## Data and Time (contd)
 
@@ -441,7 +446,7 @@ names(unclass(p))
 p$sec
 ```
 
---- .rcr
+--- .class
 
 
 ## Missing Values
@@ -458,7 +463,7 @@ is.na(x)
 is.nan(x)
 ```
 
---- .rcr
+--- .class
 
 ## Missing Values (contd)
 
@@ -468,7 +473,7 @@ is.na(x)
 is.nan(x)
 ```
 
---- .rcr
+--- .class
 
 ## Arithmetic Functions
 
@@ -486,7 +491,7 @@ is.nan(x)
 <tr><td><code>round()</code></td><td>   </td></tr>
 </table>
 
---- .rcr
+--- .class
 
 ## Simple Statistic Functions
 
@@ -503,7 +508,7 @@ is.nan(x)
 <tr><td><code>prod()</code></td><td>products of elements of a vector</td></tr>
 </table>
 
---- .rcr
+--- .class
 
 
 ## Distributions and Random Variables
@@ -526,7 +531,7 @@ is.nan(x)
 <tr><td>Student’s t</td><td><code>t</code></td></tr>
 </table>
 
---- .rcr
+--- .class
 
 ## Examples: Distributions and Random Variables
 
@@ -541,7 +546,7 @@ qt(p=0.975, df = 8)
 pt(2.306, df = 8)
 ```
 
---- .rcr
+--- .class
 
 ## User Defined Functions
 * Similar to other languages, functions in R are defined by using the `function()` directives
@@ -559,7 +564,7 @@ newDef <- function(a,b)
 newDef(-1,1)
 ```
 
---- .rcr
+--- .class
 
 ## Control Structures
 * Control structures allow one to control the flow of execution.
@@ -574,7 +579,7 @@ newDef(-1,1)
 <tr><td><code>return</code></td><td>exit a function</td></tr>
 </table>
 
---- .rcr
+--- .class
 
 
 ## Testing conditions
@@ -591,7 +596,7 @@ if(x > 3 && x < 5) {
 }
 ```
 
---- .rcr
+--- .class
 
 ## For Loops
 
@@ -608,7 +613,7 @@ for(i in seq_along(x)) {
 }
 ```
 
---- .rcr
+--- .class
 
 ## For Loops (contd)
 
@@ -620,7 +625,7 @@ for(letter in x) {
 for(i in 1:4) print(x[i])
 ```
 
---- .rcr &twocol
+--- .class &twocol
 
 ## while loops
 
@@ -650,7 +655,7 @@ while (sum < 11 )
 }
 ```
 
---- .rcr &twocol
+--- .class &twocol
 
 ## repeat loops
 
@@ -684,7 +689,7 @@ repeat
 }
 ```
 
---- .rcr
+--- .class
 
 ## break and next statements
 
@@ -708,7 +713,7 @@ for(lupe in x)
 ```
 
 
---- .rcr
+--- .class
 
 ## The apply Function
 * The `apply()` function evaluate a function over
@@ -726,7 +731,7 @@ x <- matrix(rnorm(200), 20, 10)
 apply(x, 1, mean)
 ```
 
---- .rcr
+--- .class
 
 ## The apply Function (contd)
 
@@ -737,7 +742,7 @@ apply(x, 2, sum)
 apply(x, 1, quantile, probs = c(0.25, 0.75))
 ```
 
---- .rcr
+--- .class
 
 ## The apply Function (contd)
 
@@ -750,7 +755,7 @@ apply(x, c(1, 2), mean)
 rowMeans(x, dims = 2)
 ```
 
---- .rcr
+--- .class
 
 ## Other Apply Functions
 * `lapply`: Loop over a list and evaluate a function on each element
@@ -758,349 +763,311 @@ rowMeans(x, dims = 2)
 * `tapply`: Apply a function over subsets of a vector
 * `mapply`: Multivariate version of lapply
 
---- .rcr
+--- .class
 
-## Plyr Package
-* In data analysis you often need to 
-    - split up a big data structure into homogeneous pieces,
-    - apply a function to each piece and then
-    - combine all the results back together
-* This split‐apply‐combine procedure is what
-the `plyr` package is for.
+## R for Data Science
 
---- .rcr
+* The `tidyverse` is a collection of R packages developed by RStudio’s chief scientist Hadley Wickham. 
+     * `ggplot2` for data visualisation.
+     * `dplyr` for data manipulation.
+     * `tidyr` for data tidying.
+     * `readr` for data import.
+     * `purrr` for functional programming.
+     * `tibble` for tibbles, a modern re-imagining of data frames.
+* These packages work well together as part of larger data analysis pipeline. 
+* To learn more about these tools and how they work together, read [R for Data Science](http://r4ds.had.co.nz/). 
 
-## Example: Plyr Package
+--- .class
 
-```{r}
-library(ggplot2)
-library(plyr)
-str(mpg)
-str(ddply)
-```
+## Tidyverse
 
---- .rcr
-
-## Example (contd)
-
-```{r}
-ddply(mpg, "cyl", summarise, mean = mean(cty))
-```
-
---- .rcr
-
-## Reading and Writing Data
-* R understands many different data formats and has lots of ways of reading/writing them
-
-<table>
-<tr><th>Funtion (read)</th><th>Function (write)</th><th>Description</th></tr>
-<tr><td><code>read.table</code></td><td><code>write.table</code></td><td></td></tr>
-<tr><td><code>read.csv</code></td><td><code>write.csv</code></td><td>reading/writing tabular data</td></tr>
-<tr><td><code>readLines</code></td><td><code>writeLines</code></td><td>reading/writing lines of a text file</td></tr>
-<tr><td><code>source</code></td><td><code>dump</code></td><td>reading/writing in R code files</td></tr>
-<tr><td><code>dget</code></td><td><code>dput</code></td><td>reading/writing in R code files</td></tr>
-<tr><td><code>load</code></td><td><code>save</code></td><td>reading in/saving workspaces</td></tr>
-<tr><td><code>unserialize</code></td><td><code>serialize</code></td><td>reading/writing single R objects in binary form</td></tr>
-</table>
-
---- .rcr
-
-## Reading Data with read.table
+* What is Tidy Data?
+     * "Tidy data" is a term that describes a standardized approach to structuring datasets to make analyses and visualizations easier. 
+* The core tidy data principles
+     * Variable make up the columns
+     * Observations make up the rows
+     * Values go into cells
+* `library(tidyverse)` will load the core tidyverse packages:
 
 ```{r}
-str(read.table)
+library(tidyverse)
+library(lubridate)
 ```
 
-* `file` ‐ the name of a file, or a connection
-* `header` ‐ logical indicating if the file has a header line
-* `sep` ‐ a string indicating how the columns are separated
-* `colClasses` ‐ a character vector indicating the class of each column in the dataset
-* `nrows` ‐ the number of rows in the dataset
-* `comment.char` ‐ a character string indicating the comment character
-* `skip` ‐ the number of lines to skip from the beginning
-* `stringsAsFactors` ‐ should character variables be coded as factors?
+--- .class
 
---- .rcr
+## Tidyverse 
 
-## Reading Data with read.table (contd)
+* Packages that are part of tidyverse but not loaded automatically
+   * `lubridate` for dates and date-times
+   * `magrittr` provides the pipe, %>% used throughout the tidyverse.
+   * `readxl` for .xls and .xlsx sheets.
+   * `haven` for SPSS, Stata, and SAS data. 
+* packages that are not in the tidyverse, but are tidyverse-adjacent. They are very useful for importing data from other sources:
+   * `jsonlite` for JSON.
+   * `xml2` for XML.
+   * `httr` for web APIs.
+   * `rvest` for web scraping.
+   * `DBI` for relational databases
 
-* The function will
-    - Skip lines that begin with a #
-    - Figure out how many rows there are (and how much memory needs to be allocated)
-    - Figure out what type of variable is in each column of the table
-* Telling R all these things directly makes R run faster and more efficiently.
-* `read.csv()` is identical to `read.table()` except that the default separator is a comma.
+--- .class
 
---- .rcr
+## Readr Package
 
-## Graphics in R
-* There are three plotting systems in R
-    - Base
-* Convenient, but hard to adjust after the plot is created
-    - Lattice
-* Good for creating conditioning plot
-    - Ggplot2
-* Powerful and flexible, many tunable feature, may require some time to master
-* Each has its pros and cons, so it is up to the users which one to choose
+* `readr` is to provide a fast and friendly way to read rectangular data (like csv, tsv, and fwf).
+* `readr` supports seven file formats with seven read_ functions:
+    * `read_csv()`: comma separated (CSV) files
+    * `read_csv2()`: semicolon separated file and "," for decimal point
+    * `read_tsv()`: tab separated files
+    * `read_delim()`: general delimited files
+    * `read_fwf()`: fixed width files
+    * `read_table()`: tabular files where colums are separated by white-space.
+    * `read_log()`: web log files
+* Usage
+    * `read_delim(file,delim)` 
+          - `file`: path to a file, a connection, or literal data
 
---- .rcr
+--- .class
 
-## Graphics - Base
-```{r}
-summary(mpg)
-```
-
---- .rcr
-
-## Graphics - Base (contd)
+## Example
 
 ```{r}
-plot(hwy ~ displ, data=mpg)
+# read daily usage report for Sol in AY 2016-17
+# usage is reported in terms of SUs used and jobs submitted for
+#  serial (1 cpu), single or smp ( > 1 cpu but max of 1 node) and 
+#  parallel or multi node (> 1 node)  jobs 
+daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1617-public.csv',delim=";")
 ```
 
---- .rcr
+* the `readr` functions will just work: you supply the path to a file and you get a `tibble` back
 
-## Graphics - Base (contd)
+--- .class
+
+## Tibble
+
+* A `tibble`, or `tbl_df`, is a modern reimagining of the data.frame, 
+   * keeping what time has proven to be effective, and 
+   * throwing out what is not. 
+* Tibbles are data.frames that are lazy and surly 
+
+* Create a tibble from an existing object with `as_tibble()`
+* create a new tibble from column vectors with `tibble()`
 
 ```{r}
-boxplot(hwy ~ class, data = mpg, xlab = "Class", ylab = "High Way Mileage")
+tibble(x = 1:5, y = 1, z = x ^ 2 + y)
 ```
 
---- .rcr
 
-## Graphics - Lattice
+--- .class
+
+## Tibble (contd)
+
+* define a tibble row-by-row with `tribble()`:
 
 ```{r}
-mpg <- transform(mpg, year = factor(year)) 
-xyplot(hwy ~ displ | year*drv, mpg, layout = c(6,1))
+tribble(
+  ~x, ~y,  ~z,
+  "a", 2,  3.6,
+  "b", 1,  8.5
+)
 ```
 
---- .rcr
+--- .class
 
-## Graphics - ggplot2
+## Dplyr
+
+* `dplyr` is a grammar of data manipulation, providing a consistent set of verbs to  solve the most common data manipulation challenges:
+  * `mutate()` adds new variables that are functions of existing variables
+  * `select()` picks variables based on their names.
+  * `filter()` picks cases based on their values.
+  * `summarise()` reduces multiple values down to a single summary.
+  * `arrange()` changes the ordering of the rows.
+* These all combine naturally with `group_by()` which allows you to perform any operation "by group"
+
+
+--- .class
+
+## Example
+
+
 ```{r}
-qplot(displ, cty, data = mpg, color = drv)
+daily %>% head
+
+# Number of core hours available per month for AY 2016-17
+# Oct 1, 2016: Initial launch with 780 cpu
+# Mar 15, 2017: Added 192 cpus
+# May 1, 2017: Added 312 cpus
+# Total Available at end of AY 2016-17: 1284 cpus
+ay1617su <- c(580320.00,561600.00,580320.00,580320.00,524160.00,580320.00,699840.00,955296.00,924480.00,955296.00,955296.00,924480.00)
 ```
 
---- .rcr
 
-## Graphics - ggplot2
+--- .class
+
+## Example
+
 ```{r}
-qplot(displ, hwy, data = mpg, facets = drv ~ year)
+monthly <- daily %>% 
+  group_by(Month=floor_date(as.Date(Day), "month"),Name,Department,PI,PIDept,Status) %>% 
+  summarize(Serial=sum(as.double(Serial)),
+    Single=sum(as.double(Single)),
+    Multi=sum(as.double(Multi)),
+    Total=sum(as.double(Total)),
+    SerialJ=sum(as.double(SerialJ)),
+    SingleJ=sum(as.double(SingleJ)),
+    MultiJ=sum(as.double(MultiJ)),
+    TotalJ=sum(as.double(TotalJ)))
+monthly %>% head
 ```
 
-```{r eval=FALSE}
-ggplot(emiByType, aes(year, sum, colour = type)) +
- geom_point(size = 5) +
- geom_line(size = 1) +
- ggtitle("Total Emission in Baltimore City by Source Type") +
- labs(x = "Year", y = "Total Emissions (ton)", fontsize = 20) +
- theme_economist() + scale_colour_economist() +
- theme(axis.title=element_text(size=14,face="bold"), legend.title =
-   element_text(size = rel(1.5), face = "bold"))
+--- .class
+
+## Sol usage per month
+
+```{r}
+monthly %>% 
+  group_by(Month) %>%	
+  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  mutate(Available=ay1617su,Unused=Available-Total,Percent=round(Total/Available*100,2))
+
 ```
 
---- .rcr &twocol
+--- .class
 
-## Histograms
+## Sol usage per PI's Department
+
+```{r}
+library(knitr)
+monthly %>%
+  group_by(PIDept) %>%
+  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  kable
+```
+
+--- .class
+
+## Sol usage by user's department or major
+
+```{r}
+monthly %>%
+  group_by(Department) %>%
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  arrange(desc(Total)) %>%
+  kable
+```
+
+
+--- .class
+
+## Need code for creating LaTeX documents
+
+```{r}
+library(xtable)
+monthly %>%
+  group_by(Department) %>%
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  arrange(desc(Total)) %>%
+  xtable
+```
+
+
+--- .class &twocol
+
+## Ggplot2
 
 *** =left
 
-```{r eval=F}
-library(RColorBrewer)
-data(VADeaths)
-par(mfrow=c(2,3))
-hist(VADeaths,breaks=10, col=brewer.pal(3,"Set3"),main="Set3 3 colors")
-hist(VADeaths,breaks=3 ,col=brewer.pal(3,"Set2"),main="Set2 3 colors")
-hist(VADeaths,breaks=7, col=brewer.pal(3,"Set1"),main="Set1 3 colors")
-hist(VADeaths,,breaks= 2, col=brewer.pal(8,"Set3"),main="Set3 8 colors")
-hist(VADeaths,col=brewer.pal(8,"Greys"),main="Greys 8 colors")
-hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
+* Ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics.
+* More on this in "Data Visualization with R and Python" on April 5, 2018
+
+```{r eval=FALSE}
+monthly %>%
+  group_by(Status) %>%
+  summarize(Total=round(sum(as.double(Total)),2)) %>%
+  ggplot(aes(x=Status,y=Total)) + geom_col()
+```
+
+
+*** =right
+
+```{r echo=FALSE}
+monthly %>%
+  group_by(Status) %>%
+  summarize(Total=round(sum(as.double(Total)),2)) %>%
+  ggplot(aes(x=Status,y=Total)) + geom_col()
+```
+
+
+--- .class
+
+## Tidyr
+
+* The goal of `tidyr` is to help you create tidy data.
+* Tidy data is data where:
+   * Each variable is in a column.
+   * Each observation is a row.
+   * Each value is a cell.
+* Tidy data describes a standard way of storing data that is used wherever
+ possible throughout the `tidyverse`. 
+* If you ensure that your data is tidy, you’ll spend less timing fighting with the tools and more time working on your analysis.
+
+* two fundamental verbs of data tidying:
+   * `gather()` takes multiple columns, and gathers them into key-value pairs
+   * `spread()`. takes two columns (key & value) and spreads in to multiple columns
+
+
+--- .class
+
+## Example
+
+```{r}
+daily %>% 
+  filter(as.Date(Day) >= "2017-02-01" & as.Date(Day) <= "2017-03-01") %>% 
+  select(Day,Name,Department,PI,PIDept,Serial,Single,Multi) %>% 
+  gather(JobType,Usage,Serial:Multi) %>% 
+  filter(as.double(Usage) > 100 ) -> tmp
+tmp %>% arrange(Usage) %>% 
+  kable
+```
+
+
+--- .class
+
+## Example
+
+```{r}
+tmp %>% arrange(Usage) %>% 
+  spread(JobType,Usage,fill = 0.0) %>% 
+  kable
+
+```
+
+--- .class &twocol
+
+## Other Tidyr functions
+
+*** =left 
+
+* `separate()`: Splitting a single variable into two
+
+```{r}
+daily %>% 
+   select(c(Department,Day,Total)) %>% 
+   separate(Day,c("Year","Month","Day"),sep="-") -> tmp
+head(tmp)
 ```
 
 *** =right
 
-```{r echo=F}
-library(RColorBrewer)
-data(VADeaths)
-par(mfrow=c(2,3))
-hist(VADeaths,breaks=10, col=brewer.pal(3,"Set3"),main="Set3 3 colors")
-hist(VADeaths,breaks=3 ,col=brewer.pal(3,"Set2"),main="Set2 3 colors")
-hist(VADeaths,breaks=7, col=brewer.pal(3,"Set1"),main="Set1 3 colors")
-hist(VADeaths,,breaks= 2, col=brewer.pal(8,"Set3"),main="Set3 8 colors")
-hist(VADeaths,col=brewer.pal(8,"Greys"),main="Greys 8 colors")
-hist(VADeaths,col=brewer.pal(8,"Greens"),main="Greens 8 colors")
-```
-
-***
-
---- .rcr
-
-## Line Chart
+* `unite()`: Merging two variables into one
 
 ```{r}
-plot(AirPassengers,type="l")  #Simple Line Plot
+tmp %>%
+  unite(Day,c("Year","Month","Day"),sep="/") %>%
+  tail
 ```
 
---- .rcr &twocol_width
-
-## Bar Chart
-
-*** =left width:48%
-```{r}
-barplot(iris$Petal.Length) #Creating simple Bar Graph
-```
-*** =right width:48%
-```{r}
-barplot(iris$Sepal.Length,col  = brewer.pal(3,"Set1"))
-```
-***
-
---- .rcr
-## Bar Chart
-```{r}
-barplot(table(iris$Species,iris$Sepal.Length),col  = brewer.pal(3,"Set1")) #Stacked Plot
-```
-
---- .rcr
-
-## Box Plot
-```{r}
-boxplot(iris$Petal.Length~iris$Species) #Creating Box Plot between two variable
-```
-
---- .rcr &twocol_width
-
-## Box Plot
-
-*** =left width:48%
-
-```{r eval=F}
-data(iris)
-par(mfrow=c(2,2))
-boxplot(iris$Sepal.Length,col="red")
-boxplot(iris$Sepal.Length~iris$Species,col="red")
-boxplot(iris$Sepal.Length~iris$Species,col=heat.colors(3))
-boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
-```
-
-*** =right width:48%
-
-```{r echo=F}
-data(iris)
-par(mfrow=c(2,2))
-boxplot(iris$Sepal.Length,col="red")
-boxplot(iris$Sepal.Length~iris$Species,col="red")
-boxplot(iris$Sepal.Length~iris$Species,col=heat.colors(3))
-boxplot(iris$Sepal.Length~iris$Species,col=topo.colors(3))
-```
-
-***
-
---- .rcr
-
-## Scatter Plots
-```{r}
-plot(x=iris$Petal.Length) #Simple Scatter Plot
-plot(x=iris$Petal.Length,y=iris$Species) #Multivariate Scatter Plot
-plot(iris,col=brewer.pal(3,"Set1"))
-pie(table(iris$Species))
-```
-
---- .rcr &twocol_width
-
-## Hexbin Binning
-
-* We can use the hexbin package in case we have multiple points in the same place (overplotting). Hexagon binning is a form of bivariate histogram useful for visualizing the structure in datasets with large n. 
-
-*** =left width:48%
-
-```{r eval=F}
-#library(ggplot2) to get diamonds dataset
-library(hexbin)
-a=hexbin(diamonds$price,diamonds$carat,xbins=40)
-library(RColorBrewer)
-plot(a)
-```
-
-*** =right width:48%
-
-```{r, fig.height = 6, fig.align = 'center', echo=F}
-#library(ggplot2) to get diamonds dataset
-library(hexbin)
-a=hexbin(diamonds$price,diamonds$carat,xbins=40)
-library(RColorBrewer)
-plot(a)
-```
-
-***
-
---- .rcr 
-
-## (Contd)
-
-```{r, fig.height = 6, fig.align = 'center', warning=FALSE}
-# We can also create a color palette and then use the hexbin plot function for a better visual effect. 
-rf <- colorRampPalette(rev(brewer.pal(40,'Set3')))
-hexbinplot(diamonds$price~diamonds$carat, data=diamonds, colramp=rf)
-```
-
---- .rcr
-
-## Mosaic Plot
-
-* A mosaic plot can be used for plotting categorical data very effectively with the area of the data showing the relative proportions.
-```{r, fig.height = 5.5, fig.align = 'center'}
-data(HairEyeColor)
-mosaicplot(HairEyeColor)
-```
-
---- .rcr
-
-## Heat Map
-
-* Heat maps enable you to do exploratory data analysis with two dimensions as the axis and the third dimension shown by intensity of color. 
-* However you need to convert the dataset to a matrix format. Here’s the code:
-
-```{r , fig.height = 5, fig.align = 'center'}
-heatmap(as.matrix(mtcars))
-```
-
---- .rcr
-
-## Heat Map (contd)
-
-* You can use `image()` command also for this type of visualization as:
-```{r, fig.height = 5, fig.align = 'center'}
-image(as.matrix(mtcars[2:7]))
-```
-
---- .rcr &twocol_width
-
-## 3D Graphs
-
-*** =left width:48%
-
-* Install package R Commander 
-`install.packages("Rcmdr")`
-* Install Lattice package
-* Correlogram (GUIs)
-
-Correlogram help us visualize the data in correlation matrices. Here’s the code:
-
-```{r}
-cor(iris[1:4])
-```
-
-*** =right width:48%
-
-```{r, fig.height = 5, fig.align = 'center'}
-corrgram(iris)
-```
-
-***
-
---- .rcr
+--- .class
 
 ## What more can be done with R?
 
@@ -1110,7 +1077,7 @@ corrgram(iris)
 * Machine learning/Data Mining
 * &middot;&middot;&middot;
 
---- .rcr
+--- .class
 
 ## Learning R
 
@@ -1123,57 +1090,7 @@ corrgram(iris)
 * Online courses (e.g. Coursera)
 
 
---- .rcr
-
-## Data Analysis Case Study
-
-* Changes in Fine Particle Air Pollution in the U.S.
-* example data analysis looking at changes in fine particulate matter (PM) air pollution in the United States using the EPA freely available national monitoring data.
-* Download PM2.5 data for [1999](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_1999-0.txt) and [2012](https://raw.githubusercontent.com/jtleek/modules/master/04_ExploratoryAnalysis/CaseStudy/pm25_data/RD_501_88101_2012-0.txt)
-
-```{r}
-pm0 <- read.table ( "RD_501_88101_1999-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="")
-dim(pm0)
-head(pm0[,1:13])
-```
-
---- .rcr
-
-## contd
-
-```{r}
-cnames <- readLines('RD_501_88101_1999-0.txt',1)
-cnames <- strsplit ( cnames , "|" , fixed = TRUE )
-names ( pm0 ) <- make.names ( cnames [[ 1 ]])
-head ( pm0 [, 1 : 13 ])
-x0 <- pm0 $ Sample.Value
-summary(x0)
-```
-
---- .rcr
-
-## contd
-
-```{r}
-pm1 <- read.table("RD_501_88101_2012-0.txt", comment.char="#", header=FALSE,sep="|", na.strings="", nrow = 1304290)
-names(pm1) <- make.names(cnames[[1]])
-library(plyr)
-pm <- rbind(pm0,pm1)
-pm <- mutate(pm , year=factor(rep ( c( 1999 , 2012 ), c( nrow (pm0), nrow (pm1 ))))) 
-library (ggplot2)
-set.seed(2015)
-idx <- sample(nrow(pm), 1000)
-```
-
---- .rcr
-
-## contd
-
-```{r}
-qplot ( year , log2(Sample.Value), data=pm[idx,], geom = "boxplot", na.rm=TRUE )
-```
-
---- .rcr
+--- .class
 
 ## Data Analysis with Reporting
 
@@ -1188,7 +1105,7 @@ qplot ( year , log2(Sample.Value), data=pm[idx,], geom = "boxplot", na.rm=TRUE )
 * `slidify` is a R package that allows one to create a HTML presentation
   - You are now at the end of a `slidify` presentation
 
---- .rcr
+--- .class
 
 ## Creating presentations using Slidify
 
@@ -1202,8 +1119,8 @@ library(devtools)
 * Install the `slidify` and `slidifyLibraries` package from github
 
 ```{r eval=FALSE}
-install_github('ramnathv/slidify')
-install_github('ramnathv/slidifyLibraries')
+install_git('git://github.com/ramnathv/slidify')
+install_git('git://github.com/ramnathv/slidifyLibraries')
 ```
 
 * Load the slidify library
@@ -1217,7 +1134,7 @@ library(slidify)
 author("myslides")
 ```
 
---- .rcr
+--- .class
 
 ## Creating presentations using Slidify (contd)
 
@@ -1235,3 +1152,26 @@ browserURL('index.html')
 ```
 
 * Do a Google search for `slidify` to learn more and/or see example slides.
+
+--- .class
+
+## Creating presentations using Slidify (contd)
+
+* To use my template
+
+```{sh eval=FALSE}
+git clone https://gogs.cc.lehigh.edu/alp514/slidify
+```
+
+* Edit the index.Rmd or create a new .Rmd file
+* OR just overwrite the assets folder in your `myslides` folder with the one 
+ from the git repository you just cloned
+* The git repository contains a script `compile.R` that will compile the R
+  markdown file (for e.g. index.Rmd) into a html file (for e.g. index.html)
+
+```{sh eval=FALSE}
+chmod +x compile.R
+./compile.R index 
+```
+
+

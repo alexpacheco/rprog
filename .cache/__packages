@@ -6,3 +6,16 @@ lattice
 RColorBrewer
 hexbin
 corrgram
+tidyverse
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+lubridate
+bindrcpp
+DT
+knitr
+xtable
