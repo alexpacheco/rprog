@@ -21,7 +21,8 @@ license     : by-sa
 * R was first announced in 1993.
 * The R core group was formed in 1997, who controls the source code of R (written in C)
 * R 1.0.0 was released in 2000
-* The current version is 3.4.4 (released on March 15, 2018)
+* The current version is 3.5.0 (released on April 23, 2018)
+   * Previous version 3.4.4 was released on March 15, 2018
 
 --- .class
 
@@ -67,7 +68,6 @@ license     : by-sa
 
 ## Running R
 
-* [RStudio](https://www.rstudio.com/) is the most popular (de facto) environment for running R on all platforms.
 * From Command Line on *NIX
    - Enter `R` on the command line (if you have modified your `PATH` correctly)
 * Batch Mode on *NIX
@@ -85,12 +85,32 @@ Rscript hello.R
 
 ## RStudio
 
+* [RStudio](https://www.rstudio.com/) is the most popular (de facto) environment for running R on all platforms.
 * free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
 * user interface comparable to other IDEs or software such as MATLAB.
 * more suited for development 
 * Version 1.0.153 available as On Demand on https://software.lehigh.edu
 
 <img src="./RStudio.PNG" height="360px" width="720px" align="center" alt="RStudio" />
+
+--- .class
+
+## Anaconda Python Distribution
+
+ -  [Anaconda Python distribution](https://www.anaconda.com/distribution/) is the most popular platform for Python
+ -  It provides 
+     - a convenient install procedure for over 1400 Data Science libraries for Python and R
+     - conda to manage your packages, dependencies, and environments
+     - anaconda navigator: a desktop portal to install and launch applications and editors including Jupyter, RStudio, Visual Studio Code, and Spyder
+         - install r-essentials from anaconda navigator or `conda install
+           r-essentials` from the command line
+ - Jupyter Notebooks is an alternative to RStudio for writing scripts and
+   workflows that you can share with others. 
+     - It is  ideal for reproducible research or data reporting
+     
+ - Visit https://go.lehigh.edu/linux to use R, Anaconda and other Linux software installed and maintained by the Research Computing group on your local Linux laptop or workstation
+
+
 
 --- .class
 
@@ -928,8 +948,8 @@ monthly %>% head
 monthly %>% 
   group_by(Month) %>%	
   summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  mutate(Available=ay1617su,Unused=Available-Total,Percent=round(Total/Available*100,2))
-
+  mutate(Available=ay1617su,Unused=Available-Total,Percent=round(Total/Available*100,2)) -> monthlyusage
+monthlyusage
 ```
 
 --- .class
@@ -970,32 +990,17 @@ monthly %>%
   xtable
 ```
 
+--- .class
 
---- .class &twocol
+## Sol usage by user affiliation
 
-## Ggplot2
-
-*** =left
-
-* Ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics.
-* More on this in "Data Visualization with R and Python" on April 5, 2018
-
-```{r eval=FALSE}
+```{r}
 monthly %>%
   group_by(Status) %>%
-  summarize(Total=round(sum(as.double(Total)),2)) %>%
-  ggplot(aes(x=Status,y=Total)) + geom_col()
+  summarize(Total=round(sum(as.double(Total)),2)) -> monthlystatus
+monthlystatus
 ```
 
-
-*** =right
-
-```{r echo=FALSE}
-monthly %>%
-  group_by(Status) %>%
-  summarize(Total=round(sum(as.double(Total)),2)) %>%
-  ggplot(aes(x=Status,y=Total)) + geom_col()
-```
 
 
 --- .class
@@ -1066,6 +1071,178 @@ tmp %>%
   unite(Day,c("Year","Month","Day"),sep="/") %>%
   tail
 ```
+
+--- .class
+
+## Data Visualization
+
+* __Data visualization__ or __data visualisation__ is viewed by many disciplines as a modern equivalent of visual communication.
+* It involves the creation and study of the visual representation of data.
+* A primary goal of data visualization is to communicate information clearly and efficiently via statistical graphics, plots and information graphics. 
+* Data visualization is both an art and a science.
+
+
+--- .class
+
+## Data Visualization Tools
+
+* There are vast number of Data Visualization Tools targeted for different audiences
+* A few used by academic researchers 
+     * Tableau
+     * Google Charts
+     * R
+     * Python
+     * Matlab
+     * GNUPlot
+
+
+--- .class
+
+## ggplot2 Package
+
+
+- "gg" stands for Grammar-of-Graphics
+- The idea is that any data graphics can be described by specifying
+    - A dataset
+    - Visual marks that represent data points
+    - A coordination system
+- `ggplot2` package in R is an implementation of it
+    - Versatile
+    - Clear and consistent interface
+    - Beautiful output
+
+--- .class  &twocol
+
+## Bar Charts
+
+*** =left 
+
+```{r fig.width=6,fig.height=4}
+p <- monthlystatus %>%
+  ggplot(aes(x=Status,y=Total)) + geom_col()
+p
+```
+
+*** =right
+
+```{r fig.width=6,fig.height=4}
+p + coord_flip()
+```
+
+--- .class   &twocol
+
+## Bar Charts Monthly Usage
+
+*** =left 
+
+```{r fig.width=6,fig.height=4}
+p <- monthlyusage %>%
+  ggplot(aes(Month,Percent)) + geom_col()
+p
+```
+
+*** =right
+
+* Add Plot Title and Caption, and x and y labels
+
+```{r fig.width=6,fig.height=4}
+p + labs(title="Sol Usage", y="Percent", x="Month", caption="AY 2016-17")
+```
+
+
+--- .class
+
+## Line Charts
+
+```{r fig.width=6,fig.height=4}
+p <- daily %>%
+  group_by(Day, PIDept) %>%
+  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  ggplot(aes(Day,Total)) + geom_line(aes(col = PIDept))
+p
+```
+
+--- .class
+
+## Line Charts (contd)
+
+Plot is very busy. There are several options to clean this up.
+* summarize by week or month
+* take a running average or add a smoothing function
+* create separate plots for each Department using facet_wrap
+
+```{r fig.width=6,fig.height=4}
+p + facet_wrap( ~PIDept)
+```
+
+
+--- .class
+
+## Line Charts (contd)
+
+* It's not very useful at first try. That may due to data. 
+* It would be ideal if each subplot had it's y-axis limits. 
+* This is achieved by adding _scales="free"_ as an option to facet_wrap. 
+* You can also adjust the number of rows or columns by adding _nrow_ or _ncol_ as an option. Finally the legend is redundant. 
+* You can remove the legend by adding _theme(legend.position='none')_
+
+* Combining all these options we get
+
+```{r eval=F}
+p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none')
+```
+
+
+--- .class
+
+## Line Charts (contd)
+
+
+```{r fig.width=12,fig.height=8,echo=F}
+p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none')
+```
+
+
+--- .class
+
+## Animations
+
+__If a Picture is Worth a Thousand Words, Then Is a Video Worth a Million?__
+
+* What is an animation really? 
+   * Just a collection of images that appear at a high frequency or frame rate. 
+* If you have a collection of pictures, you can convert them to gif, mpeg, or any other video format using tools like ImageMagick or ffmpeg. 
+* R provides tools that will convert a collection of images from plots to video provided you have one of these conversion tools.
+
+```{r echo=F}
+if(!require('animation')){
+    install.packages('animation')
+}
+if(!require('gganimate')){
+    install.packages('animation')
+}
+```
+
+
+---.class
+
+## Animations (contd)
+
+```{r eval=F}
+weeklyusage_status <- daily %>%
+  group_by(Week=floor_date(as.Date(Day), "week"),Status) %>% 
+  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
+  ggplot(aes(Week,Total,frame=Week,cumulative=TRUE)) + geom_line(aes(col = Status)) +
+  facet_wrap( ~Status, scales = "free", ncol = 2) + theme(legend.position='none')
+  ani.options(interval = 0.1, ani.width = 640, ani.height = 480)
+gganimate(weeklyusage_status,'weeklystatus.gif')
+```
+
+--- .class
+
+##  Animations (contd)
+
+![Usage by Users Status](weeklystatus.gif)
 
 --- .class
 
@@ -1173,5 +1350,7 @@ git clone https://gogs.cc.lehigh.edu/alp514/slidify
 chmod +x compile.R
 ./compile.R index 
 ```
+
+
 
 
