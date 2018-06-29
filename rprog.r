@@ -359,3 +359,4 @@ weeklyusage_status <- daily %>%
 
 ani.options(interval = 0.1, ani.width = 640, ani.height = 480)
 gganimate(weeklyusage_status,'weeklystatus.gif')
+

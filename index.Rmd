@@ -2,7 +2,7 @@
 title       : Programming in R
 subtitle    : A brief introduction
 author      : Alex Pacheco
-job         : LTS Research Computing
+job         : Research Computing
 logo        : lu.png
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
@@ -1162,7 +1162,7 @@ p <- daily %>%
 p
 ```
 
---- .class
+--- .class 
 
 ## Line Charts (contd)
 
@@ -1171,7 +1171,7 @@ Plot is very busy. There are several options to clean this up.
 * take a running average or add a smoothing function
 * create separate plots for each Department using facet_wrap
 
-```{r fig.width=6,fig.height=4}
+```{r fig.width=6,fig.height=4,warning=F}
 p + facet_wrap( ~PIDept)
 ```
 
@@ -1188,7 +1188,7 @@ p + facet_wrap( ~PIDept)
 
 * Combining all these options we get
 
-```{r eval=F}
+```{r eval=F,warning=F}
 p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none')
 ```
 
@@ -1198,8 +1198,8 @@ p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='non
 ## Line Charts (contd)
 
 
-```{r fig.width=12,fig.height=8,echo=F}
-p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none')
+```{r fig.width=12,fig.height=8,echo=F,warning=F}
+suppressMessages(p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none'))
 ```
 
 
@@ -1214,7 +1214,7 @@ __If a Picture is Worth a Thousand Words, Then Is a Video Worth a Million?__
 * If you have a collection of pictures, you can convert them to gif, mpeg, or any other video format using tools like ImageMagick or ffmpeg. 
 * R provides tools that will convert a collection of images from plots to video provided you have one of these conversion tools.
 
-```{r echo=F}
+```{r}
 if(!require('animation')){
     install.packages('animation')
 }

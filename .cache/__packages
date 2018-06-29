@@ -19,3 +19,5 @@ bindrcpp
 DT
 knitr
 xtable
+animation
+gganimate
