@@ -203,9 +203,8 @@ while ( counter > 0)
 
 print(factorial)
 
-counter <- as.integer(readline(prompt="Enter an integer: "))
-
 dble_factorial <- 1
+counter <- as.integer(readline(prompt="Enter an integer: "))
 
 repeat
 {
@@ -219,6 +218,27 @@ repeat
 }
 
 print(dble_factorial)
+
+factorial <- function(n) {
+  f <- 1
+  while (n > 0) {
+    f <- f * n
+    n <- n - 1
+  }
+  return(f)
+}
+
+recur_factorial <- function(n) {
+  if ( n <= 1 ){
+    return(1)
+  } else {
+    return(n * recur_factorial(n -1))
+  }
+}
+
+counter <- as.integer(readline(prompt="Enter an integer: "))
+factorial(counter)
+recur_factorial(counter+2)
 
 # X: array objects
 # MARGIN: a vector giving the subscripts which the function will be applied over
@@ -244,6 +264,7 @@ apply(x, c(1, 2), mean)
 
 rowMeans(x, dims = 2)
 
+install.packages('tidyverse')
 library(tidyverse)
 
 if ( !require('lubridate')){
@@ -254,9 +275,11 @@ if ( !require('lubridate')){
 # usage is reported in terms of SUs used and jobs submitted for
 #  serial (1 cpu), single or smp ( > 1 cpu but max of 1 node) and 
 #  parallel or multi node (> 1 node)  jobs 
-daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1617-public.csv',delim=";")
+daily1617 <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1617-public.csv',delim=";")
+daily1718 <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1718-public.csv',delim=";")
 
-daily %>% head
+daily1617 %>% head
+daily1718 %>% head
 
 # Number of core hours available per month for AY 2016-17
 # Oct 1, 2016: Initial launch with 780 cpu
@@ -264,8 +287,9 @@ daily %>% head
 # May 1, 2017: Added 312 cpus
 # Total Available at end of AY 2016-17: 1284 cpus
 ay1617su <- c(580320.00,561600.00,580320.00,580320.00,524160.00,580320.00,699840.00,955296.00,924480.00,955296.00,955296.00,924480.00)
+ay1718su <- c(955296.00,924480.00,967200.00,967200.00,873600.00,967200.00,1117440.00,  1154688.00,1117440.00,1154688.00,1155480.00,1169280.00)
 
-monthly <- daily %>% 
+monthly1718 <- daily1718 %>% 
   group_by(Month=floor_date(as.Date(Day), "month"),Name,Department,PI,PIDept,Status) %>% 
   summarize(Serial=sum(as.double(Serial)), # Single core or serial SUs consumed
     Single=sum(as.double(Single)), # Single node - multi core SUs consumed
@@ -275,36 +299,39 @@ monthly <- daily %>%
     SingleJ=sum(as.double(SingleJ)), # Number of Single node - multi core jobs
     MultiJ=sum(as.double(MultiJ)), # Number Multi node jobs
     TotalJ=sum(as.double(TotalJ))) # Total Number of jobs jobs
-monthly %>% head
+monthly1718 %>% head
 
-monthly %>% 
+monthly1718 %>% 
   group_by(Month) %>%   
-  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  mutate(Available=ay1617su,Unused=Available-Total,Percent=round(Total/Available*100,2)) -> monthlyusage
-monthlyusage
+  summarize(Total=round(sum(as.double(Total)),2),
+            Jobs=round(sum(as.double(TotalJ)))) %>%
+  mutate(Available=ay1718su,Unused=Available-Total,
+         Percent=round(Total/Available*100,2)) -> monthlyusage1718
+monthlyusage1718
 
 library(knitr)
-monthly %>%
+monthly1718 %>%
   group_by(PIDept) %>%
-  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) -> monthlypidept
-monthlypidept %>% kable
+  summarize(Total=round(sum(as.double(Total)),2),
+            Jobs=round(sum(as.double(TotalJ)))) -> monthlypidept1718
+monthlypidept1718 %>% kable
 
-monthly %>%
+monthly1718 %>%
   group_by(Department) %>%
   summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  arrange(desc(Total)) -> monthlyuser
-monthlyuser
+  arrange(desc(Total)) -> monthlyuser1718
+monthlyuser1718
 
 library(xtable)
-monthlyuser %>% xtable
+monthlyuser1718 %>% xtable
 
-monthly %>%
-  group_by(Status) %>%
-  summarize(Total=round(sum(as.double(Total)),2)) -> monthlystatus
-monthlystatus
+monthly1718 %>%
+  group_by(Status=trimws(Status)) %>%
+  summarize(Total=round(sum(as.double(Total)),2)) -> monthlystatus1718
+monthlystatus1718
 
-daily %>% 
-  filter(as.Date(Day) >= "2017-02-01" & as.Date(Day) <= "2017-03-01") %>% 
+daily1718 %>% 
+  filter(as.Date(Day) >= "2018-02-01" & as.Date(Day) <= "2018-03-01") %>% 
   select(Day,Name,Department,PI,PIDept,Serial,Single,Multi) %>% 
   gather(JobType,Usage,Serial:Multi) %>% 
   filter(as.double(Usage) > 100 ) -> tmp
@@ -313,7 +340,7 @@ tmp %>% arrange(Usage) %>% head
 tmp %>% arrange(Usage) %>% 
   spread(JobType,Usage,fill = 0.0) %>% head
 
-daily %>% 
+daily1718 %>% 
    select(c(Department,Day,Total)) %>% 
    separate(Day,c("Year","Month","Day"),sep="-") -> tmp
 head(tmp)
@@ -322,19 +349,19 @@ tmp %>%
   unite(Day,c("Year","Month","Day"),sep="/") %>%
   tail
 
-p <- monthlystatus %>%
+p <- monthlystatus1718 %>%
   ggplot(aes(x=Status,y=Total)) + geom_col()
 p
 
 p + coord_flip()
 
-p <- monthlyusage %>%
+p <- monthlyusage1718 %>%
   ggplot(aes(Month,Percent)) + geom_col()
 p
 
-p + labs(title="Sol Usage", y="Percent", x="Month", caption="AY 2016-17")
+p + labs(title="Sol Usage", y="Percent", x="Month", caption="AY 2017-18")
 
-p <- daily %>%
+p <- daily1718 %>%
   group_by(Day, PIDept) %>%
   summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
   ggplot(aes(Day,Total)) + geom_line(aes(col = PIDept))
@@ -351,8 +378,8 @@ if(!require('gganimate')){
     install.packages('animation')
 }
 
-weeklyusage_status <- daily %>%
-  group_by(Week=floor_date(as.Date(Day), "week"),Status) %>% 
+weeklyusage_status <- daily1718 %>%
+  group_by(Week=floor_date(as.Date(Day), "week"),Status=trimws(Status)) %>% 
   summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
   ggplot(aes(Week,Total,frame=Week,cumulative=TRUE)) + geom_line(aes(col = Status)) +
   facet_wrap( ~Status, scales = "free", ncol = 2) + theme(legend.position='none')

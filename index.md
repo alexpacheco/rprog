@@ -59,7 +59,7 @@ license     : by-sa
 ## Installing R
 
 * R can be installed on Windows, Mac OSX and Linux from [CRAN](https://cran.r-project.org/mirrors.html).
-* R version 3.4.1 available as On Demand app on https://software.lehigh.edu
+* R version 3.4.3 available on LUApps at https://luapps.lehigh.edu
 
 <img src="./R-GUI.PNG" height="360px" width="720px" align="center" alt="R GUI" />
 
@@ -99,7 +99,7 @@ Rscript hello.R
 * free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
 * user interface comparable to other IDEs or software such as MATLAB.
 * more suited for development 
-* Version 1.0.153 available as On Demand on https://software.lehigh.edu
+* Version 1.1.383 available on LUApps at https://luapps.lehigh.edu
 
 <img src="./RStudio.PNG" height="360px" width="720px" align="center" alt="RStudio" />
 
@@ -117,9 +117,8 @@ Rscript hello.R
  - Jupyter Notebooks is an alternative to RStudio for writing scripts and
    workflows that you can share with others. 
      - It is  ideal for reproducible research or data reporting
-     
  - Visit https://go.lehigh.edu/linux to use R, Anaconda and other Linux software installed and maintained by the Research Computing group on your local Linux laptop or workstation
-
+ - Click [here](https://webapps.lehigh.edu/dokuwiki/sites/researchcomputing/doku.php?id=jupyter) for instructions to run Jupyter Notebooks on Sol
 
 
 --- .class
@@ -759,7 +758,7 @@ x <- Sys.time() ; x
 ```
 
 ```
-## [1] "2018-06-29 13:11:26 EDT"
+## [1] "2018-03-22 08:40:06 EDT"
 ```
 
 ```r
@@ -767,7 +766,7 @@ as.numeric(x)
 ```
 
 ```
-## [1] 1530292286
+## [1] 1521722406
 ```
 
 ```r
@@ -785,7 +784,7 @@ p$sec
 ```
 
 ```
-## [1] 26.35474
+## [1] 6.479255
 ```
 
 --- .class
@@ -908,8 +907,8 @@ runif(10, 2, 4)
 ```
 
 ```
-##  [1] 2.855876 2.563730 2.829614 2.279877 3.061944 3.440839 3.964279
-##  [8] 2.238907 2.524557 2.484380
+##  [1] 2.080494 2.140020 3.279643 2.292516 2.121182 2.465787 2.891568
+##  [8] 3.221651 2.835845 3.554286
 ```
 
 ```r
@@ -918,8 +917,8 @@ runif(10, min = 2, max = 4)
 ```
 
 ```
-##  [1] 3.633888 3.518204 3.718650 3.835752 2.496833 3.411493 3.094235
-##  [8] 2.305321 2.842909 3.751788
+##  [1] 3.864708 3.558662 3.011422 2.551474 2.215152 3.845879 2.237049
+##  [8] 2.028424 2.695853 3.390850
 ```
 
 ```r
@@ -960,7 +959,7 @@ newDef(-1,1)
 ```
 
 ```
-## [1] 0.01389637
+## [1] 0.1779019
 ```
 
 --- .class
@@ -1175,8 +1174,11 @@ for(lupe in x)
 ```
 
 ```
-## The value of lupe is  -0.4129394 
-## The value of lupe is  -0.7268684
+## The value of lupe is  1.252302 
+## The value of lupe is  -0.3448712 
+## The value of lupe is  -0.1833472 
+## The value of lupe is  1.066976 
+## The value of lupe is  -0.4986212
 ```
 
 
@@ -1207,10 +1209,10 @@ apply(x, 1, mean)
 ```
 
 ```
-##  [1] -0.1507476291  0.5404320011  0.4554547065 -0.0008784778 -0.1035675432
-##  [6]  0.1397891928 -0.0574882468 -0.3571598099 -0.1041373675 -0.3088796841
-## [11]  0.4852333027 -0.2984799520  0.2432505988 -0.4822612744 -0.5923456205
-## [16] -0.2419699624  0.3839690687 -0.3814428372 -0.1200135678  0.1839424792
+##  [1] -0.56706372  0.29605236 -0.12243105  0.39508406  0.48143361
+##  [6]  0.04930200 -0.20466170  0.12974536 -0.13387390 -0.02735853
+## [11]  0.21488576 -0.33514770  0.11733424  0.65669985  0.53110367
+## [16] -0.08488930  0.30794310  0.09569795  0.12904018  0.03674856
 ```
 
 --- .class
@@ -1224,8 +1226,8 @@ apply(x, 2, sum)
 ```
 
 ```
-##  [1] -1.353584 -2.513427  2.505982 -7.424539  2.195350 -2.841765  3.622534
-##  [8] -4.711318 -1.959773  4.807534
+##  [1]  0.1150799  3.3847897  4.1670340  8.4534105 -0.1794458  3.2395951
+##  [7] -0.3983110 -1.2475295  2.4118395 -0.2900143
 ```
 
 ```r
@@ -1234,18 +1236,18 @@ apply(x, 1, quantile, probs = c(0.25, 0.75))
 ```
 
 ```
-##           [,1]        [,2]       [,3]       [,4]       [,5]        [,6]
-## 25% -1.0310426 -0.04907933 -0.0534060 -0.5460076 -0.5856542 -0.09777107
-## 75%  0.7533351  1.26777310  0.9373587  0.4219377  0.3568853  0.62274617
+##            [,1]       [,2]        [,3]      [,4]      [,5]       [,6]
+## 25% -1.12981396 0.05320533 -0.76026179 -0.280979 0.1561278 -0.4971189
+## 75% -0.03635382 0.65380948 -0.05765654  1.439553 0.7192037  0.5006148
 ##           [,7]       [,8]       [,9]      [,10]      [,11]      [,12]
-## 25% -0.9883975 -0.5619296 -0.5324536 -1.0880375 -0.2574311 -0.8873456
-## 75%  0.7599981  0.1830854  0.2787950  0.4433678  0.7716743  0.1692603
-##          [,13]       [,14]      [,15]      [,16]     [,17]      [,18]
-## 25% -0.3380083 -1.09776606 -1.0274031 -0.7112306 -0.254196 -1.1818380
-## 75%  0.7144367  0.08105192 -0.1122756  0.2091940  1.095040  0.4783802
+## 25% -0.4871022 -0.4261296 -1.0766658 -0.6012603 -0.3460629 -0.8672751
+## 75%  0.3523635  0.7871360  0.3282589  0.6461509  0.5666012  0.1798698
+##         [,13]     [,14]     [,15]      [,16]      [,17]      [,18]
+## 25% -0.695670 0.1628591 0.1135125 -0.5335172 -0.4598713 -0.5215956
+## 75%  0.814849 1.3024599 1.1476166  0.3738642  1.1652113  0.6152672
 ##          [,19]      [,20]
-## 25% -0.2688273 -0.4089026
-## 75%  0.4771996  0.9016192
+## 25% -0.3562603 -0.8098604
+## 75%  0.6595250  0.6965057
 ```
 
 --- .class
@@ -1269,9 +1271,9 @@ apply(x, c(1, 2), mean)
 ```
 
 ```
-##             [,1]        [,2]
-## [1,]  0.05375343  0.03416811
-## [2,] -0.09847252 -0.14290914
+##            [,1]      [,2]
+## [1,] 0.04115467 0.1095874
+## [2,] 0.21407873 0.0283082
 ```
 
 ```r
@@ -1279,9 +1281,9 @@ rowMeans(x, dims = 2)
 ```
 
 ```
-##             [,1]        [,2]
-## [1,]  0.05375343  0.03416811
-## [2,] -0.09847252 -0.14290914
+##            [,1]      [,2]
+## [1,] 0.04115467 0.1095874
+## [2,] 0.21407873 0.0283082
 ```
 
 --- .class
@@ -1324,20 +1326,29 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.2.1 ──
+## ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──
 ```
 
 ```
-## ✔ ggplot2 2.2.1     ✔ purrr   0.2.4
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.4
-## ✔ tidyr   0.7.2     ✔ stringr 1.3.0
-## ✔ readr   1.1.1     ✔ forcats 0.2.0
+## ✔ tibble  1.4.2     ✔ purrr   0.2.4
+## ✔ tidyr   0.8.0     ✔ dplyr   0.7.4
+## ✔ readr   1.1.1     ✔ stringr 1.2.0
+## ✔ tibble  1.4.2     ✔ forcats 0.2.0
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
+## ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::arrange()   masks plyr::arrange()
+## ✖ purrr::compact()   masks plyr::compact()
+## ✖ dplyr::count()     masks plyr::count()
+## ✖ dplyr::failwith()  masks plyr::failwith()
+## ✖ dplyr::filter()    masks stats::filter()
+## ✖ dplyr::id()        masks plyr::id()
+## ✖ dplyr::lag()       masks stats::lag()
+## ✖ dplyr::mutate()    masks plyr::mutate()
+## ✖ dplyr::rename()    masks plyr::rename()
+## ✖ dplyr::summarise() masks plyr::summarise()
+## ✖ dplyr::summarize() masks plyr::summarize()
 ```
 
 ```r
@@ -1347,6 +1358,12 @@ library(lubridate)
 ```
 ## 
 ## Attaching package: 'lubridate'
+```
+
+```
+## The following object is masked from 'package:plyr':
+## 
+##     here
 ```
 
 ```
@@ -1422,6 +1439,10 @@ daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1617-public.
 ## )
 ```
 
+```r
+#daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1718-public.csv',delim=";")
+```
+
 * the `readr` functions will just work: you supply the path to a file and you get a `tibble` back
 
 --- .class
@@ -1445,11 +1466,11 @@ tibble(x = 1:5, y = 1, z = x ^ 2 + y)
 ## # A tibble: 5 x 3
 ##       x     y     z
 ##   <int> <dbl> <dbl>
-## 1     1    1.    2.
-## 2     2    1.    5.
-## 3     3    1.   10.
-## 4     4    1.   17.
-## 5     5    1.   26.
+## 1     1  1.00  2.00
+## 2     2  1.00  5.00
+## 3     3  1.00 10.0 
+## 4     4  1.00 17.0 
+## 5     5  1.00 26.0
 ```
 
 
@@ -1472,8 +1493,8 @@ tribble(
 ## # A tibble: 2 x 3
 ##   x         y     z
 ##   <chr> <dbl> <dbl>
-## 1 a        2.  3.60
-## 2 b        1.  8.50
+## 1 a      2.00  3.60
+## 2 b      1.00  8.50
 ```
 
 --- .class
@@ -1503,12 +1524,12 @@ daily %>% head
 ## # A tibble: 6 x 15
 ##   Type  Name   Department   PI    PIDept  Status Day        SerialJ Serial
 ##   <chr> <chr>  <chr>        <chr> <chr>   <chr>  <date>     <chr>   <chr> 
-## 1 User  " use… " Mechanica… " pi… " Mech… " Gra… 2016-10-01 " 0"    " 0.0…
-## 2 User  " use… " EN/Mechan… " pi… " Mech… " Gra… 2016-10-01 " 0"    " 0.0…
-## 3 User  " use… " EN/Mechan… " pi… " Mech… " Gra… 2016-10-01 " 0"    " 0.0…
-## 4 User  " use… " EN/Mechan… " pi… " Mech… " Gra… 2016-10-01 " 0"    " 0.0…
-## 5 User  " use… " EN/"       " pi… " Mech… " Gra… 2016-10-01 " 0"    " 0.0…
-## 6 User  " use… " EN/Mechan… " pi… " Mech… " Gra… 2016-10-01 " 0"    " 0.0…
+## 1 User  " use… "  EN/Mecha… " pi… "  Mec… "  Gr… 2017-10-01 " 0"    " 0.0…
+## 2 User  " use… "  Mechanic… " pi… "  Mec… "  Gu… 2017-10-01 " 0"    " 0.0…
+## 3 User  " use… "  EN/Mecha… " pi… "  Mec… "  Gr… 2017-10-01 " 0"    " 0.0…
+## 4 User  " use… "  EN/Mecha… " pi… "  Mec… "  Gr… 2017-10-01 " 0"    " 0.0…
+## 5 User  " use… "  EN/Mecha… " pi… "  Mec… "  Gr… 2017-10-01 " 0"    " 0.0…
+## 6 User  " use… "  EN/Mecha… " pi… "  Mec… "  Gr… 2017-10-01 " 0"    " 0.0…
 ## # ... with 6 more variables: SingleJ <chr>, Single <chr>, MultiJ <chr>,
 ## #   Multi <chr>, TotalJ <chr>, Total <chr>
 ```
@@ -1519,7 +1540,16 @@ daily %>% head
 # Mar 15, 2017: Added 192 cpus
 # May 1, 2017: Added 312 cpus
 # Total Available at end of AY 2016-17: 1284 cpus
+# Nov 15, 2017: Added 16 cpus (himem node)
+# Apr 2, 2018: Added 252 cpus
+# Aug 31, 2018: Added 72 cpus
+# Total Available at end of AY 2017-18: 1624 cpus
+# Nov 12, 2018: Added 72 cpus
+# Dec 1, 2018: Added 24 cpus
+# Jan 2, 2019: Added 432 cpus
+# Total Available in AY 2018-19: 2152 cpus
 ay1617su <- c(580320.00,561600.00,580320.00,580320.00,524160.00,580320.00,699840.00,955296.00,924480.00,955296.00,955296.00,924480.00)
+ay1718su <- c(955296.00,924480.00,967200.00,967200.00,873600.00,967200.00,1117440.00,  1154688.00,1117440.00,1154688.00,1155480.00,1169280.00)
 ```
 
 
@@ -1545,14 +1575,14 @@ monthly %>% head
 ```
 ## # A tibble: 6 x 14
 ## # Groups:   Month, Name, Department, PI, PIDept [6]
-##   Month      Name   Department   PI     PIDept  Status Serial Single Multi
-##   <date>     <chr>  <chr>        <chr>  <chr>   <chr>   <dbl>  <dbl> <dbl>
-## 1 2016-10-01 " use… " Mechanica… " pi0… " Mech… " Gra…     0.     0.    0.
-## 2 2016-10-01 " use… " EN/Mechan… " pi0… " Mech… " Gra…     0.     0.    0.
-## 3 2016-10-01 " use… " EN/Mechan… " pi0… " Mech… " Gra…     0.     0.    0.
-## 4 2016-10-01 " use… " EN/Mechan… " pi0… " Mech… " Gra…     0.     0.    0.
-## 5 2016-10-01 " use… " EN/"       " pi0… " Mech… " Gra…     0.     0.    0.
-## 6 2016-10-01 " use… " EN/Mechan… " pi0… " Mech… " Gra…     0.     0.    0.
+##   Month      Name   Department  PI    PIDept  Status  Serial Single  Multi
+##   <date>     <chr>  <chr>       <chr> <chr>   <chr>    <dbl>  <dbl>  <dbl>
+## 1 2016-10-01 user0… AS/Physics… pi009 Physics Gradua…      0  18542 0     
+## 2 2016-10-01 user1… LTS         pi016 LTS     Facult…      0    817 6.38e³
+## 3 2016-10-01 user1… AS/Biochem… pi024 Biolog… Gradua…      0      0 1.10e⁵
+## 4 2016-10-01 user1… Biological… pi024 Biolog… Facult…      0      0 1.42e⁴
+## 5 2016-10-01 user1… AS/Biochem… pi024 Biolog… Gradua…      0  14442 1.38e⁵
+## 6 2016-11-01 user1… LTS         pi016 LTS     Facult…      0    334 3.11e⁰
 ## # ... with 5 more variables: Total <dbl>, SerialJ <dbl>, SingleJ <dbl>,
 ## #   MultiJ <dbl>, TotalJ <dbl>
 ```
@@ -1576,16 +1606,16 @@ monthlyusage
 ##    <date>       <dbl>  <dbl>     <dbl>   <dbl>   <dbl>
 ##  1 2016-10-01 302612.   582.   580320. 277708.    52.2
 ##  2 2016-11-01 419350. 24078.   561600. 142250.    74.7
-##  3 2016-12-01 463780. 21407.   580320. 116540.    79.9
-##  4 2017-01-01 465491.  7016.   580320. 114829.    80.2
-##  5 2017-02-01 328076. 11031.   524160. 196084.    62.6
-##  6 2017-03-01 349473. 11279.   580320. 230847.    60.2
-##  7 2017-04-01 560704.  6348.   699840. 139136.    80.1
-##  8 2017-05-01 533431. 21873.   955296. 421865.    55.8
-##  9 2017-06-01 564697.  5604.   924480. 359783.    61.1
-## 10 2017-07-01 549729. 20013.   955296. 405567.    57.6
-## 11 2017-08-01 602890. 45945.   955296. 352406.    63.1
-## 12 2017-09-01 548241. 31121.   924480. 376239.    59.3
+##  3 2016-12-01 463780. 21395.   580320. 116540.    79.9
+##  4 2017-01-01 465491.  7004.   580320. 114829.    80.2
+##  5 2017-02-01 328076. 10998.   524160. 196084.    62.6
+##  6 2017-03-01 349473. 11273.   580320. 230847.    60.2
+##  7 2017-04-01 560704.  6333.   699840. 139136.    80.1
+##  8 2017-05-01 533431. 21804.   955296. 421865.    55.8
+##  9 2017-06-01 564697.  5441.   924480. 359783.    61.1
+## 10 2017-07-01 549729. 19893.   955296. 405567.    57.6
+## 11 2017-08-01 602890. 45746.   955296. 352406.    63.1
+## 12 2017-09-01 548241. 31076.   924480. 376239.    59.3
 ```
 
 --- .class
@@ -1605,16 +1635,16 @@ monthly %>%
 
 |PIDept                         |      Total|   Jobs|
 |:------------------------------|----------:|------:|
-|Biological Sciences            | 3178662.32| 188074|
-|Chemical and Biomolecular Engr | 1075569.60|   4546|
-|Chemical Engineering           |   44747.30|   3424|
-|Chemistry                      |   24950.47|   1192|
-|Civil and Environmental Engr   |   32294.69|   1330|
-|Computer Sci and Engineering   |   21673.44|    476|
-|LTS                            |   52167.27|   2824|
-|Mathematics                    |   20104.04|     35|
-|Mechanical Engr and Mechanics  |  871391.19|   3495|
-|Physics                        |  366912.48|    901|
+|Biological Sciences            | 3178662.31| 187842|
+|Chemical and Biomolecular Engr | 1075569.60|   4516|
+|Chemical Engineering           |   44747.30|   3257|
+|Chemistry                      |   24950.47|   1185|
+|Civil and Environmental Engr   |   32294.69|   1320|
+|Computer Sci and Engineering   |   21673.44|    463|
+|LTS                            |   52167.27|   2791|
+|Mathematics                    |   20104.04|     32|
+|Mechanical Engr and Mechanics  |  871391.19|   3351|
+|Physics                        |  366912.48|    866|
 
 --- .class
 
@@ -1624,49 +1654,36 @@ monthly %>%
 ```r
 monthly %>%
   group_by(Department) %>%
-  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  arrange(desc(Total)) %>%
-  kable
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),
+  Jobs=round(sum(as.double(TotalJ)))) %>% arrange(desc(Total)) %>% kable
 ```
 
 
 
-|Department                        | Serial|    SMP|     DMP|      Total|  Jobs|
-|:---------------------------------|------:|------:|-------:|----------:|-----:|
-|AS/Biochemistry (CAS)             | 225602| 365083| 2077618| 2668302.97| 76112|
-|EN/Chemical Engineering           |  20748| 346296|  286186|  653229.90|  5340|
-|EN/Mechanical Engineering         |      0| 321597|  300579|  622176.07|  2457|
-|Biological Sciences               | 172290|  73569|  209243|  455101.83| 86879|
-|Chemical and Biomolecular Engr    |   2663| 272962|  175245|  450870.03|  1487|
-|AS/Physics (AS)                   |    340| 159440|  210693|  370473.39|  1025|
-|EN/                               |   4285|  41891|  114646|  160821.65|   624|
-|Mechanical Engr and Mechanics     |     61|  16614|   79776|   96451.62|   869|
-|LTS                               |    325|   9051|   42415|   51790.48|  2732|
-|Civil and Environmental Engr      |    161|  32134|       0|   32294.69|  1330|
-|Chemistry                         |      0|  24950|       0|   24950.47|  1192|
-|Mathematics                       |      0|  20104|       0|   20104.04|    35|
-|IC/Computer Science & Business    |      0|   7506|   11559|   19065.68|   195|
-|Computer Sci and Engineering      |  10759|   7725|       0|   18483.86| 24550|
-|AS/Behavioral Neuroscience        |      0|  15132|    2087|   17219.65|   426|
-|EN/Computer Science (EN)          |     13|  15921|       0|   15934.02|   395|
-|EN/Bioengineering                 |      0|   2032|    6512|    8544.27|    25|
-|Chemical Engineering              |      0|   2170|       0|    2170.35|   359|
-|AS/Chemistry (AS)                 |      0|    345|     137|     482.21|   239|
-|EN/Computer Engineering           |      5|      0|       0|       5.44|    16|
-|EN/Structural Engineering         |      0|      0|       0|       0.17|     2|
-|AS/Applied Mathematics            |      0|      0|       0|       0.00|     1|
-|AS/Economics                      |      0|      0|       0|       0.00|     0|
-|AS/Mathematics                    |      0|      0|       0|       0.00|     7|
-|AS/Molecular Biology              |      0|      0|       0|       0.00|     0|
-|AS/Undeclared                     |      0|      0|       0|       0.00|     0|
-|EN/Electrical Engineering         |      0|      0|       0|       0.00|     0|
-|EN/Healthcare Systems Engineering |      0|      0|       0|       0.00|     0|
-|Engineering Rsch Ctr - ATLSS      |      0|      0|       0|       0.00|     0|
-|IC/Bioengineering                 |      0|      0|       0|       0.00|     0|
-|Industrial and Syst Engr          |      0|      0|       0|       0.00|     0|
-|LTS Technology Infrastructure     |      0|      0|       0|       0.00|     0|
-|Physics                           |      0|      0|       0|       0.00|     0|
-|Provost Office                    |      0|      0|       0|       0.00|     0|
+|Department                     | Serial|    SMP|     DMP|      Total|  Jobs|
+|:------------------------------|------:|------:|-------:|----------:|-----:|
+|AS/Biochemistry (CAS)          | 225602| 365083| 2077618| 2668302.97| 76047|
+|EN/Chemical Engineering        |  20748| 346296|  286186|  653229.90|  5173|
+|EN/Mechanical Engineering      |      0| 321597|  300579|  622176.07|  2320|
+|Biological Sciences            | 172290|  73569|  209243|  455101.83| 86726|
+|Chemical and Biomolecular Engr |   2663| 272962|  175245|  450870.03|  1483|
+|AS/Physics (AS)                |    340| 159440|  210693|  370473.39|   987|
+|EN/                            |   4285|  41891|  114646|  160821.65|   598|
+|Mechanical Engr and Mechanics  |     61|  16614|   79776|   96451.62|   865|
+|LTS                            |    325|   9051|   42415|   51790.48|  2707|
+|Civil and Environmental Engr   |    161|  32134|       0|   32294.69|  1320|
+|Chemistry                      |      0|  24950|       0|   24950.47|  1185|
+|Mathematics                    |      0|  20104|       0|   20104.04|    32|
+|IC/Computer Science & Business |      0|   7506|   11559|   19065.68|   188|
+|Computer Sci and Engineering   |  10759|   7725|       0|   18483.86| 24550|
+|AS/Behavioral Neuroscience     |      0|  15132|    2087|   17219.65|   418|
+|EN/Computer Science (EN)       |     13|  15921|       0|   15934.02|   392|
+|EN/Bioengineering              |      0|   2032|    6512|    8544.27|    25|
+|Chemical Engineering           |      0|   2170|       0|    2170.35|   357|
+|AS/Chemistry (AS)              |      0|    345|     137|     482.21|   239|
+|EN/Computer Engineering        |      5|      0|       0|       5.44|     6|
+|EN/Structural Engineering      |      0|      0|       0|       0.17|     2|
+|AS/Mathematics                 |      0|      0|       0|       0.00|     3|
 
 
 --- .class
@@ -1678,54 +1695,41 @@ monthly %>%
 library(xtable)
 monthly %>%
   group_by(Department) %>%
-  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  arrange(desc(Total)) %>%
-  xtable
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),
+  Jobs=round(sum(as.double(TotalJ)))) %>% arrange(desc(Total)) %>% xtable
 ```
 
 ```
 ## % latex table generated in R 3.4.3 by xtable 1.8-2 package
-## % Fri Jun 29 13:11:29 2018
+## % Thu Feb 28 10:10:52 2019
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rlrrrrr}
 ##   \hline
 ##  & Department & Serial & SMP & DMP & Total & Jobs \\ 
 ##   \hline
-## 1 &  AS/Biochemistry (CAS) & 225602.00 & 365083.00 & 2077618.00 & 2668302.97 & 76112.00 \\ 
-##   2 &  EN/Chemical Engineering & 20748.00 & 346296.00 & 286186.00 & 653229.90 & 5340.00 \\ 
-##   3 &  EN/Mechanical Engineering & 0.00 & 321597.00 & 300579.00 & 622176.07 & 2457.00 \\ 
-##   4 &  Biological Sciences & 172290.00 & 73569.00 & 209243.00 & 455101.83 & 86879.00 \\ 
-##   5 &  Chemical and Biomolecular Engr & 2663.00 & 272962.00 & 175245.00 & 450870.03 & 1487.00 \\ 
-##   6 &  AS/Physics (AS) & 340.00 & 159440.00 & 210693.00 & 370473.39 & 1025.00 \\ 
-##   7 &  EN/ & 4285.00 & 41891.00 & 114646.00 & 160821.65 & 624.00 \\ 
-##   8 &  Mechanical Engr and Mechanics & 61.00 & 16614.00 & 79776.00 & 96451.62 & 869.00 \\ 
-##   9 &  LTS & 325.00 & 9051.00 & 42415.00 & 51790.48 & 2732.00 \\ 
-##   10 &  Civil and Environmental Engr & 161.00 & 32134.00 & 0.00 & 32294.69 & 1330.00 \\ 
-##   11 &  Chemistry & 0.00 & 24950.00 & 0.00 & 24950.47 & 1192.00 \\ 
-##   12 &  Mathematics & 0.00 & 20104.00 & 0.00 & 20104.04 & 35.00 \\ 
-##   13 &  IC/Computer Science \& Business & 0.00 & 7506.00 & 11559.00 & 19065.68 & 195.00 \\ 
-##   14 &  Computer Sci and Engineering & 10759.00 & 7725.00 & 0.00 & 18483.86 & 24550.00 \\ 
-##   15 &  AS/Behavioral Neuroscience & 0.00 & 15132.00 & 2087.00 & 17219.65 & 426.00 \\ 
-##   16 &  EN/Computer Science (EN) & 13.00 & 15921.00 & 0.00 & 15934.02 & 395.00 \\ 
-##   17 &  EN/Bioengineering & 0.00 & 2032.00 & 6512.00 & 8544.27 & 25.00 \\ 
-##   18 &  Chemical Engineering & 0.00 & 2170.00 & 0.00 & 2170.35 & 359.00 \\ 
-##   19 &  AS/Chemistry (AS) & 0.00 & 345.00 & 137.00 & 482.21 & 239.00 \\ 
-##   20 &  EN/Computer Engineering & 5.00 & 0.00 & 0.00 & 5.44 & 16.00 \\ 
-##   21 &  EN/Structural Engineering & 0.00 & 0.00 & 0.00 & 0.17 & 2.00 \\ 
-##   22 &  AS/Applied Mathematics & 0.00 & 0.00 & 0.00 & 0.00 & 1.00 \\ 
-##   23 &  AS/Economics & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   24 &  AS/Mathematics & 0.00 & 0.00 & 0.00 & 0.00 & 7.00 \\ 
-##   25 &  AS/Molecular Biology & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   26 &  AS/Undeclared & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   27 &  EN/Electrical Engineering & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   28 &  EN/Healthcare Systems Engineering & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   29 &  Engineering Rsch Ctr - ATLSS & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   30 &  IC/Bioengineering & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   31 &  Industrial and Syst Engr & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   32 &  LTS Technology Infrastructure & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   33 &  Physics & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
-##   34 &  Provost Office & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
+## 1 & AS/Biochemistry (CAS) & 225602.00 & 365083.00 & 2077618.00 & 2668302.97 & 76047.00 \\ 
+##   2 & EN/Chemical Engineering & 20748.00 & 346296.00 & 286186.00 & 653229.90 & 5173.00 \\ 
+##   3 & EN/Mechanical Engineering & 0.00 & 321597.00 & 300579.00 & 622176.07 & 2320.00 \\ 
+##   4 & Biological Sciences & 172290.00 & 73569.00 & 209243.00 & 455101.83 & 86726.00 \\ 
+##   5 & Chemical and Biomolecular Engr & 2663.00 & 272962.00 & 175245.00 & 450870.03 & 1483.00 \\ 
+##   6 & AS/Physics (AS) & 340.00 & 159440.00 & 210693.00 & 370473.39 & 987.00 \\ 
+##   7 & EN/ & 4285.00 & 41891.00 & 114646.00 & 160821.65 & 598.00 \\ 
+##   8 & Mechanical Engr and Mechanics & 61.00 & 16614.00 & 79776.00 & 96451.62 & 865.00 \\ 
+##   9 & LTS & 325.00 & 9051.00 & 42415.00 & 51790.48 & 2707.00 \\ 
+##   10 & Civil and Environmental Engr & 161.00 & 32134.00 & 0.00 & 32294.69 & 1320.00 \\ 
+##   11 & Chemistry & 0.00 & 24950.00 & 0.00 & 24950.47 & 1185.00 \\ 
+##   12 & Mathematics & 0.00 & 20104.00 & 0.00 & 20104.04 & 32.00 \\ 
+##   13 & IC/Computer Science \& Business & 0.00 & 7506.00 & 11559.00 & 19065.68 & 188.00 \\ 
+##   14 & Computer Sci and Engineering & 10759.00 & 7725.00 & 0.00 & 18483.86 & 24550.00 \\ 
+##   15 & AS/Behavioral Neuroscience & 0.00 & 15132.00 & 2087.00 & 17219.65 & 418.00 \\ 
+##   16 & EN/Computer Science (EN) & 13.00 & 15921.00 & 0.00 & 15934.02 & 392.00 \\ 
+##   17 & EN/Bioengineering & 0.00 & 2032.00 & 6512.00 & 8544.27 & 25.00 \\ 
+##   18 & Chemical Engineering & 0.00 & 2170.00 & 0.00 & 2170.35 & 357.00 \\ 
+##   19 & AS/Chemistry (AS) & 0.00 & 345.00 & 137.00 & 482.21 & 239.00 \\ 
+##   20 & EN/Computer Engineering & 5.00 & 0.00 & 0.00 & 5.44 & 6.00 \\ 
+##   21 & EN/Structural Engineering & 0.00 & 0.00 & 0.00 & 0.17 & 2.00 \\ 
+##   22 & AS/Mathematics & 0.00 & 0.00 & 0.00 & 0.00 & 3.00 \\ 
 ##    \hline
 ## \end{tabular}
 ## \end{table}
@@ -1745,14 +1749,14 @@ monthlystatus
 
 ```
 ## # A tibble: 6 x 2
-##   Status                      Total
-##   <chr>                       <dbl>
-## 1 " Affiliate"               49513.
-## 2 " Faculty"                436898.
-## 3 " Faculty/Staff"          441351.
-## 4 " Graduate Student"      4631676.
-## 5 " Guest"                   40979.
-## 6 " Undergraduate Student"   88055.
+##   Status                   Total
+##   <chr>                    <dbl>
+## 1 Affiliate               49513.
+## 2 Faculty                436898.
+## 3 Faculty/Staff          441351.
+## 4 Graduate Student      4631676.
+## 5 Guest                   40979.
+## 6 Undergraduate Student   88055.
 ```
 
 
@@ -1792,194 +1796,194 @@ tmp %>% arrange(Usage) %>%
 
 
 
-|Day        |Name    |Department                     |PI    |PIDept                         |JobType |Usage        |
-|:----------|:-------|:------------------------------|:-----|:------------------------------|:-------|:------------|
-|2017-02-09 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |1021.272222  |
-|2017-02-14 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |10380.330000 |
-|2017-02-20 |user140 |Civil and Environmental Engr   |pi020 |Civil and Environmental Engr   |Single  |104.161111   |
-|2017-02-07 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |104.750000   |
-|2017-02-27 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |105.446389   |
-|2017-02-10 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |1051.522222  |
-|2017-02-15 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |107.694444   |
-|2017-02-11 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |108.850000   |
-|2017-02-19 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |1110.011111  |
-|2017-02-25 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |1130.233333  |
-|2017-02-15 |user035 |AS/Behavioral Neuroscience     |pi005 |Chemical Engineering           |Single  |114.144444   |
-|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |114.227778   |
-|2017-02-20 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |115.194444   |
-|2017-02-15 |user128 |LTS                            |pi016 |LTS                            |Single  |115.433333   |
-|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |118.323889   |
-|2017-02-28 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |120.138889   |
-|2017-02-17 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |121.155556   |
-|2017-02-16 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |122.483333   |
-|2017-02-22 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |1227.306667  |
-|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |12405.580000 |
-|2017-02-07 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |1246.483333  |
-|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |126.544444   |
-|2017-02-07 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |12804.990000 |
-|2017-02-02 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |129.861944   |
-|2017-02-15 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |130.077778   |
-|2017-02-21 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |130.366667   |
-|2017-02-18 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |133.464167   |
-|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |Multi   |133.866667   |
-|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |134.411111   |
-|2017-02-04 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |1357.322778  |
-|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |Single  |136.411111   |
-|2017-02-26 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |1362.283333  |
-|2017-02-02 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |138.594444   |
-|2017-02-15 |user032 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |139.772222   |
-|2017-02-16 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |1396.877778  |
-|2017-02-16 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |140.116667   |
-|2017-02-19 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |140.722222   |
-|2017-02-19 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |141.327222   |
-|2017-02-15 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |142.138889   |
-|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |142.677778   |
-|2017-02-24 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |1432.200000  |
-|2017-02-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |1440.050000  |
-|2017-02-02 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |1440.050000  |
-|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |1440.177778  |
-|2017-02-10 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |1440.366667  |
-|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |145.294444   |
-|2017-02-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |145.369444   |
-|2017-02-14 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |146.333333   |
-|2017-02-24 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |146.455556   |
-|2017-02-10 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |1467.681944  |
-|2017-02-24 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |1478.105556  |
-|2017-02-22 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |148.077778   |
-|2017-02-08 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |150.296389   |
-|2017-02-22 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |156.011111   |
-|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |1573.766667  |
-|2017-02-14 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |158.666667   |
-|2017-02-15 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |159.616667   |
-|2017-02-26 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |1633.357500  |
-|2017-02-04 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |164.481389   |
-|2017-03-01 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |1643.161111  |
-|2017-02-11 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |166.430000   |
-|2017-02-06 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |170.217222   |
-|2017-03-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |172.673611   |
-|2017-02-20 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |17280.400000 |
-|2017-02-19 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |175.529444   |
-|2017-02-11 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |178.827778   |
-|2017-02-10 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |183.317222   |
-|2017-02-14 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |1832.380000  |
-|2017-02-13 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |188.146944   |
-|2017-02-12 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |197.764167   |
-|2017-02-28 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |199.313889   |
-|2017-02-24 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |206.099444   |
-|2017-02-24 |user030 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |206.344444   |
-|2017-02-20 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |206.390556   |
-|2017-02-21 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |207.011111   |
-|2017-02-03 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |212.616667   |
-|2017-02-02 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |2142.465278  |
-|2017-02-21 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |216.306667   |
-|2017-02-03 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |217.501111   |
-|2017-02-27 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |221.792222   |
-|2017-02-17 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |222.012778   |
-|2017-02-14 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |222.611111   |
-|2017-02-27 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |224.102500   |
-|2017-02-18 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |224.186667   |
-|2017-02-04 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |228.233333   |
-|2017-02-22 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |231.380556   |
-|2017-02-24 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |232.461111   |
-|2017-02-15 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |233.766667   |
-|2017-02-14 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |235.355556   |
-|2017-02-14 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |237.088889   |
-|2017-02-09 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |2379.708611  |
-|2017-02-17 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |240.792222   |
-|2017-02-23 |user177 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |243.868611   |
-|2017-02-09 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |2457.070000  |
-|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |254.477778   |
-|2017-02-09 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |255.951389   |
-|2017-02-06 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |2566.544444  |
-|2017-02-03 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |2616.138333  |
-|2017-02-18 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |265.731389   |
-|2017-02-26 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |266.371389   |
-|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |2721.733333  |
-|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |277.424444   |
-|2017-02-15 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |280.433333   |
-|2017-02-27 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |2829.961111  |
-|2017-02-14 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |283.680000   |
-|2017-02-09 |user070 |AS/Physics (AS)                |pi009 |Physics                        |Single  |2840.272222  |
-|2017-02-24 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |2863.038889  |
-|2017-02-16 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |2866.455556  |
-|2017-02-07 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |288.137500   |
-|2017-02-09 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |2880.211111  |
-|2017-02-04 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |2880.255556  |
-|2017-02-08 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |2880.322222  |
-|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |2880.366667  |
-|2017-02-20 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |2880.688889  |
-|2017-02-24 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |290.804722   |
-|2017-02-05 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |294.147778   |
-|2017-02-06 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |297.911389   |
-|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |300.077778   |
-|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |307.961111   |
-|2017-02-16 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |326.061111   |
-|2017-02-12 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |326.177778   |
-|2017-03-01 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |3317.410000  |
-|2017-02-28 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |3465.911111  |
-|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |366.094444   |
-|2017-02-01 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |372.322222   |
-|2017-02-07 |user127 |AS/Behavioral Neuroscience     |pi015 |Biological Sciences            |Single  |3725.706111  |
-|2017-02-23 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |3773.196667  |
-|2017-02-28 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |3888.314722  |
-|2017-02-18 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |4015.000000  |
-|2017-02-20 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |4075.288889  |
-|2017-02-25 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |408.500278   |
-|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Multi   |410.555556   |
-|2017-02-17 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |4101.800000  |
-|2017-02-22 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |414.500833   |
-|2017-02-23 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |425.016667   |
-|2017-02-14 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |425.177778   |
-|2017-02-13 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |4290.127778  |
-|2017-02-16 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |430.605556   |
-|2017-02-15 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |453.650000   |
-|2017-02-28 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |460.244444   |
-|2017-02-20 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |465.737778   |
-|2017-02-03 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |4899.022222  |
-|2017-02-27 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |4922.705556  |
-|2017-02-22 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |503.222222   |
-|2017-02-23 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |521.582222   |
-|2017-02-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |5264.123333  |
-|2017-02-12 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |541.871111   |
-|2017-02-21 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |553.075556   |
-|2017-02-03 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |5610.330000  |
-|2017-02-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |5715.888889  |
-|2017-02-11 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |618.382222   |
-|2017-02-13 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |640.188889   |
-|2017-02-22 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |661.282500   |
-|2017-02-12 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |6794.190000  |
-|2017-02-10 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |6893.100000  |
-|2017-02-23 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |6898.063333  |
-|2017-02-23 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |692.305556   |
-|2017-02-05 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |6959.480000  |
-|2017-02-13 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |7023.420000  |
-|2017-02-13 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |711.026667   |
-|2017-02-11 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |7177.860000  |
-|2017-02-01 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |720.480833   |
-|2017-02-10 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |735.662222   |
-|2017-03-01 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |741.683333   |
-|2017-02-17 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |747.257778   |
-|2017-02-14 |user128 |LTS                            |pi016 |LTS                            |Single  |750.606667   |
-|2017-02-09 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |752.550000   |
-|2017-02-04 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |7547.760000  |
-|2017-02-24 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |7622.266667  |
-|2017-02-21 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |778.355556   |
-|2017-02-05 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |780.208056   |
-|2017-02-14 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |802.038889   |
-|2017-02-06 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |8071.873333  |
-|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |819.166667   |
-|2017-02-03 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |854.311111   |
-|2017-03-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |8678.083333  |
-|2017-02-22 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |887.083333   |
-|2017-02-08 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |8935.520000  |
-|2017-02-08 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |895.394444   |
-|2017-03-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |928.950000   |
-|2017-02-16 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |931.972222   |
-|2017-02-27 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |9322.280000  |
-|2017-02-28 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |9503.230000  |
-|2017-02-25 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |960.022222   |
-|2017-02-25 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |9641.463333  |
-|2017-02-26 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |9705.666667  |
+|Day        |Name    |Department                     |PI    |PIDept                         |JobType |      Usage|
+|:----------|:-------|:------------------------------|:-----|:------------------------------|:-------|----------:|
+|2017-02-20 |user140 |Civil and Environmental Engr   |pi020 |Civil and Environmental Engr   |Single  |   104.1611|
+|2017-02-07 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   104.7500|
+|2017-02-27 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   105.4464|
+|2017-02-15 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   107.6944|
+|2017-02-11 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   108.8500|
+|2017-02-15 |user035 |AS/Behavioral Neuroscience     |pi005 |Chemical Engineering           |Single  |   114.1444|
+|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   114.2278|
+|2017-02-20 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   115.1944|
+|2017-02-15 |user128 |LTS                            |pi016 |LTS                            |Single  |   115.4333|
+|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   118.3239|
+|2017-02-28 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   120.1389|
+|2017-02-17 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   121.1556|
+|2017-02-16 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   122.4833|
+|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   126.5444|
+|2017-02-02 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   129.8619|
+|2017-02-15 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   130.0778|
+|2017-02-21 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   130.3667|
+|2017-02-18 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   133.4642|
+|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |Multi   |   133.8667|
+|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   134.4111|
+|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |Single  |   136.4111|
+|2017-02-02 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   138.5944|
+|2017-02-15 |user032 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   139.7722|
+|2017-02-16 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   140.1167|
+|2017-02-19 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   140.7222|
+|2017-02-19 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   141.3272|
+|2017-02-15 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   142.1389|
+|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |   142.6778|
+|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   145.2944|
+|2017-02-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   145.3694|
+|2017-02-14 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   146.3333|
+|2017-02-24 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   146.4556|
+|2017-02-22 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   148.0778|
+|2017-02-08 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   150.2964|
+|2017-02-22 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   156.0111|
+|2017-02-14 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   158.6667|
+|2017-02-15 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   159.6167|
+|2017-02-04 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   164.4814|
+|2017-02-11 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   166.4300|
+|2017-02-06 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   170.2172|
+|2017-03-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   172.6736|
+|2017-02-19 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   175.5294|
+|2017-02-11 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   178.8278|
+|2017-02-10 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   183.3172|
+|2017-02-13 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   188.1469|
+|2017-02-12 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   197.7642|
+|2017-02-28 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   199.3139|
+|2017-02-24 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   206.0994|
+|2017-02-24 |user030 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   206.3444|
+|2017-02-20 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   206.3906|
+|2017-02-21 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   207.0111|
+|2017-02-03 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   212.6167|
+|2017-02-21 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   216.3067|
+|2017-02-03 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   217.5011|
+|2017-02-27 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   221.7922|
+|2017-02-17 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   222.0128|
+|2017-02-14 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   222.6111|
+|2017-02-27 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   224.1025|
+|2017-02-18 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   224.1867|
+|2017-02-04 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   228.2333|
+|2017-02-22 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   231.3806|
+|2017-02-24 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   232.4611|
+|2017-02-15 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   233.7667|
+|2017-02-14 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   235.3556|
+|2017-02-14 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   237.0889|
+|2017-02-17 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   240.7922|
+|2017-02-23 |user177 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   243.8686|
+|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |   254.4778|
+|2017-02-09 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   255.9514|
+|2017-02-18 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   265.7314|
+|2017-02-26 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   266.3714|
+|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   277.4244|
+|2017-02-15 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   280.4333|
+|2017-02-14 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   283.6800|
+|2017-02-07 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   288.1375|
+|2017-02-24 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   290.8047|
+|2017-02-05 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   294.1478|
+|2017-02-06 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   297.9114|
+|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |   300.0778|
+|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   307.9611|
+|2017-02-16 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   326.0611|
+|2017-02-12 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   326.1778|
+|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   366.0944|
+|2017-02-01 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   372.3222|
+|2017-02-25 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   408.5003|
+|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Multi   |   410.5556|
+|2017-02-22 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   414.5008|
+|2017-02-23 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |Single  |   425.0167|
+|2017-02-14 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   425.1778|
+|2017-02-16 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   430.6056|
+|2017-02-15 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   453.6500|
+|2017-02-28 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   460.2444|
+|2017-02-20 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   465.7378|
+|2017-02-22 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   503.2222|
+|2017-02-23 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   521.5822|
+|2017-02-12 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   541.8711|
+|2017-02-21 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   553.0756|
+|2017-02-11 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   618.3822|
+|2017-02-13 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   640.1889|
+|2017-02-22 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   661.2825|
+|2017-02-23 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |   692.3056|
+|2017-02-13 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   711.0267|
+|2017-02-01 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   720.4808|
+|2017-02-10 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   735.6622|
+|2017-03-01 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   741.6833|
+|2017-02-17 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Single  |   747.2578|
+|2017-02-14 |user128 |LTS                            |pi016 |LTS                            |Single  |   750.6067|
+|2017-02-09 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |   752.5500|
+|2017-02-21 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   778.3556|
+|2017-02-05 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   780.2081|
+|2017-02-14 |user138 |Chemistry                      |pi018 |Chemistry                      |Single  |   802.0389|
+|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |   819.1667|
+|2017-02-03 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |   854.3111|
+|2017-02-22 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |   887.0833|
+|2017-02-08 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |   895.3944|
+|2017-03-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |   928.9500|
+|2017-02-16 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |Single  |   931.9722|
+|2017-02-25 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |   960.0222|
+|2017-02-09 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  1021.2722|
+|2017-02-10 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  1051.5222|
+|2017-02-19 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  1110.0111|
+|2017-02-25 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  1130.2333|
+|2017-02-22 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  1227.3067|
+|2017-02-07 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |  1246.4833|
+|2017-02-04 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |  1357.3228|
+|2017-02-26 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  1362.2833|
+|2017-02-16 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  1396.8778|
+|2017-02-24 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1432.2000|
+|2017-02-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1440.0500|
+|2017-02-02 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1440.0500|
+|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Single  |  1440.1778|
+|2017-02-10 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |  1440.3667|
+|2017-02-10 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  1467.6819|
+|2017-02-24 |user031 |EN/                            |pi005 |Chemical Engineering           |Single  |  1478.1056|
+|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  1573.7667|
+|2017-02-26 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  1633.3575|
+|2017-03-01 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  1643.1611|
+|2017-02-14 |user122 |AS/Physics (AS)                |pi013 |Physics                        |Multi   |  1832.3800|
+|2017-02-02 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |  2142.4653|
+|2017-02-09 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  2379.7086|
+|2017-02-09 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  2457.0700|
+|2017-02-06 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  2566.5444|
+|2017-02-03 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Serial  |  2616.1383|
+|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  2721.7333|
+|2017-02-27 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  2829.9611|
+|2017-02-09 |user070 |AS/Physics (AS)                |pi009 |Physics                        |Single  |  2840.2722|
+|2017-02-24 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  2863.0389|
+|2017-02-16 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2866.4556|
+|2017-02-09 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.2111|
+|2017-02-04 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.2556|
+|2017-02-08 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.3222|
+|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.3667|
+|2017-02-20 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |Multi   |  2880.6889|
+|2017-03-01 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  3317.4100|
+|2017-02-28 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  3465.9111|
+|2017-02-07 |user127 |AS/Behavioral Neuroscience     |pi015 |Biological Sciences            |Single  |  3725.7061|
+|2017-02-23 |user163 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  3773.1967|
+|2017-02-28 |user159 |Biological Sciences            |pi024 |Biological Sciences            |Serial  |  3888.3147|
+|2017-02-18 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  4015.0000|
+|2017-02-20 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  4075.2889|
+|2017-02-17 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  4101.8000|
+|2017-02-13 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Single  |  4290.1278|
+|2017-02-03 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  4899.0222|
+|2017-02-27 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |Single  |  4922.7056|
+|2017-02-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  5264.1233|
+|2017-02-03 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  5610.3300|
+|2017-02-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |Multi   |  5715.8889|
+|2017-02-12 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6794.1900|
+|2017-02-10 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6893.1000|
+|2017-02-23 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6898.0633|
+|2017-02-05 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  6959.4800|
+|2017-02-13 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7023.4200|
+|2017-02-11 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7177.8600|
+|2017-02-04 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7547.7600|
+|2017-02-24 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  7622.2667|
+|2017-02-06 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  8071.8733|
+|2017-03-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  8678.0833|
+|2017-02-08 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  8935.5200|
+|2017-02-27 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9322.2800|
+|2017-02-28 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9503.2300|
+|2017-02-25 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9641.4633|
+|2017-02-26 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   |  9705.6667|
+|2017-02-14 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 10380.3300|
+|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 12405.5800|
+|2017-02-07 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 12804.9900|
+|2017-02-20 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |Multi   | 17280.4000|
 
 
 --- .class
@@ -1995,184 +1999,184 @@ tmp %>% arrange(Usage) %>%
 
 
 
-|Day        |Name    |Department                     |PI    |PIDept                         |Multi        |Serial      |Single      |
-|:----------|:-------|:------------------------------|:-----|:------------------------------|:------------|:-----------|:-----------|
-|2017-02-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |5715.888889  |0           |0           |
-|2017-02-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |0            |0           |1440.050000 |
-|2017-02-01 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |372.322222  |
-|2017-02-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |5264.123333  |0           |0           |
-|2017-02-01 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |720.480833  |0           |
-|2017-02-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |145.369444  |0           |
-|2017-02-02 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |0            |0           |1440.050000 |
-|2017-02-02 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |138.594444  |
-|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |12405.580000 |819.166667  |0           |
-|2017-02-02 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |2142.465278 |0           |
-|2017-02-02 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |129.861944  |0           |
-|2017-02-03 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |4899.022222  |0           |0           |
-|2017-02-03 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |0            |0           |854.311111  |
-|2017-02-03 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |212.616667  |
-|2017-02-03 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |5610.330000  |0           |0           |
-|2017-02-03 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |2616.138333 |0           |
-|2017-02-03 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |217.501111  |0           |
-|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |300.077778   |0           |114.227778  |
-|2017-02-04 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |2880.255556  |0           |0           |
-|2017-02-04 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |228.233333  |
-|2017-02-04 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |7547.760000  |0           |0           |
-|2017-02-04 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |1357.322778 |0           |
-|2017-02-04 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |164.481389  |0           |
-|2017-02-05 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |6959.480000  |0           |0           |
-|2017-02-05 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |780.208056  |0           |
-|2017-02-05 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |294.147778  |0           |
-|2017-02-06 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |2566.544444  |0           |0           |
-|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |2880.366667  |0           |1440.177778 |
-|2017-02-06 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |8071.873333  |0           |0           |
-|2017-02-06 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |297.911389  |0           |
-|2017-02-06 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |170.217222  |0           |
-|2017-02-07 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |104.750000  |
-|2017-02-07 |user122 |AS/Physics (AS)                |pi013 |Physics                        |1246.483333  |0           |0           |
-|2017-02-07 |user127 |AS/Behavioral Neuroscience     |pi015 |Biological Sciences            |0            |0           |3725.706111 |
-|2017-02-07 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |12804.990000 |0           |0           |
-|2017-02-07 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |288.137500  |0           |
-|2017-02-08 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |2880.322222  |0           |0           |
-|2017-02-08 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |8935.520000  |0           |0           |
-|2017-02-08 |user163 |Biological Sciences            |pi024 |Biological Sciences            |0            |895.394444  |0           |
-|2017-02-08 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |150.296389  |0           |
-|2017-02-09 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |1021.272222 |
-|2017-02-09 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |2880.211111  |0           |0           |
-|2017-02-09 |user070 |AS/Physics (AS)                |pi009 |Physics                        |0            |0           |2840.272222 |
-|2017-02-09 |user122 |AS/Physics (AS)                |pi013 |Physics                        |752.550000   |0           |0           |
-|2017-02-09 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |2457.070000  |0           |0           |
-|2017-02-09 |user163 |Biological Sciences            |pi024 |Biological Sciences            |0            |2379.708611 |0           |
-|2017-02-09 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |255.951389  |0           |
-|2017-02-10 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |1051.522222  |0           |0           |
-|2017-02-10 |user122 |AS/Physics (AS)                |pi013 |Physics                        |1440.366667  |0           |0           |
-|2017-02-10 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |6893.100000  |0           |0           |
-|2017-02-10 |user163 |Biological Sciences            |pi024 |Biological Sciences            |0            |1467.681944 |0           |
-|2017-02-10 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |183.317222  |0           |
-|2017-02-10 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |735.662222  |
-|2017-02-11 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |108.850000  |
-|2017-02-11 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |178.827778  |
-|2017-02-11 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |7177.860000  |0           |0           |
-|2017-02-11 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |166.430000  |0           |
-|2017-02-11 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |618.382222  |
-|2017-02-12 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |326.177778  |
-|2017-02-12 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |6794.190000  |0           |0           |
-|2017-02-12 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |197.764167  |0           |
-|2017-02-12 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |541.871111  |
-|2017-02-13 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |4290.127778 |
-|2017-02-13 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |640.188889  |
-|2017-02-13 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |7023.420000  |0           |0           |
-|2017-02-13 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |188.146944  |0           |
-|2017-02-13 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |711.026667  |
-|2017-02-14 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |235.355556  |
-|2017-02-14 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |237.088889  |
-|2017-02-14 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |158.666667  |
-|2017-02-14 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |222.611111  |
-|2017-02-14 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |146.333333  |
-|2017-02-14 |user122 |AS/Physics (AS)                |pi013 |Physics                        |1832.380000  |0           |0           |
-|2017-02-14 |user128 |LTS                            |pi016 |LTS                            |0            |0           |750.606667  |
-|2017-02-14 |user138 |Chemistry                      |pi018 |Chemistry                      |0            |0           |802.038889  |
-|2017-02-14 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |10380.330000 |0           |0           |
-|2017-02-14 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |283.680000  |0           |
-|2017-02-14 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |425.177778  |
-|2017-02-15 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |280.433333  |
-|2017-02-15 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |233.766667  |
-|2017-02-15 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |107.694444  |
-|2017-02-15 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |142.138889  |
-|2017-02-15 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |159.616667  |
-|2017-02-15 |user031 |EN/                            |pi005 |Chemical Engineering           |0            |0           |453.650000  |
-|2017-02-15 |user032 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |139.772222  |
-|2017-02-15 |user035 |AS/Behavioral Neuroscience     |pi005 |Chemical Engineering           |0            |0           |114.144444  |
-|2017-02-15 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |130.077778  |
-|2017-02-15 |user128 |LTS                            |pi016 |LTS                            |0            |0           |115.433333  |
-|2017-02-16 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |1396.877778 |
-|2017-02-16 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |2866.455556  |0           |0           |
-|2017-02-16 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |140.116667  |
-|2017-02-16 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |931.972222  |
-|2017-02-16 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |326.061111  |
-|2017-02-16 |user031 |EN/                            |pi005 |Chemical Engineering           |0            |0           |430.605556  |
-|2017-02-16 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |122.483333  |
-|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |133.866667   |0           |136.411111  |
-|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |277.424444  |118.323889  |
-|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |410.555556   |0           |126.544444  |
-|2017-02-17 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |121.155556  |
-|2017-02-17 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |4101.800000  |0           |0           |
-|2017-02-17 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |240.792222  |0           |
-|2017-02-17 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |222.012778  |0           |
-|2017-02-17 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |747.257778  |
-|2017-02-18 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |4015.000000  |0           |0           |
-|2017-02-18 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |265.731389  |0           |
-|2017-02-18 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |133.464167  |0           |
-|2017-02-18 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |224.186667  |
-|2017-02-19 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |1110.011111 |
-|2017-02-19 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |140.722222  |
-|2017-02-19 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |175.529444  |0           |
-|2017-02-19 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |141.327222  |0           |
-|2017-02-20 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |2880.688889  |0           |0           |
-|2017-02-20 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |4075.288889 |
-|2017-02-20 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |115.194444  |
-|2017-02-20 |user140 |Civil and Environmental Engr   |pi020 |Civil and Environmental Engr   |0            |0           |104.161111  |
-|2017-02-20 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |17280.400000 |0           |0           |
-|2017-02-20 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |206.390556  |0           |
-|2017-02-20 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |465.737778  |
-|2017-02-21 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |778.355556  |
-|2017-02-21 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |130.366667  |
-|2017-02-21 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |207.011111  |
-|2017-02-21 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |216.306667  |0           |
-|2017-02-21 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |553.075556  |
-|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |2721.733333  |0           |134.411111  |
-|2017-02-22 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |887.083333  |
-|2017-02-22 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |148.077778  |
-|2017-02-22 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |156.011111  |
-|2017-02-22 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |661.282500  |0           |
-|2017-02-22 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |1227.306667  |0           |0           |
-|2017-02-22 |user163 |Biological Sciences            |pi024 |Biological Sciences            |0            |414.500833  |0           |
-|2017-02-22 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |231.380556  |0           |
-|2017-02-22 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |503.222222  |
-|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |142.677778   |0           |307.961111  |
-|2017-02-23 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |0            |0           |692.305556  |
-|2017-02-23 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |425.016667  |
-|2017-02-23 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |6898.063333  |0           |0           |
-|2017-02-23 |user163 |Biological Sciences            |pi024 |Biological Sciences            |0            |3773.196667 |0           |
-|2017-02-23 |user177 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |243.868611  |0           |
-|2017-02-23 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |521.582222  |
-|2017-02-24 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |232.461111  |
-|2017-02-24 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |0            |0           |1432.200000 |
-|2017-02-24 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |2863.038889 |
-|2017-02-24 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |146.455556  |
-|2017-02-24 |user030 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |0            |0           |206.344444  |
-|2017-02-24 |user031 |EN/                            |pi005 |Chemical Engineering           |0            |0           |1478.105556 |
-|2017-02-24 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |7622.266667  |0           |0           |
-|2017-02-24 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |0           |206.099444  |
-|2017-02-24 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |290.804722  |0           |
-|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |254.477778   |0           |366.094444  |
-|2017-02-25 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |0            |0           |1130.233333 |
-|2017-02-25 |user031 |EN/                            |pi005 |Chemical Engineering           |0            |0           |960.022222  |
-|2017-02-25 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |408.500278  |0           |
-|2017-02-25 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |9641.463333  |0           |0           |
-|2017-02-26 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |0            |0           |1362.283333 |
-|2017-02-26 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |1633.357500 |0           |
-|2017-02-26 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |9705.666667  |0           |0           |
-|2017-02-26 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |266.371389  |0           |
-|2017-02-27 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |2829.961111 |
-|2017-02-27 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |0            |0           |4922.705556 |
-|2017-02-27 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |221.792222  |0           |
-|2017-02-27 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |9322.280000  |0           |0           |
-|2017-02-27 |user163 |Biological Sciences            |pi024 |Biological Sciences            |0            |105.446389  |0           |
-|2017-02-27 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |224.102500  |0           |
-|2017-02-28 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |0            |0           |460.244444  |
-|2017-02-28 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |0            |0           |3465.911111 |
-|2017-02-28 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |0            |0           |120.138889  |
-|2017-02-28 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |3888.314722 |0           |
-|2017-02-28 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |9503.230000  |0           |0           |
-|2017-02-28 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |199.313889  |0           |
-|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |1573.766667  |0           |145.294444  |
-|2017-03-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |0            |0           |928.950000  |
-|2017-03-01 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |0            |0           |1643.161111 |
-|2017-03-01 |user031 |EN/                            |pi005 |Chemical Engineering           |0            |0           |741.683333  |
-|2017-03-01 |user159 |Biological Sciences            |pi024 |Biological Sciences            |0            |3317.410000 |0           |
-|2017-03-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |8678.083333  |0           |0           |
-|2017-03-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |0            |172.673611  |0           |
+|Day        |Name    |Department                     |PI    |PIDept                         |      Multi|    Serial|    Single|
+|:----------|:-------|:------------------------------|:-----|:------------------------------|----------:|---------:|---------:|
+|2017-02-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  5715.8889|    0.0000|    0.0000|
+|2017-02-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1440.0500|
+|2017-02-01 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  372.3222|
+|2017-02-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  5264.1233|    0.0000|    0.0000|
+|2017-02-01 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  720.4808|    0.0000|
+|2017-02-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  145.3694|    0.0000|
+|2017-02-02 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1440.0500|
+|2017-02-02 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  138.5944|
+|2017-02-02 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 12405.5800|  819.1667|    0.0000|
+|2017-02-02 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000| 2142.4653|    0.0000|
+|2017-02-02 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  129.8619|    0.0000|
+|2017-02-03 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  4899.0222|    0.0000|    0.0000|
+|2017-02-03 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  854.3111|
+|2017-02-03 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  212.6167|
+|2017-02-03 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  5610.3300|    0.0000|    0.0000|
+|2017-02-03 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000| 2616.1383|    0.0000|
+|2017-02-03 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  217.5011|    0.0000|
+|2017-02-04 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |   300.0778|    0.0000|  114.2278|
+|2017-02-04 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.2556|    0.0000|    0.0000|
+|2017-02-04 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  228.2333|
+|2017-02-04 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7547.7600|    0.0000|    0.0000|
+|2017-02-04 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000| 1357.3228|    0.0000|
+|2017-02-04 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  164.4814|    0.0000|
+|2017-02-05 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6959.4800|    0.0000|    0.0000|
+|2017-02-05 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  780.2081|    0.0000|
+|2017-02-05 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  294.1478|    0.0000|
+|2017-02-06 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  2566.5444|    0.0000|    0.0000|
+|2017-02-06 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.3667|    0.0000| 1440.1778|
+|2017-02-06 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  8071.8733|    0.0000|    0.0000|
+|2017-02-06 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  297.9114|    0.0000|
+|2017-02-06 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  170.2172|    0.0000|
+|2017-02-07 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  104.7500|
+|2017-02-07 |user122 |AS/Physics (AS)                |pi013 |Physics                        |  1246.4833|    0.0000|    0.0000|
+|2017-02-07 |user127 |AS/Behavioral Neuroscience     |pi015 |Biological Sciences            |     0.0000|    0.0000| 3725.7061|
+|2017-02-07 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 12804.9900|    0.0000|    0.0000|
+|2017-02-07 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  288.1375|    0.0000|
+|2017-02-08 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.3222|    0.0000|    0.0000|
+|2017-02-08 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  8935.5200|    0.0000|    0.0000|
+|2017-02-08 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  895.3944|    0.0000|
+|2017-02-08 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  150.2964|    0.0000|
+|2017-02-09 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1021.2722|
+|2017-02-09 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.2111|    0.0000|    0.0000|
+|2017-02-09 |user070 |AS/Physics (AS)                |pi009 |Physics                        |     0.0000|    0.0000| 2840.2722|
+|2017-02-09 |user122 |AS/Physics (AS)                |pi013 |Physics                        |   752.5500|    0.0000|    0.0000|
+|2017-02-09 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  2457.0700|    0.0000|    0.0000|
+|2017-02-09 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 2379.7086|    0.0000|
+|2017-02-09 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  255.9514|    0.0000|
+|2017-02-10 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  1051.5222|    0.0000|    0.0000|
+|2017-02-10 |user122 |AS/Physics (AS)                |pi013 |Physics                        |  1440.3667|    0.0000|    0.0000|
+|2017-02-10 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6893.1000|    0.0000|    0.0000|
+|2017-02-10 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 1467.6819|    0.0000|
+|2017-02-10 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  183.3172|    0.0000|
+|2017-02-10 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  735.6622|
+|2017-02-11 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  108.8500|
+|2017-02-11 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  178.8278|
+|2017-02-11 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7177.8600|    0.0000|    0.0000|
+|2017-02-11 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  166.4300|    0.0000|
+|2017-02-11 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  618.3822|
+|2017-02-12 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  326.1778|
+|2017-02-12 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6794.1900|    0.0000|    0.0000|
+|2017-02-12 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  197.7642|    0.0000|
+|2017-02-12 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  541.8711|
+|2017-02-13 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 4290.1278|
+|2017-02-13 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  640.1889|
+|2017-02-13 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7023.4200|    0.0000|    0.0000|
+|2017-02-13 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  188.1469|    0.0000|
+|2017-02-13 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  711.0267|
+|2017-02-14 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  235.3556|
+|2017-02-14 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  237.0889|
+|2017-02-14 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  158.6667|
+|2017-02-14 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  222.6111|
+|2017-02-14 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  146.3333|
+|2017-02-14 |user122 |AS/Physics (AS)                |pi013 |Physics                        |  1832.3800|    0.0000|    0.0000|
+|2017-02-14 |user128 |LTS                            |pi016 |LTS                            |     0.0000|    0.0000|  750.6067|
+|2017-02-14 |user138 |Chemistry                      |pi018 |Chemistry                      |     0.0000|    0.0000|  802.0389|
+|2017-02-14 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 10380.3300|    0.0000|    0.0000|
+|2017-02-14 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  283.6800|    0.0000|
+|2017-02-14 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  425.1778|
+|2017-02-15 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  280.4333|
+|2017-02-15 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  233.7667|
+|2017-02-15 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  107.6944|
+|2017-02-15 |user024 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  142.1389|
+|2017-02-15 |user027 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  159.6167|
+|2017-02-15 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  453.6500|
+|2017-02-15 |user032 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  139.7722|
+|2017-02-15 |user035 |AS/Behavioral Neuroscience     |pi005 |Chemical Engineering           |     0.0000|    0.0000|  114.1444|
+|2017-02-15 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  130.0778|
+|2017-02-15 |user128 |LTS                            |pi016 |LTS                            |     0.0000|    0.0000|  115.4333|
+|2017-02-16 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1396.8778|
+|2017-02-16 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2866.4556|    0.0000|    0.0000|
+|2017-02-16 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  140.1167|
+|2017-02-16 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  931.9722|
+|2017-02-16 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  326.0611|
+|2017-02-16 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  430.6056|
+|2017-02-16 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  122.4833|
+|2017-02-16 |user038 |AS/Chemistry (AS)              |pi005 |Chemical Engineering           |   133.8667|    0.0000|  136.4111|
+|2017-02-16 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  277.4244|  118.3239|
+|2017-02-17 |user022 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |   410.5556|    0.0000|  126.5444|
+|2017-02-17 |user036 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  121.1556|
+|2017-02-17 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  4101.8000|    0.0000|    0.0000|
+|2017-02-17 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  240.7922|    0.0000|
+|2017-02-17 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  222.0128|    0.0000|
+|2017-02-17 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  747.2578|
+|2017-02-18 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  4015.0000|    0.0000|    0.0000|
+|2017-02-18 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  265.7314|    0.0000|
+|2017-02-18 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  133.4642|    0.0000|
+|2017-02-18 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  224.1867|
+|2017-02-19 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1110.0111|
+|2017-02-19 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  140.7222|
+|2017-02-19 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  175.5294|    0.0000|
+|2017-02-19 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  141.3272|    0.0000|
+|2017-02-20 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |  2880.6889|    0.0000|    0.0000|
+|2017-02-20 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 4075.2889|
+|2017-02-20 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  115.1944|
+|2017-02-20 |user140 |Civil and Environmental Engr   |pi020 |Civil and Environmental Engr   |     0.0000|    0.0000|  104.1611|
+|2017-02-20 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            | 17280.4000|    0.0000|    0.0000|
+|2017-02-20 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  206.3906|    0.0000|
+|2017-02-20 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  465.7378|
+|2017-02-21 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  778.3556|
+|2017-02-21 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  130.3667|
+|2017-02-21 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  207.0111|
+|2017-02-21 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  216.3067|    0.0000|
+|2017-02-21 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  553.0756|
+|2017-02-22 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  2721.7333|    0.0000|  134.4111|
+|2017-02-22 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  887.0833|
+|2017-02-22 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  148.0778|
+|2017-02-22 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  156.0111|
+|2017-02-22 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  661.2825|    0.0000|
+|2017-02-22 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  1227.3067|    0.0000|    0.0000|
+|2017-02-22 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  414.5008|    0.0000|
+|2017-02-22 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  231.3806|    0.0000|
+|2017-02-22 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  503.2222|
+|2017-02-23 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |   142.6778|    0.0000|  307.9611|
+|2017-02-23 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000|  692.3056|
+|2017-02-23 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  425.0167|
+|2017-02-23 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  6898.0633|    0.0000|    0.0000|
+|2017-02-23 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 3773.1967|    0.0000|
+|2017-02-23 |user177 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  243.8686|    0.0000|
+|2017-02-23 |user178 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  521.5822|
+|2017-02-24 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  232.4611|
+|2017-02-24 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 1432.2000|
+|2017-02-24 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 2863.0389|
+|2017-02-24 |user023 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  146.4556|
+|2017-02-24 |user030 |EN/Chemical Engineering        |pi005 |Chemical Engineering           |     0.0000|    0.0000|  206.3444|
+|2017-02-24 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000| 1478.1056|
+|2017-02-24 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  7622.2667|    0.0000|    0.0000|
+|2017-02-24 |user166 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|    0.0000|  206.0994|
+|2017-02-24 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  290.8047|    0.0000|
+|2017-02-25 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |   254.4778|    0.0000|  366.0944|
+|2017-02-25 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 1130.2333|
+|2017-02-25 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  960.0222|
+|2017-02-25 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  408.5003|    0.0000|
+|2017-02-25 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9641.4633|    0.0000|    0.0000|
+|2017-02-26 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 1362.2833|
+|2017-02-26 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 1633.3575|    0.0000|
+|2017-02-26 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9705.6667|    0.0000|    0.0000|
+|2017-02-26 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  266.3714|    0.0000|
+|2017-02-27 |user006 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000| 2829.9611|
+|2017-02-27 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 4922.7056|
+|2017-02-27 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  221.7922|    0.0000|
+|2017-02-27 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9322.2800|    0.0000|    0.0000|
+|2017-02-27 |user163 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000|  105.4464|    0.0000|
+|2017-02-27 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  224.1025|    0.0000|
+|2017-02-28 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  460.2444|
+|2017-02-28 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 3465.9111|
+|2017-02-28 |user021 |AS/Physics (AS)                |pi005 |Chemical Engineering           |     0.0000|    0.0000|  120.1389|
+|2017-02-28 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 3888.3147|    0.0000|
+|2017-02-28 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  9503.2300|    0.0000|    0.0000|
+|2017-02-28 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  199.3139|    0.0000|
+|2017-03-01 |user003 |EN/Mechanical Engineering      |pi001 |Mechanical Engr and Mechanics  |  1573.7667|    0.0000|  145.2944|
+|2017-03-01 |user005 |EN/                            |pi001 |Mechanical Engr and Mechanics  |     0.0000|    0.0000|  928.9500|
+|2017-03-01 |user009 |Chemical and Biomolecular Engr |pi002 |Chemical and Biomolecular Engr |     0.0000|    0.0000| 1643.1611|
+|2017-03-01 |user031 |EN/                            |pi005 |Chemical Engineering           |     0.0000|    0.0000|  741.6833|
+|2017-03-01 |user159 |Biological Sciences            |pi024 |Biological Sciences            |     0.0000| 3317.4100|    0.0000|
+|2017-03-01 |user162 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |  8678.0833|    0.0000|    0.0000|
+|2017-03-01 |user167 |AS/Biochemistry (CAS)          |pi024 |Biological Sciences            |     0.0000|  172.6736|    0.0000|
 
 --- .class &twocol
 
@@ -2192,14 +2196,14 @@ head(tmp)
 
 ```
 ## # A tibble: 6 x 5
-##   Department                       Year  Month Day   Total       
-##   <chr>                            <chr> <chr> <chr> <chr>       
-## 1 " Mechanical Engr and Mechanics" 2016  10    01    " 0.000000 "
-## 2 " EN/Mechanical Engineering"     2016  10    01    " 0.000000 "
-## 3 " EN/Mechanical Engineering"     2016  10    01    " 0.000000 "
-## 4 " EN/Mechanical Engineering"     2016  10    01    " 0.000000 "
-## 5 " EN/"                           2016  10    01    " 0.000000 "
-## 6 " EN/Mechanical Engineering"     2016  10    01    " 0.000000 "
+##   Department            Year  Month Day       Total
+##   <chr>                 <chr> <chr> <chr>     <dbl>
+## 1 AS/Physics (AS)       2016  10    01     2881.   
+## 2 AS/Biochemistry (CAS) 2016  10    01    13826.   
+## 3 AS/Physics (AS)       2016  10    03     2881.   
+## 4 AS/Biochemistry (CAS) 2016  10    03     1452.   
+## 5 AS/Physics (AS)       2016  10    04        0.200
+## 6 LTS                   2016  10    04      652.
 ```
 
 *** =right
@@ -2215,15 +2219,27 @@ tmp %>%
 
 ```
 ## # A tibble: 6 x 3
-##   Department                        Day        Total       
-##   <chr>                             <chr>      <chr>       
-## 1 " Biological Sciences"            2017/09/30 " 0.000000 "
-## 2 " Biological Sciences"            2017/09/30 " 0.000000 "
-## 3 " Chemical and Biomolecular Engr" 2017/09/30 " 0.000000 "
-## 4 " EN/Bioengineering"              2017/09/30 " 0.000000 "
-## 5 " Mechanical Engr and Mechanics"  2017/09/30 " 0.000000 "
-## 6 " Mathematics"                    2017/09/30 " 0.000000 "
+##   Department                     Day           Total
+##   <chr>                          <chr>         <dbl>
+## 1 Biological Sciences            2017/09/30    0.338
+## 2 AS/Biochemistry (CAS)          2017/09/30  559.   
+## 3 AS/Biochemistry (CAS)          2017/09/30  119.   
+## 4 IC/Computer Science & Business 2017/09/30   43.5  
+## 5 AS/Biochemistry (CAS)          2017/09/30  250.   
+## 6 Biological Sciences            2017/09/30 7755.
 ```
+
+--- .class
+
+## What more can be done with R?
+
+* Data Visualization
+* Data cleaning/preprocessing
+* Profiling and debugging
+* Regression Models
+* Machine learning/Data Mining
+* &middot;&middot;&middot;
+
 
 --- .class
 
@@ -2233,36 +2249,8 @@ tmp %>%
 * It involves the creation and study of the visual representation of data.
 * A primary goal of data visualization is to communicate information clearly and efficiently via statistical graphics, plots and information graphics. 
 * Data visualization is both an art and a science.
+* More details in next weeks seminar
 
-
---- .class
-
-## Data Visualization Tools
-
-* There are vast number of Data Visualization Tools targeted for different audiences
-* A few used by academic researchers 
-     * Tableau
-     * Google Charts
-     * R
-     * Python
-     * Matlab
-     * GNUPlot
-
-
---- .class
-
-## ggplot2 Package
-
-
-- "gg" stands for Grammar-of-Graphics
-- The idea is that any data graphics can be described by specifying
-    - A dataset
-    - Visual marks that represent data points
-    - A coordination system
-- `ggplot2` package in R is an implementation of it
-    - Versatile
-    - Clear and consistent interface
-    - Beautiful output
 
 --- .class  &twocol
 
@@ -2277,7 +2265,7 @@ p <- monthlystatus %>%
 p
 ```
 
-![plot of chunk unnamed-chunk-53](figure/unnamed-chunk-53-1.png)
+![plot of chunk unnamed-chunk-53](assets/fig/unnamed-chunk-53-1.png)
 
 *** =right
 
@@ -2286,7 +2274,7 @@ p
 p + coord_flip()
 ```
 
-![plot of chunk unnamed-chunk-54](figure/unnamed-chunk-54-1.png)
+![plot of chunk unnamed-chunk-54](assets/fig/unnamed-chunk-54-1.png)
 
 --- .class   &twocol
 
@@ -2301,7 +2289,7 @@ p <- monthlyusage %>%
 p
 ```
 
-![plot of chunk unnamed-chunk-55](figure/unnamed-chunk-55-1.png)
+![plot of chunk unnamed-chunk-55](assets/fig/unnamed-chunk-55-1.png)
 
 *** =right
 
@@ -2312,7 +2300,7 @@ p
 p + labs(title="Sol Usage", y="Percent", x="Month", caption="AY 2016-17")
 ```
 
-![plot of chunk unnamed-chunk-56](figure/unnamed-chunk-56-1.png)
+![plot of chunk unnamed-chunk-56](assets/fig/unnamed-chunk-56-1.png)
 
 
 --- .class
@@ -2322,13 +2310,13 @@ p + labs(title="Sol Usage", y="Percent", x="Month", caption="AY 2016-17")
 
 ```r
 p <- daily %>%
-  group_by(Day, PIDept) %>%
+  group_by(Day, Status=trimws(Status)) %>%
   summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  ggplot(aes(Day,Total)) + geom_line(aes(col = PIDept))
+  ggplot(aes(Day,Total)) + geom_line(aes(col = Status))
 p
 ```
 
-![plot of chunk unnamed-chunk-57](figure/unnamed-chunk-57-1.png)
+![plot of chunk unnamed-chunk-57](assets/fig/unnamed-chunk-57-1.png)
 
 --- .class 
 
@@ -2341,36 +2329,10 @@ Plot is very busy. There are several options to clean this up.
 
 
 ```r
-p + facet_wrap( ~PIDept)
+p + facet_wrap( ~trimws(Status), scales = "free", ncol = 2) + theme(legend.position='none')
 ```
 
-![plot of chunk unnamed-chunk-58](figure/unnamed-chunk-58-1.png)
-
-
---- .class
-
-## Line Charts (contd)
-
-* It's not very useful at first try. That may due to data. 
-* It would be ideal if each subplot had it's y-axis limits. 
-* This is achieved by adding _scales="free"_ as an option to facet_wrap. 
-* You can also adjust the number of rows or columns by adding _nrow_ or _ncol_ as an option. Finally the legend is redundant. 
-* You can remove the legend by adding _theme(legend.position='none')_
-
-* Combining all these options we get
-
-
-```r
-p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none')
-```
-
-
---- .class
-
-## Line Charts (contd)
-
-
-![plot of chunk unnamed-chunk-60](figure/unnamed-chunk-60-1.png)
+![plot of chunk unnamed-chunk-58](assets/fig/unnamed-chunk-58-1.png)
 
 
 --- .class
@@ -2389,37 +2351,11 @@ __If a Picture is Worth a Thousand Words, Then Is a Video Worth a Million?__
 if(!require('animation')){
     install.packages('animation')
 }
-```
-
-```
-## Loading required package: animation
-```
-
-```r
 if(!require('gganimate')){
     install.packages('animation')
 }
 ```
 
-```
-## Loading required package: gganimate
-```
-
-
----.class
-
-## Animations (contd)
-
-
-```r
-weeklyusage_status <- daily %>%
-  group_by(Week=floor_date(as.Date(Day), "week"),Status) %>% 
-  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  ggplot(aes(Week,Total,frame=Week,cumulative=TRUE)) + geom_line(aes(col = Status)) +
-  facet_wrap( ~Status, scales = "free", ncol = 2) + theme(legend.position='none')
-  ani.options(interval = 0.1, ani.width = 640, ani.height = 480)
-gganimate(weeklyusage_status,'weeklystatus.gif')
-```
 
 --- .class
 
@@ -2427,15 +2363,9 @@ gganimate(weeklyusage_status,'weeklystatus.gif')
 
 ![Usage by Users Status](weeklystatus.gif)
 
---- .class
 
-## What more can be done with R?
 
-* Data cleaning/preprocessing
-* Profiling and debugging
-* Regression Models
-* Machine learning/Data Mining
-* &middot;&middot;&middot;
+
 
 --- .class
 

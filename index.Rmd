@@ -59,7 +59,7 @@ license     : by-sa
 ## Installing R
 
 * R can be installed on Windows, Mac OSX and Linux from [CRAN](https://cran.r-project.org/mirrors.html).
-* R version 3.4.1 available as On Demand app on https://software.lehigh.edu
+* R version 3.4.3 available on LUApps at https://luapps.lehigh.edu
 
 <img src="./R-GUI.PNG" height="360px" width="720px" align="center" alt="R GUI" />
 
@@ -89,7 +89,7 @@ Rscript hello.R
 * free and open source IDE for R. Can be installed on Windows, Mac OSX and Linux.
 * user interface comparable to other IDEs or software such as MATLAB.
 * more suited for development 
-* Version 1.0.153 available as On Demand on https://software.lehigh.edu
+* Version 1.1.383 available on LUApps at https://luapps.lehigh.edu
 
 <img src="./RStudio.PNG" height="360px" width="720px" align="center" alt="RStudio" />
 
@@ -107,9 +107,8 @@ Rscript hello.R
  - Jupyter Notebooks is an alternative to RStudio for writing scripts and
    workflows that you can share with others. 
      - It is  ideal for reproducible research or data reporting
-     
  - Visit https://go.lehigh.edu/linux to use R, Anaconda and other Linux software installed and maintained by the Research Computing group on your local Linux laptop or workstation
-
+ - Click [here](https://webapps.lehigh.edu/dokuwiki/sites/researchcomputing/doku.php?id=jupyter) for instructions to run Jupyter Notebooks on Sol
 
 
 --- .class
@@ -857,6 +856,7 @@ library(lubridate)
 #  serial (1 cpu), single or smp ( > 1 cpu but max of 1 node) and 
 #  parallel or multi node (> 1 node)  jobs 
 daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1617-public.csv',delim=";")
+#daily <- read_delim('http://webapps.lehigh.edu/hpc/training/soldaily1718-public.csv',delim=";")
 ```
 
 * the `readr` functions will just work: you supply the path to a file and you get a `tibble` back
@@ -918,7 +918,17 @@ daily %>% head
 # Mar 15, 2017: Added 192 cpus
 # May 1, 2017: Added 312 cpus
 # Total Available at end of AY 2016-17: 1284 cpus
+# Nov 15, 2017: Added 16 cpus (himem node)
+# Apr 2, 2018: Added 252 cpus
+# Aug 31, 2018: Added 72 cpus
+# Total Available at end of AY 2017-18: 1624 cpus
+# Nov 12, 2018: Added 72 cpus
+# Dec 1, 2018: Added 24 cpus
+# Jan 2, 2019: Added 432 cpus
+# Total Available in AY 2018-19: 2152 cpus
 ay1617su <- c(580320.00,561600.00,580320.00,580320.00,524160.00,580320.00,699840.00,955296.00,924480.00,955296.00,955296.00,924480.00)
+ay1718su <- c(955296.00,924480.00,967200.00,967200.00,873600.00,967200.00,1117440.00,  1154688.00,1117440.00,1154688.00,1155480.00,1169280.00)
+
 ```
 
 
@@ -971,9 +981,8 @@ monthly %>%
 ```{r}
 monthly %>%
   group_by(Department) %>%
-  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  arrange(desc(Total)) %>%
-  kable
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),
+  Jobs=round(sum(as.double(TotalJ)))) %>% arrange(desc(Total)) %>% kable
 ```
 
 
@@ -985,9 +994,8 @@ monthly %>%
 library(xtable)
 monthly %>%
   group_by(Department) %>%
-  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  arrange(desc(Total)) %>%
-  xtable
+  summarize(Serial=round(sum(as.double(Serial))),SMP=round(sum(as.double(Single))),DMP=round(sum(as.double(Multi))),Total=round(sum(as.double(Total)),2),
+  Jobs=round(sum(as.double(TotalJ)))) %>% arrange(desc(Total)) %>% xtable
 ```
 
 --- .class
@@ -1074,42 +1082,26 @@ tmp %>%
 
 --- .class
 
+## What more can be done with R?
+
+* Data Visualization
+* Data cleaning/preprocessing
+* Profiling and debugging
+* Regression Models
+* Machine learning/Data Mining
+* &middot;&middot;&middot;
+
+
+--- .class
+
 ## Data Visualization
 
 * __Data visualization__ or __data visualisation__ is viewed by many disciplines as a modern equivalent of visual communication.
 * It involves the creation and study of the visual representation of data.
 * A primary goal of data visualization is to communicate information clearly and efficiently via statistical graphics, plots and information graphics. 
 * Data visualization is both an art and a science.
+* More details in next weeks seminar
 
-
---- .class
-
-## Data Visualization Tools
-
-* There are vast number of Data Visualization Tools targeted for different audiences
-* A few used by academic researchers 
-     * Tableau
-     * Google Charts
-     * R
-     * Python
-     * Matlab
-     * GNUPlot
-
-
---- .class
-
-## ggplot2 Package
-
-
-- "gg" stands for Grammar-of-Graphics
-- The idea is that any data graphics can be described by specifying
-    - A dataset
-    - Visual marks that represent data points
-    - A coordination system
-- `ggplot2` package in R is an implementation of it
-    - Versatile
-    - Clear and consistent interface
-    - Beautiful output
 
 --- .class  &twocol
 
@@ -1156,9 +1148,9 @@ p + labs(title="Sol Usage", y="Percent", x="Month", caption="AY 2016-17")
 
 ```{r fig.width=6,fig.height=4}
 p <- daily %>%
-  group_by(Day, PIDept) %>%
+  group_by(Day, Status=trimws(Status)) %>%
   summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  ggplot(aes(Day,Total)) + geom_line(aes(col = PIDept))
+  ggplot(aes(Day,Total)) + geom_line(aes(col = Status))
 p
 ```
 
@@ -1172,34 +1164,7 @@ Plot is very busy. There are several options to clean this up.
 * create separate plots for each Department using facet_wrap
 
 ```{r fig.width=6,fig.height=4,warning=F}
-p + facet_wrap( ~PIDept)
-```
-
-
---- .class
-
-## Line Charts (contd)
-
-* It's not very useful at first try. That may due to data. 
-* It would be ideal if each subplot had it's y-axis limits. 
-* This is achieved by adding _scales="free"_ as an option to facet_wrap. 
-* You can also adjust the number of rows or columns by adding _nrow_ or _ncol_ as an option. Finally the legend is redundant. 
-* You can remove the legend by adding _theme(legend.position='none')_
-
-* Combining all these options we get
-
-```{r eval=F,warning=F}
-p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none')
-```
-
-
---- .class
-
-## Line Charts (contd)
-
-
-```{r fig.width=12,fig.height=8,echo=F,warning=F}
-suppressMessages(p + facet_wrap( ~PIDept, scales = "free", ncol = 2) + theme(legend.position='none'))
+p + facet_wrap( ~trimws(Status), scales = "free", ncol = 2) + theme(legend.position='none')
 ```
 
 
@@ -1224,35 +1189,15 @@ if(!require('gganimate')){
 ```
 
 
----.class
-
-## Animations (contd)
-
-```{r eval=F}
-weeklyusage_status <- daily %>%
-  group_by(Week=floor_date(as.Date(Day), "week"),Status) %>% 
-  summarize(Total=round(sum(as.double(Total)),2),Jobs=round(sum(as.double(TotalJ)))) %>%
-  ggplot(aes(Week,Total,frame=Week,cumulative=TRUE)) + geom_line(aes(col = Status)) +
-  facet_wrap( ~Status, scales = "free", ncol = 2) + theme(legend.position='none')
-  ani.options(interval = 0.1, ani.width = 640, ani.height = 480)
-gganimate(weeklyusage_status,'weeklystatus.gif')
-```
-
 --- .class
 
 ##  Animations (contd)
 
 ![Usage by Users Status](weeklystatus.gif)
 
---- .class
 
-## What more can be done with R?
 
-* Data cleaning/preprocessing
-* Profiling and debugging
-* Regression Models
-* Machine learning/Data Mining
-* &middot;&middot;&middot;
+
 
 --- .class
 
